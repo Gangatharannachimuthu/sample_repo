@@ -26,7 +26,7 @@
     INDEX 'sqlite_autoindex_EMPLOYEES_1' OTHER UNIQUE PRIMARY ( 'EMPLOYEE_ID' );
 
 CREATE OR REPLACE TABLE bv_hr_employees I18N us_pst (
-        employee_id:int (sourcetypeid = '-5', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
+        employee_id:long (sourcetypeid = '-5', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
         first_name:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
         last_name:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
         email:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
