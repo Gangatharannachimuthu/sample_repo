@@ -1,0 +1,481 @@
+﻿CREATE OR REPLACE SOAP WEBSERVICE ws_rest_api
+    CONNECTION (
+        CHUNKSIZE = 1000
+        CHUNKTIMEOUT = 90000
+        QUERYTIMEOUT = 900000
+        POOLENABLED = true
+        POOLINITSIZE = 0
+        POOLMAXACTIVE = 30
+    )
+    I18N  = us_pst
+    DATETYPEMAPPING DATE
+    NOWRAPARRAYS
+    RAISEFAULTONIDU
+    DONOTAPPLYOUTPUTXSLTTOERRORS
+    AUTHENTICATION (BASIC
+    USER ''
+    PASSWORD '' ENCRYPTED )
+    OUTPUT 
+        ( STYLE DOCUMENT )
+    OPERATION 'getBV_CUSTOMERByIDAndCUSTOMER_CODE_INTERNALAndFIRST_NAMEAndLAST_NAMEAndEMAILAndPHONEAndMAIN_ADDRESSA' (
+        TYPE SELECT
+        SCHEMA VIEW bv_customer
+        VQL = 'SELECT id, customer_code_internal, first_name, last_name, email, phone, main_address, main_postcode, main_country, registered_date FROM bv_customer ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@VERBOSEERRORS,"")^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
+        INPUTS 'GetBV_CUSTOMERByIDAndCUSTOMER_CODE_INTERNALAndFIRST_NAMEAndLAST_NAMEAndEMAILAndPHONEAndMAIN_ADDRESSA' (
+            'ID' id:'double' '=' 
+            'CUSTOMER_CODE_INTERNAL' customer_code_internal:'text' '=' 
+            'FIRST_NAME' first_name:'text' '=' 
+            'LAST_NAME' last_name:'text' '=' 
+            'EMAIL' email:'text' '=' 
+            'PHONE' phone:'text' '=' 
+            'MAIN_ADDRESS' main_address:'text' '=' 
+            'MAIN_POSTCODE' main_postcode:'int' '=' 
+            'MAIN_COUNTRY' main_country:'text' '=' 
+            'REGISTERED_DATE' registered_date:'localdate' '=' 
+        )
+        OUTPUT 
+            'BV_CUSTOMERReturn': Array of ( 'BV_CUSTOMERReturnRow': Register of (
+                id : 'double',
+                customer_code_internal : 'text',
+                first_name : 'text',
+                last_name : 'text',
+                email : 'text',
+                phone : 'text',
+                main_address : 'text',
+                main_postcode : 'int',
+                main_country : 'text',
+                registered_date : 'localdate'
+            ) (
+                    '/customer_code_internal'='CUSTOMER_CODE_INTERNAL',
+                    '/email'='EMAIL',
+                    '/first_name'='FIRST_NAME',
+                    '/id'='ID',
+                    '/last_name'='LAST_NAME',
+                    '/main_address'='MAIN_ADDRESS',
+                    '/main_country'='MAIN_COUNTRY',
+                    '/main_postcode'='MAIN_POSTCODE',
+                    '/phone'='PHONE',
+                    '/registered_date'='REGISTERED_DATE'))
+    )    OPERATION 'insertBV_CUSTOMER' (
+        TYPE INSERT
+        SCHEMA VIEW bv_customer
+        VQL = 'INSERT INTO bv_customer (id, customer_code_internal, first_name, last_name, email, phone, main_address, main_postcode, main_country, registered_date) VALUES (@ID, @CUSTOMER_CODE_INTERNAL, @FIRST_NAME, @LAST_NAME, @EMAIL, @PHONE, @MAIN_ADDRESS, @MAIN_POSTCODE, @MAIN_COUNTRY, @REGISTERED_DATE) CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
+        INPUTS 'InsertBV_CUSTOMER' (
+            'ID' id:'double' '=' OBL 
+            'CUSTOMER_CODE_INTERNAL' customer_code_internal:'text' '=' OBL 
+            'FIRST_NAME' first_name:'text' '=' OBL 
+            'LAST_NAME' last_name:'text' '=' 
+            'EMAIL' email:'text' '=' OBL 
+            'PHONE' phone:'text' '=' 
+            'MAIN_ADDRESS' main_address:'text' '=' 
+            'MAIN_POSTCODE' main_postcode:'int' '=' 
+            'MAIN_COUNTRY' main_country:'text' '=' 
+            'REGISTERED_DATE' registered_date:'localdate' '=' OBL 
+        )
+        OUTPUT 'long'
+    )    OPERATION 'deleteBV_CUSTOMER' (
+        TYPE DELETE
+        SCHEMA VIEW bv_customer
+        VQL = 'DELETE FROM bv_customer ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
+        INPUTS 'DeleteBV_CUSTOMER' (
+            'ID' id:'double' '=' 
+            'CUSTOMER_CODE_INTERNAL' customer_code_internal:'text' '=' 
+            'FIRST_NAME' first_name:'text' '=' 
+            'LAST_NAME' last_name:'text' '=' 
+            'EMAIL' email:'text' '=' 
+            'PHONE' phone:'text' '=' 
+            'MAIN_ADDRESS' main_address:'text' '=' 
+            'MAIN_POSTCODE' main_postcode:'int' '=' 
+            'MAIN_COUNTRY' main_country:'text' '=' 
+            'REGISTERED_DATE' registered_date:'localdate' '=' 
+        )
+        OUTPUT 'long'
+    )    OPERATION 'updateBV_CUSTOMER' (
+        TYPE UPDATE
+        SCHEMA VIEW bv_customer
+        VQL = 'UPDATE bv_customer SET id=@newID, customer_code_internal=@newCUSTOMER_CODE_INTERNAL, first_name=@newFIRST_NAME, last_name=@newLAST_NAME, email=@newEMAIL, phone=@newPHONE, main_address=@newMAIN_ADDRESS, main_postcode=@newMAIN_POSTCODE, main_country=@newMAIN_COUNTRY, registered_date=@newREGISTERED_DATE ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
+        INPUTS 'UpdateBV_CUSTOMER' (
+            'ID' id:'double' '=' 
+            'CUSTOMER_CODE_INTERNAL' customer_code_internal:'text' '=' 
+            'FIRST_NAME' first_name:'text' '=' 
+            'LAST_NAME' last_name:'text' '=' 
+            'EMAIL' email:'text' '=' 
+            'PHONE' phone:'text' '=' 
+            'MAIN_ADDRESS' main_address:'text' '=' 
+            'MAIN_POSTCODE' main_postcode:'int' '=' 
+            'MAIN_COUNTRY' main_country:'text' '=' 
+            'REGISTERED_DATE' registered_date:'localdate' '=' 
+            SET 'newID' id:'double' '=' OBL 
+            SET 'newCUSTOMER_CODE_INTERNAL' customer_code_internal:'text' '=' OBL 
+            SET 'newFIRST_NAME' first_name:'text' '=' OBL 
+            SET 'newLAST_NAME' last_name:'text' '=' 
+            SET 'newEMAIL' email:'text' '=' OBL 
+            SET 'newPHONE' phone:'text' '=' 
+            SET 'newMAIN_ADDRESS' main_address:'text' '=' 
+            SET 'newMAIN_POSTCODE' main_postcode:'int' '=' 
+            SET 'newMAIN_COUNTRY' main_country:'text' '=' 
+            SET 'newREGISTERED_DATE' registered_date:'localdate' '=' OBL 
+        )
+        OUTPUT 'long'
+    )    OPERATION 'getBV_HR_EMPLOYEESByEMPLOYEE_IDAndFIRST_NAMEAndLAST_NAMEAndEMAILAndPHONE_NUMBERAndHIRE_DATEAndJOB_ID' (
+        TYPE SELECT
+        SCHEMA VIEW bv_hr_employees
+        VQL = 'SELECT employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, commission_pct, manager_id, department_id FROM bv_hr_employees ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@VERBOSEERRORS,"")^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
+        INPUTS 'GetBV_HR_EMPLOYEESByEMPLOYEE_IDAndFIRST_NAMEAndLAST_NAMEAndEMAILAndPHONE_NUMBERAndHIRE_DATEAndJOB_ID' (
+            'EMPLOYEE_ID' employee_id:'int' '=' 
+            'FIRST_NAME' first_name:'text' '=' 
+            'LAST_NAME' last_name:'text' '=' 
+            'EMAIL' email:'text' '=' 
+            'PHONE_NUMBER' phone_number:'text' '=' 
+            'HIRE_DATE' hire_date:'localdate' '=' 
+            'JOB_ID' job_id:'text' '=' 
+            'SALARY' salary:'double' '=' 
+            'COMMISSION_PCT' commission_pct:'double' '=' 
+            'MANAGER_ID' manager_id:'int' '=' 
+            'DEPARTMENT_ID' department_id:'int' '=' 
+        )
+        OUTPUT 
+            'BV_HR_EMPLOYEESReturn': Array of ( 'BV_HR_EMPLOYEESReturnRow': Register of (
+                employee_id : 'int',
+                first_name : 'text',
+                last_name : 'text',
+                email : 'text',
+                phone_number : 'text',
+                hire_date : 'localdate',
+                job_id : 'text',
+                salary : 'double',
+                commission_pct : 'double',
+                manager_id : 'int',
+                department_id : 'int'
+            ) (
+                    '/commission_pct'='COMMISSION_PCT',
+                    '/department_id'='DEPARTMENT_ID',
+                    '/email'='EMAIL',
+                    '/employee_id'='EMPLOYEE_ID',
+                    '/first_name'='FIRST_NAME',
+                    '/hire_date'='HIRE_DATE',
+                    '/job_id'='JOB_ID',
+                    '/last_name'='LAST_NAME',
+                    '/manager_id'='MANAGER_ID',
+                    '/phone_number'='PHONE_NUMBER',
+                    '/salary'='SALARY'))
+    )    OPERATION 'insertBV_HR_EMPLOYEES' (
+        TYPE INSERT
+        SCHEMA VIEW bv_hr_employees
+        VQL = 'INSERT INTO bv_hr_employees (employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, commission_pct, manager_id, department_id) VALUES (@EMPLOYEE_ID, @FIRST_NAME, @LAST_NAME, @EMAIL, @PHONE_NUMBER, @HIRE_DATE, @JOB_ID, @SALARY, @COMMISSION_PCT, @MANAGER_ID, @DEPARTMENT_ID) CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
+        INPUTS 'InsertBV_HR_EMPLOYEES' (
+            'EMPLOYEE_ID' employee_id:'int' '=' OBL 
+            'FIRST_NAME' first_name:'text' '=' 
+            'LAST_NAME' last_name:'text' '=' OBL 
+            'EMAIL' email:'text' '=' OBL 
+            'PHONE_NUMBER' phone_number:'text' '=' 
+            'HIRE_DATE' hire_date:'localdate' '=' OBL 
+            'JOB_ID' job_id:'text' '=' OBL 
+            'SALARY' salary:'double' '=' 
+            'COMMISSION_PCT' commission_pct:'double' '=' 
+            'MANAGER_ID' manager_id:'int' '=' 
+            'DEPARTMENT_ID' department_id:'int' '=' 
+        )
+        OUTPUT 'long'
+    )    OPERATION 'deleteBV_HR_EMPLOYEES' (
+        TYPE DELETE
+        SCHEMA VIEW bv_hr_employees
+        VQL = 'DELETE FROM bv_hr_employees ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
+        INPUTS 'DeleteBV_HR_EMPLOYEES' (
+            'EMPLOYEE_ID' employee_id:'int' '=' 
+            'FIRST_NAME' first_name:'text' '=' 
+            'LAST_NAME' last_name:'text' '=' 
+            'EMAIL' email:'text' '=' 
+            'PHONE_NUMBER' phone_number:'text' '=' 
+            'HIRE_DATE' hire_date:'localdate' '=' 
+            'JOB_ID' job_id:'text' '=' 
+            'SALARY' salary:'double' '=' 
+            'COMMISSION_PCT' commission_pct:'double' '=' 
+            'MANAGER_ID' manager_id:'int' '=' 
+            'DEPARTMENT_ID' department_id:'int' '=' 
+        )
+        OUTPUT 'long'
+    )    OPERATION 'updateBV_HR_EMPLOYEES' (
+        TYPE UPDATE
+        SCHEMA VIEW bv_hr_employees
+        VQL = 'UPDATE bv_hr_employees SET employee_id=@newEMPLOYEE_ID, first_name=@newFIRST_NAME, last_name=@newLAST_NAME, email=@newEMAIL, phone_number=@newPHONE_NUMBER, hire_date=@newHIRE_DATE, job_id=@newJOB_ID, salary=@newSALARY, commission_pct=@newCOMMISSION_PCT, manager_id=@newMANAGER_ID, department_id=@newDEPARTMENT_ID ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
+        INPUTS 'UpdateBV_HR_EMPLOYEES' (
+            'EMPLOYEE_ID' employee_id:'int' '=' 
+            'FIRST_NAME' first_name:'text' '=' 
+            'LAST_NAME' last_name:'text' '=' 
+            'EMAIL' email:'text' '=' 
+            'PHONE_NUMBER' phone_number:'text' '=' 
+            'HIRE_DATE' hire_date:'localdate' '=' 
+            'JOB_ID' job_id:'text' '=' 
+            'SALARY' salary:'double' '=' 
+            'COMMISSION_PCT' commission_pct:'double' '=' 
+            'MANAGER_ID' manager_id:'int' '=' 
+            'DEPARTMENT_ID' department_id:'int' '=' 
+            SET 'newEMPLOYEE_ID' employee_id:'int' '=' OBL 
+            SET 'newFIRST_NAME' first_name:'text' '=' 
+            SET 'newLAST_NAME' last_name:'text' '=' OBL 
+            SET 'newEMAIL' email:'text' '=' OBL 
+            SET 'newPHONE_NUMBER' phone_number:'text' '=' 
+            SET 'newHIRE_DATE' hire_date:'localdate' '=' OBL 
+            SET 'newJOB_ID' job_id:'text' '=' OBL 
+            SET 'newSALARY' salary:'double' '=' 
+            SET 'newCOMMISSION_PCT' commission_pct:'double' '=' 
+            SET 'newMANAGER_ID' manager_id:'int' '=' 
+            SET 'newDEPARTMENT_ID' department_id:'int' '=' 
+        )
+        OUTPUT 'long'
+    )    OPERATION 'getIV_INTERACTIONSByCALL_IDAndLOCATION_IDAndPROBLEM_CODEAndSTATUS_CODEAndDATE_TICKET_ISSUEDAndOTHER_' (
+        TYPE SELECT
+        SCHEMA VIEW iv_interactions
+        VQL = 'SELECT call_id, location_id, problem_code, status_code, date_ticket_issued, other_details, sr_description, case_creation_date, case_closed_date, case_summary, status_description, customer_name, customer_address, customer_phone, customer_job_title, agent_code, agent_name, interaction_date, interaction_ip, case_id, interaction_phone, customer_code FROM iv_interactions ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@VERBOSEERRORS,"")^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
+        INPUTS 'GetIV_INTERACTIONSByCALL_IDAndLOCATION_IDAndPROBLEM_CODEAndSTATUS_CODEAndDATE_TICKET_ISSUEDAndOTHER_' (
+            'CALL_ID' call_id:'int' '=' 
+            'LOCATION_ID' location_id:'int' '=' 
+            'PROBLEM_CODE' problem_code:'int' '=' 
+            'STATUS_CODE' status_code:'int' '=' 
+            'DATE_TICKET_ISSUED' date_ticket_issued:'timestamp' '=' 
+            'OTHER_DETAILS' other_details:'text' '=' 
+            'SR_DESCRIPTION' sr_description:'text' '=' 
+            'CASE_CREATION_DATE' case_creation_date:'timestamp' '=' 
+            'CASE_CLOSED_DATE' case_closed_date:'timestamp' '=' 
+            'CASE_SUMMARY' case_summary:'text' '=' 
+            'STATUS_DESCRIPTION' status_description:'text' '=' 
+            'CUSTOMER_NAME' customer_name:'text' '=' 
+            'CUSTOMER_ADDRESS' customer_address:'text' '=' 
+            'CUSTOMER_PHONE' customer_phone:'text' '=' 
+            'CUSTOMER_JOB_TITLE' customer_job_title:'text' '=' 
+            'AGENT_CODE' agent_code:'text' '=' 
+            'AGENT_NAME' agent_name:'text' '=' 
+            'INTERACTION_DATE' interaction_date:'localdate' '=' 
+            'INTERACTION_IP' interaction_ip:'text' '=' 
+            'CASE_ID' case_id:'int' '=' 
+            'INTERACTION_PHONE' interaction_phone:'text' '=' 
+            'CUSTOMER_CODE' customer_code:'text' '=' 
+        )
+        OUTPUT 
+            'IV_INTERACTIONSReturn': Array of ( 'IV_INTERACTIONSReturnRow': Register of (
+                call_id : 'int',
+                location_id : 'int',
+                problem_code : 'int',
+                status_code : 'int',
+                date_ticket_issued : 'timestamp',
+                other_details : 'text',
+                sr_description : 'text',
+                case_creation_date : 'timestamp',
+                case_closed_date : 'timestamp',
+                case_summary : 'text',
+                status_description : 'text',
+                customer_name : 'text',
+                customer_address : 'text',
+                customer_phone : 'text',
+                customer_job_title : 'text',
+                agent_code : 'text',
+                agent_name : 'text',
+                interaction_date : 'localdate',
+                interaction_ip : 'text',
+                case_id : 'int',
+                interaction_phone : 'text',
+                customer_code : 'text'
+            ) (
+                    '/agent_code'='AGENT_CODE',
+                    '/agent_name'='AGENT_NAME',
+                    '/call_id'='CALL_ID',
+                    '/case_closed_date'='CASE_CLOSED_DATE',
+                    '/case_creation_date'='CASE_CREATION_DATE',
+                    '/case_id'='CASE_ID',
+                    '/case_summary'='CASE_SUMMARY',
+                    '/customer_address'='CUSTOMER_ADDRESS',
+                    '/customer_code'='CUSTOMER_CODE',
+                    '/customer_job_title'='CUSTOMER_JOB_TITLE',
+                    '/customer_name'='CUSTOMER_NAME',
+                    '/customer_phone'='CUSTOMER_PHONE',
+                    '/date_ticket_issued'='DATE_TICKET_ISSUED',
+                    '/interaction_date'='INTERACTION_DATE',
+                    '/interaction_ip'='INTERACTION_IP',
+                    '/interaction_phone'='INTERACTION_PHONE',
+                    '/location_id'='LOCATION_ID',
+                    '/other_details'='OTHER_DETAILS',
+                    '/problem_code'='PROBLEM_CODE',
+                    '/sr_description'='SR_DESCRIPTION',
+                    '/status_code'='STATUS_CODE',
+                    '/status_description'='STATUS_DESCRIPTION'))
+    )    OPERATION 'getBV_WO_ORDERSByIDAndCUSTOMER_CODEAndSTATUSAndDATE_PLACEDAndDATE_DELIVEREDAndDATE_CLOSED' (
+        TYPE SELECT
+        SCHEMA VIEW bv_wo_orders
+        VQL = 'SELECT id, customer_code, status, date_placed, date_delivered, date_closed FROM bv_wo_orders ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@VERBOSEERRORS,"")^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
+        INPUTS 'GetBV_WO_ORDERSByIDAndCUSTOMER_CODEAndSTATUSAndDATE_PLACEDAndDATE_DELIVEREDAndDATE_CLOSED' (
+            'ID' id:'double' '=' 
+            'CUSTOMER_CODE' customer_code:'text' '=' 
+            'STATUS' status:'text' '=' 
+            'DATE_PLACED' date_placed:'localdate' '=' 
+            'DATE_DELIVERED' date_delivered:'localdate' '=' 
+            'DATE_CLOSED' date_closed:'localdate' '=' 
+        )
+        OUTPUT 
+            'BV_WO_ORDERSReturn': Array of ( 'BV_WO_ORDERSReturnRow': Register of (
+                id : 'double',
+                customer_code : 'text',
+                status : 'text',
+                date_placed : 'localdate',
+                date_delivered : 'localdate',
+                date_closed : 'localdate'
+            ) (
+                    '/customer_code'='CUSTOMER_CODE',
+                    '/date_closed'='DATE_CLOSED',
+                    '/date_delivered'='DATE_DELIVERED',
+                    '/date_placed'='DATE_PLACED',
+                    '/id'='ID',
+                    '/status'='STATUS'))
+    )    OPERATION 'insertBV_WO_ORDERS' (
+        TYPE INSERT
+        SCHEMA VIEW bv_wo_orders
+        VQL = 'INSERT INTO bv_wo_orders (id, customer_code, status, date_placed, date_delivered, date_closed) VALUES (@ID, @CUSTOMER_CODE, @STATUS, @DATE_PLACED, @DATE_DELIVERED, @DATE_CLOSED) CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
+        INPUTS 'InsertBV_WO_ORDERS' (
+            'ID' id:'double' '=' OBL 
+            'CUSTOMER_CODE' customer_code:'text' '=' OBL 
+            'STATUS' status:'text' '=' OBL 
+            'DATE_PLACED' date_placed:'localdate' '=' 
+            'DATE_DELIVERED' date_delivered:'localdate' '=' 
+            'DATE_CLOSED' date_closed:'localdate' '=' 
+        )
+        OUTPUT 'long'
+    )    OPERATION 'deleteBV_WO_ORDERS' (
+        TYPE DELETE
+        SCHEMA VIEW bv_wo_orders
+        VQL = 'DELETE FROM bv_wo_orders ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
+        INPUTS 'DeleteBV_WO_ORDERS' (
+            'ID' id:'double' '=' 
+            'CUSTOMER_CODE' customer_code:'text' '=' 
+            'STATUS' status:'text' '=' 
+            'DATE_PLACED' date_placed:'localdate' '=' 
+            'DATE_DELIVERED' date_delivered:'localdate' '=' 
+            'DATE_CLOSED' date_closed:'localdate' '=' 
+        )
+        OUTPUT 'long'
+    )    OPERATION 'updateBV_WO_ORDERS' (
+        TYPE UPDATE
+        SCHEMA VIEW bv_wo_orders
+        VQL = 'UPDATE bv_wo_orders SET id=@newID, customer_code=@newCUSTOMER_CODE, status=@newSTATUS, date_placed=@newDATE_PLACED, date_delivered=@newDATE_DELIVERED, date_closed=@newDATE_CLOSED ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
+        INPUTS 'UpdateBV_WO_ORDERS' (
+            'ID' id:'double' '=' 
+            'CUSTOMER_CODE' customer_code:'text' '=' 
+            'STATUS' status:'text' '=' 
+            'DATE_PLACED' date_placed:'localdate' '=' 
+            'DATE_DELIVERED' date_delivered:'localdate' '=' 
+            'DATE_CLOSED' date_closed:'localdate' '=' 
+            SET 'newID' id:'double' '=' OBL 
+            SET 'newCUSTOMER_CODE' customer_code:'text' '=' OBL 
+            SET 'newSTATUS' status:'text' '=' OBL 
+            SET 'newDATE_PLACED' date_placed:'localdate' '=' 
+            SET 'newDATE_DELIVERED' date_delivered:'localdate' '=' 
+            SET 'newDATE_CLOSED' date_closed:'localdate' '=' 
+        )
+        OUTPUT 'long'
+    )    OPERATION 'getBV_PRODUCTByCODEAndDESCRIPTIONAndWARNINGSAndNUMRESULTSAndPRODUCTIDAndPRODUCTNAMEAndPRODUCTPRICEAn' (
+        TYPE SELECT
+        SCHEMA VIEW bv_product
+        VQL = 'SELECT code, description, warnings, numresults, productid, productname, productprice, category, characteristics, accessories FROM bv_product ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@VERBOSEERRORS,"")^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
+        INPUTS 'GetBV_PRODUCTByCODEAndDESCRIPTIONAndWARNINGSAndNUMRESULTSAndPRODUCTIDAndPRODUCTNAMEAndPRODUCTPRICEAn' (
+            'CODE' code:'text' '=' 
+            'DESCRIPTION' description:'text' '=' 
+            'WARNINGS' warnings:'text' '=' 
+            'NUMRESULTS' numresults:'text' '=' 
+            'PRODUCTID' productid:'int' '=' 
+            'PRODUCTNAME' productname:'text' '=' 
+            'PRODUCTPRICE' productprice:'float' '=' 
+            'CATEGORY' category:'bv_product_category' '=' (
+                    '/CATEGORY/categoryid'='CATEGORYID',
+                    '/CATEGORY/categoryname'='CATEGORYNAME',
+                    '/CATEGORY'='CATEGORY':'bv_product_category')
+            'CHARACTERISTICS' characteristics:'bv_product_characteristics' '=' (
+                    '/CHARACTERISTICS/characteristic_color'='CHARACTERISTIC_COLOR',
+                    '/CHARACTERISTICS/characteristic_details'='CHARACTERISTIC_DETAILS',
+                    '/CHARACTERISTICS/characteristic_dimensions'='CHARACTERISTIC_DIMENSIONS',
+                    '/CHARACTERISTICS/characteristic_weight'='CHARACTERISTIC_WEIGHT',
+                    '/CHARACTERISTICS'='CHARACTERISTICS':'bv_product_characteristics')
+            'ACCESSORIES' accessories:'bv_product_accessories' '=' (
+                    '/ACCESSORIES/productid'='PRODUCTID',
+                    '/ACCESSORIES/productname'='PRODUCTNAME',
+                    '/ACCESSORIES/productprice'='PRODUCTPRICE',
+                    '/ACCESSORIES'='ACCESSORIES':'bv_product_accessories' / 'bv_product_accessories_productdata')
+            'ACCESSORIES_PRODUCTID' (accessories).productid:'int' '=' 
+            'ACCESSORIES_PRODUCTNAME' (accessories).productname:'text' '=' 
+            'ACCESSORIES_PRODUCTPRICE' (accessories).productprice:'float' '=' 
+            'CATEGORY_CATEGORYID' (category).categoryid:'int' '=' 
+            'CATEGORY_CATEGORYNAME' (category).categoryname:'text' '=' 
+            'CHARACTERISTICS_CHARACTERISTIC_COLOR' (characteristics).characteristic_color:'text' '=' 
+            'CHARACTERISTICS_CHARACTERISTIC_DETAILS' (characteristics).characteristic_details:'text' '=' 
+            'CHARACTERISTICS_CHARACTERISTIC_DIMENSIONS' (characteristics).characteristic_dimensions:'text' '=' 
+            'CHARACTERISTICS_CHARACTERISTIC_WEIGHT' (characteristics).characteristic_weight:'text' '=' 
+        )
+        OUTPUT 
+            'BV_PRODUCTReturn': Array of ( 'BV_PRODUCTReturnRow': Register of (
+                code : 'text',
+                description : 'text',
+                warnings : 'text',
+                numresults : 'text',
+                productid : 'int',
+                productname : 'text',
+                productprice : 'float',
+                category : 'bv_product_category',
+                characteristics : 'bv_product_characteristics',
+                accessories : 'bv_product_accessories'
+            ) (
+                    '/accessories'='ACCESSORIES':'bv_product_accessories' / 'bv_product_accessories_productdata',
+                    '/accessories/productid'='PRODUCTID',
+                    '/accessories/productname'='PRODUCTNAME',
+                    '/accessories/productprice'='PRODUCTPRICE',
+                    '/category'='CATEGORY':'bv_product_category',
+                    '/category/categoryid'='CATEGORYID',
+                    '/category/categoryname'='CATEGORYNAME',
+                    '/characteristics'='CHARACTERISTICS':'bv_product_characteristics',
+                    '/characteristics/characteristic_color'='CHARACTERISTIC_COLOR',
+                    '/characteristics/characteristic_details'='CHARACTERISTIC_DETAILS',
+                    '/characteristics/characteristic_dimensions'='CHARACTERISTIC_DIMENSIONS',
+                    '/characteristics/characteristic_weight'='CHARACTERISTIC_WEIGHT',
+                    '/code'='CODE',
+                    '/description'='DESCRIPTION',
+                    '/numresults'='NUMRESULTS',
+                    '/productid'='PRODUCTID',
+                    '/productname'='PRODUCTNAME',
+                    '/productprice'='PRODUCTPRICE',
+                    '/warnings'='WARNINGS'))
+    )    OPERATION 'getF_BV_SALES_ALLByPRODUCTIDAndSALEIDAndSALESDATA_SALES_PRODUCTIDAndEMPLOYEEIDAndCUSTOMERIDAndSALEDA' (
+        TYPE SELECT
+        SCHEMA VIEW f_bv_sales_all
+        VQL = 'SELECT productid, saleid, salesdata_sales_productid, employeeid, customerid, saledate, bundleamount, productsaleprice, totalprice FROM f_bv_sales_all ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@VERBOSEERRORS,"")^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
+        INPUTS 'GetF_BV_SALES_ALLByPRODUCTIDAndSALEIDAndSALESDATA_SALES_PRODUCTIDAndEMPLOYEEIDAndCUSTOMERIDAndSALEDA' (
+            'PRODUCTID' productid:'text' '=' 
+            'SALEID' saleid:'text' '=' 
+            'SALESDATA_SALES_PRODUCTID' salesdata_sales_productid:'text' '=' 
+            'EMPLOYEEID' employeeid:'text' '=' 
+            'CUSTOMERID' customerid:'text' '=' 
+            'SALEDATE' saledate:'text' '=' 
+            'BUNDLEAMOUNT' bundleamount:'text' '=' 
+            'PRODUCTSALEPRICE' productsaleprice:'text' '=' 
+            'TOTALPRICE' totalprice:'text' '=' 
+        )
+        OUTPUT 
+            'F_BV_SALES_ALLReturn': Array of ( 'F_BV_SALES_ALLReturnRow': Register of (
+                productid : 'text',
+                saleid : 'text',
+                salesdata_sales_productid : 'text',
+                employeeid : 'text',
+                customerid : 'text',
+                saledate : 'text',
+                bundleamount : 'text',
+                productsaleprice : 'text',
+                totalprice : 'text'
+            ) (
+                    '/bundleamount'='BUNDLEAMOUNT',
+                    '/customerid'='CUSTOMERID',
+                    '/employeeid'='EMPLOYEEID',
+                    '/productid'='PRODUCTID',
+                    '/productsaleprice'='PRODUCTSALEPRICE',
+                    '/saledate'='SALEDATE',
+                    '/saleid'='SALEID',
+                    '/salesdata_sales_productid'='SALESDATA_SALES_PRODUCTID',
+                    '/totalprice'='TOTALPRICE'))
+    )
+    FOLDER = '/ws';
+

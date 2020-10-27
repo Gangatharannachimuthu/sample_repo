@@ -1,0 +1,37 @@
+﻿CREATE OR REPLACE WRAPPER WS bv_getallproducts
+    FOLDER = '/1 - connectivity/invoices'
+    DATASOURCENAME=ds_product
+    SERVICENAME='products-ws'
+    PORTNAME='ProductImplPort'
+    OPERATIONNAME='getAllProducts'
+    INPUTMESSAGE='getAllProducts'
+    OUTPUTMESSAGE='getAllProductsResponse'
+    TUPLEROOT='/Envelope/Body/getAllProductsResponse/products/product'
+    OUTPUTSCHEMA (
+    parameters = '$$0': REGISTER OF (
+    ),
+    productid='Envelope.Body.getAllProductsResponse.products.product.productId',
+    productname='Envelope.Body.getAllProductsResponse.products.product.productName',
+    productprice='Envelope.Body.getAllProductsResponse.products.product.productPrice'
+    );
+
+CREATE OR REPLACE TABLE bv_getallproducts I18N us_pst (
+        productid:int, 
+        productname:text, 
+        productprice:float
+    )
+    FOLDER = '/1 - connectivity/invoices'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD bv_getallproducts(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD productid NOS ZERO ()
+             ADD productname NOS ZERO ()
+             ADD productprice NOS ZERO ()
+        )
+        OUTPUTLIST (productid, productname, productprice
+        )
+        WRAPPER (ws bv_getallproducts)
+    );
+

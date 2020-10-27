@@ -1,0 +1,50 @@
+﻿CREATE OR REPLACE WRAPPER WS insertbv_wo_storages
+    FOLDER = '/ws'
+    DATASOURCENAME=exm
+    SERVICENAME='bv_wo_storagesService'
+    PORTNAME='bv_wo_storages'
+    OPERATIONNAME='insertBV_WO_STORAGES'
+    INPUTMESSAGE='insertBV_WO_STORAGESRequest'
+    OUTPUTMESSAGE='insertBV_WO_STORAGESResponse'
+    OUTPUTSCHEMA (
+    insertbv_wo_storages = '$$0': REGISTER OF (
+        id='ID' (OBL),
+        address='ADDRESS' (OBL),
+        city='CITY' (OBL),
+        postal_code='POSTAL_CODE' (OBL),
+        country='COUNTRY' (OBL),
+        country_code='COUNTRY_CODE' (OBL),
+        latitude='LATITUDE' (OBL),
+        longitude='LONGITUDE' (OBL)
+    ),
+    return='$$$$'
+    );
+
+CREATE OR REPLACE TYPE insertbv_wo_storages_insertbv_wo_storages AS REGISTER OF (id:double, address:text, city:text, postal_code:text, country:text, country_code:text, latitude:double, longitude:double);
+
+CREATE OR REPLACE TABLE insertbv_wo_storages I18N us_pst (
+        insertbv_wo_storages:insertbv_wo_storages_insertbv_wo_storages, 
+        return:long
+    )
+    FOLDER = '/ws'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD insertbv_wo_storages(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD insertbv_wo_storages (=,is null) OPT ONE
+             ADD insertbv_wo_storages.id (=) OBL ONE
+             ADD insertbv_wo_storages.address (=) OBL ONE
+             ADD insertbv_wo_storages.city (=) OBL ONE
+             ADD insertbv_wo_storages.postal_code (=) OBL ONE
+             ADD insertbv_wo_storages.country (=) OBL ONE
+             ADD insertbv_wo_storages.country_code (=) OBL ONE
+             ADD insertbv_wo_storages.latitude (=) OBL ONE
+             ADD insertbv_wo_storages.longitude (=) OBL ONE
+             ADD return NOS ZERO ()
+        )
+        OUTPUTLIST (insertbv_wo_storages, return
+        )
+        WRAPPER (ws insertbv_wo_storages)
+    );
+

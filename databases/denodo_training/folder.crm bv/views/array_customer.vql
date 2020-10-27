@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW array_customer FOLDER = '/crm bv' AS SELECT main_country AS main_country, nest(first_name, last_name, email) AS array FROM bv_customer GROUP BY main_country;
+
+ALTER VIEW array_customer
+ LAYOUT (bv_customer = [20, 20, 340, 226]);
+

@@ -1,0 +1,7 @@
+﻿/databases/denodo_training/folder.1 - connectivity/1 - connectivity.vql
+/databases/denodo_training/folder.1 - connectivity/folder.1 - data sources/1 - data sources.vql
+/databases/denodo_training/folder.new source/new source.vql
+/databases/denodo_training/folder.new source/folder.drived view/drived view.vql
+/databases/denodo_training/folder.1 - connectivity/folder.1 - data sources/datasources/jdbc/ds_human_resources.vql
+/databases/denodo_training/folder.new source/folder.drived view/views/iv_employees.vql
+/databases/denodo_training/folder.1 - connectivity/folder.1 - data sources/views/bv_departments.vql

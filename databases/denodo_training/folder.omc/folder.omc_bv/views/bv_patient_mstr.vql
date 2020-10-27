@@ -1,0 +1,59 @@
+﻿CREATE OR REPLACE WRAPPER DF patient_mstr
+    FOLDER = '/omc/omc_bv'
+    DATASOURCENAME=patient_mstr
+    OUTPUTSCHEMA (
+        firstname_0 = 'First Name' (OPT),
+        lastname_0 = 'Last Name' (OPT),
+        middlename_0 = 'Middle Name' (OPT),
+        membershipid_0 = 'Membership Id' (OPT),
+        groupinsurancecode_0 = 'Group Insurance Code' (OPT),
+        emailid_0 = 'Email Id' (OPT),
+        gender = 'Gender' (OPT),
+        dob = 'DOB' (OPT),
+        companyname_0 = 'Company Name' (OPT),
+        status = 'Status' (OPT),
+        payername_0 = 'Payer Name' (OPT),
+        id_0 = '' (OPT),
+        insertintopatient_mstrfst_namemdl_namelst_namembr_ideml_idpt_gndrpt_dobcomp_namegrp_ins_cdpt_stsom_0 = '"insert into patient_mstr (fst_name, mdl_name, lst_name, mbr_id, eml_id, pt_gndr, pt_dob, comp_name, grp_ins_cd, pt_sts, omc_pyr_id, omc_crt_by, omc_crt_ts, omc_lst_upd_by, omc_lst_upd_ts)  values (''"' (OPT)
+    );
+
+CREATE OR REPLACE TABLE bv_patient_mstr I18N us_pst (
+        firstname_0:text, 
+        lastname_0:text, 
+        middlename_0:text, 
+        membershipid_0:text, 
+        groupinsurancecode_0:text, 
+        emailid_0:text, 
+        gender:text, 
+        dob:text, 
+        companyname_0:text, 
+        status:text, 
+        payername_0:text, 
+        id_0:text, 
+        insertintopatient_mstrfst_namemdl_namelst_namembr_ideml_idpt_gndrpt_dobcomp_namegrp_ins_cdpt_stsom_0:text
+    )
+    FOLDER = '/omc/omc_bv'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD patient_mstr(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD firstname_0 (=,in) OPT ANY
+             ADD lastname_0 (=,in) OPT ANY
+             ADD middlename_0 (=,in) OPT ANY
+             ADD membershipid_0 (=,in) OPT ANY
+             ADD groupinsurancecode_0 (=,in) OPT ANY
+             ADD emailid_0 (=,in) OPT ANY
+             ADD gender (=,in) OPT ANY
+             ADD dob (=,in) OPT ANY
+             ADD companyname_0 (=,in) OPT ANY
+             ADD status (=,in) OPT ANY
+             ADD payername_0 (=,in) OPT ANY
+             ADD id_0 (=,in) OPT ANY
+             ADD insertintopatient_mstrfst_namemdl_namelst_namembr_ideml_idpt_gndrpt_dobcomp_namegrp_ins_cdpt_stsom_0 (=,in) OPT ANY
+        )
+        OUTPUTLIST (companyname_0, dob, emailid_0, firstname_0, gender, groupinsurancecode_0, id_0, insertintopatient_mstrfst_namemdl_namelst_namembr_ideml_idpt_gndrpt_dobcomp_namegrp_ins_cdpt_stsom_0, lastname_0, membershipid_0, middlename_0, payername_0, status
+        )
+        WRAPPER (df patient_mstr)
+    );
+

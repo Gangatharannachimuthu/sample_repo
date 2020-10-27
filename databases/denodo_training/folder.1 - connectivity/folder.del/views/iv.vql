@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW iv FOLDER = '/1 - connectivity/del' AS SELECT status_code, customer_code, agent_id, call_id, location_id, problem_code, date_ticket_issued, date_call_received, other_details, caller_calltracking FROM (SELECT call_id, date_ticket_issued, customer_code, status_code, other_details, location_id, problem_code, date_call_received, case_id AS global_case_id, caller_calltracking, agent_id FROM bv_cc_service_call UNION SELECT customer_code, agent_id, status_code, sr_date AS date_call_received, global_case_id FROM bv_support_get_all_service_request);
+
+ALTER VIEW iv
+ LAYOUT (bv_cc_service_call = [600, 150, 260, 246], bv_support_get_all_service_request = [120, 50, 330, 426]);
+

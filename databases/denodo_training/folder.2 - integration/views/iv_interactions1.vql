@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW iv_interactions1 FOLDER = '/2 - integration' AS SELECT customer_code AS customer_code, agent_code AS agent_code, interaction_date AS interaction_date, interaction_ip AS interaction_ip, case_id AS case_id, interaction_phone AS interaction_phone FROM iv_interactions GROUP BY customer_code, agent_code, interaction_date, interaction_ip, case_id, interaction_phone;
+
+ALTER VIEW iv_interactions1
+ LAYOUT (iv_interactions = [20, 20, 235, 466]);
+

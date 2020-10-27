@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW customer_register FOLDER = '/crm bv' AS SELECT bv_customer.id AS id, bv_customer.customer_code_internal AS customer_code_internal, bv_customer.first_name AS first_name, bv_customer.last_name AS last_name, bv_customer.email AS email, bv_customer.phone AS phone, bv_customer.main_address AS main_address, bv_customer.main_postcode AS main_postcode, bv_customer.main_country AS main_country, bv_customer.registered_date AS registered_date, register(bv_customer.phone, bv_customer.main_address, bv_customer.main_postcode) AS register FROM bv_customer;
+
+ALTER VIEW customer_register
+ LAYOUT (bv_customer = [20, 20, 370, 226]);
+

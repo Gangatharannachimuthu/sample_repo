@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW p_bv_departments FOLDER = '/ws' AS SELECT bv_departments.department_id AS department_id, bv_departments.department_name AS department_name, bv_departments.location_id AS location_id, bv_departments.manager_id AS manager_id, register(bv_departments.department_id, bv_departments.department_name) AS register FROM bv_departments;
+
+ALTER VIEW p_bv_departments
+ LAYOUT (bv_departments = [20, 20, 232, 106]);
+

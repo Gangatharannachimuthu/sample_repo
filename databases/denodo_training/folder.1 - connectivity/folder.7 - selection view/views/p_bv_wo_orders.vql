@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW p_bv_wo_orders FOLDER = '/1 - connectivity/7 - selection view' AS SELECT bv_wo_orders.id AS id, bv_wo_orders.customer_code AS customer_code, bv_wo_orders.status AS status, bv_wo_orders.date_placed AS date_placed, bv_wo_orders.date_delivered AS date_delivered, bv_wo_orders.date_closed AS date_closed FROM bv_wo_orders;
+
+ALTER VIEW p_bv_wo_orders
+ LAYOUT (bv_wo_orders = [20, 20, 350, 146]);
+

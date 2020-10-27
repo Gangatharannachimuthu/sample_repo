@@ -1,0 +1,41 @@
+﻿CREATE OR REPLACE WRAPPER WS bvv_getallcategories
+    FOLDER = '/1 - connectivity/invoices'
+    DATASOURCENAME=ds_products
+    SERVICENAME='products-ws'
+    PORTNAME='ProductImplPort'
+    OPERATIONNAME='getAllCategories'
+    INPUTMESSAGE='getAllCategories'
+    OUTPUTMESSAGE='getAllCategoriesResponse'
+    TUPLEROOT='/Envelope/Body/getAllCategoriesResponse/categories/category'
+    FROMEXAMPLE
+    OUTPUTSCHEMA (
+    parameters = '$$0': REGISTER OF (
+        mode='mode' (OBL)
+    ),
+    categoryid='Envelope.Body.getAllCategoriesResponse.categories.category.categoryId',
+    categoryname='Envelope.Body.getAllCategoriesResponse.categories.category.categoryName'
+    );
+
+CREATE OR REPLACE TYPE getallcategories_parameters AS REGISTER OF (mode:text);
+
+CREATE OR REPLACE TABLE bvv_getallcategories I18N us_pst (
+        parameters:getallcategories_parameters, 
+        categoryid:int, 
+        categoryname:text
+    )
+    FOLDER = '/1 - connectivity/invoices'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD bvv_getallcategories(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD parameters (=,is null) OPT ONE
+             ADD parameters.mode (=) OBL ONE
+             ADD categoryid NOS ZERO ()
+             ADD categoryname NOS ZERO ()
+        )
+        OUTPUTLIST (categoryid, categoryname, parameters
+        )
+        WRAPPER (ws bvv_getallcategories)
+    );
+

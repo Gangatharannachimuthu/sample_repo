@@ -1,0 +1,11 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE DATASOURCE WS service_location
+    FOLDER = '/data source'
+    WSDLURI = '${databases.denodo_training.folder.data source.datasources.ws.service_location.WSDLURI}'
+    MAXCONNECTIONS 50
+    CONNECTIONPOOLTIMEOUT 0
+    AUTHENTICATION WSS BASIC( 
+      USER '${databases.denodo_training.folder.data source.datasources.ws.service_location.USER}'
+      PASSWORD '${databases.denodo_training.folder.data source.datasources.ws.service_location.PASSWORD}' ${databases.denodo_training.folder.data source.datasources.ws.service_location.PASSWORD.ENCRYPTED} )
+    PROXY OFF;
+

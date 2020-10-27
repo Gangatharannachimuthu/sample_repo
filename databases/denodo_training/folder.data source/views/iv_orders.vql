@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW iv_orders FOLDER = '/data source' AS SELECT status AS status, count(*) AS orders FROM bv_orders GROUP BY status, trim(status);
+
+ALTER VIEW iv_orders
+ LAYOUT (bv_orders = [20, 20, 237, 146]);
+

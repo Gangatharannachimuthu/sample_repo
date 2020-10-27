@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW iv_interactions FOLDER = '/2 - integration' AS SELECT call_id, location_id, problem_code, status_code, date_ticket_issued, other_details, sr_description, case_creation_date, case_closed_date, case_summary, status_description, customer_name, customer_address, customer_phone, customer_job_title, agent_code, agent_name, interaction_date, interaction_ip, case_id, interaction_phone, customer_code FROM (SELECT call_id, date_ticket_issued, customer_code, status_code, other_details, location_id, problem_code, date_call_received AS interaction_date, caller_calltracking AS interaction_phone, agent_id FROM bv_cc_service_call UNION SELECT case_closed_date, sr_description, customer_name, customer_job_title, agent_code, customer_phone, status_code, agent_name, customer_address, case_creation_date, customer_code, customer_ip AS interaction_ip, agent_id, sr_date AS interaction_date, case_summary, status_description, global_case_id AS case_id FROM bv_support_get_all_service_request) ORDER BY interaction_date DESC;
+
+ALTER VIEW iv_interactions
+ LAYOUT (bv_cc_service_call = [0, 0, 330, 246], bv_support_get_all_service_request = [540, 10, 740, 370]);
+

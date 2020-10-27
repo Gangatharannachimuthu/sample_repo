@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW f_customer FOLDER = '/crm bv' AS SELECT main_country, first_name, last_name, email FROM FLATTEN array_customer AS v ( v.array);
+
+ALTER VIEW f_customer
+ LAYOUT (array_customer = [20, 20, 394, 126]);
+

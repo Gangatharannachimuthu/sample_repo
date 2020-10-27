@@ -1,0 +1,57 @@
+﻿CREATE OR REPLACE WRAPPER DF msdrg_mstr
+    FOLDER = '/omc/omc_bv'
+    DATASOURCENAME=msdrg_mstr
+    OUTPUTSCHEMA (
+        table5listofmedicareseveritydiagnosisrelatedgroupsmsdrgsrelativeweightingfactorsandgeometricandari_0 = '"TABLE 5.—LIST OF MEDICARE SEVERITY DIAGNOSIS-RELATED GROUPS (MS-DRGS), RELATIVE WEIGHTING FACTORS, 
+AND GEOMETRIC AND ARITHMETIC MEAN LENGTH OF STAY—FY 2020 Final Rule"' (OPT),
+        id_10 = '' (OPT),
+        id_9 = '' (OPT),
+        id_8 = '' (OPT),
+        id_7 = '' (OPT),
+        id_6 = '' (OPT),
+        id_5 = '' (OPT),
+        id_4 = '' (OPT),
+        id_3 = '' (OPT),
+        id_2 = '' (OPT),
+        id_1 = '' (OPT),
+        id_0 = '' (OPT)
+    );
+
+CREATE OR REPLACE TABLE bv_msdrg_mstr I18N us_pst (
+        table5listofmedicareseveritydiagnosisrelatedgroupsmsdrgsrelativeweightingfactorsandgeometricandari_0:text, 
+        id_10:text, 
+        id_9:text, 
+        id_8:text, 
+        id_7:text, 
+        id_6:text, 
+        id_5:text, 
+        id_4:text, 
+        id_3:text, 
+        id_2:text, 
+        id_1:text, 
+        id_0:text
+    )
+    FOLDER = '/omc/omc_bv'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD msdrg_mstr(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD table5listofmedicareseveritydiagnosisrelatedgroupsmsdrgsrelativeweightingfactorsandgeometricandari_0 (=,in) OPT ANY
+             ADD id_10 (=,in) OPT ANY
+             ADD id_9 (=,in) OPT ANY
+             ADD id_8 (=,in) OPT ANY
+             ADD id_7 (=,in) OPT ANY
+             ADD id_6 (=,in) OPT ANY
+             ADD id_5 (=,in) OPT ANY
+             ADD id_4 (=,in) OPT ANY
+             ADD id_3 (=,in) OPT ANY
+             ADD id_2 (=,in) OPT ANY
+             ADD id_1 (=,in) OPT ANY
+             ADD id_0 (=,in) OPT ANY
+        )
+        OUTPUTLIST (id_0, id_1, id_10, id_2, id_3, id_4, id_5, id_6, id_7, id_8, id_9, table5listofmedicareseveritydiagnosisrelatedgroupsmsdrgsrelativeweightingfactorsandgeometricandari_0
+        )
+        WRAPPER (df msdrg_mstr)
+    );
+

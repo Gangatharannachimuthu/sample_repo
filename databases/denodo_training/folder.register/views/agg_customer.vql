@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW agg_customer FOLDER = '/register' AS SELECT id AS id, count(*) AS total FROM bv_customer GROUP BY id HAVING count(*) > 1;
+
+ALTER VIEW agg_customer
+ LAYOUT (bv_customer = [20, 20, 264, 226]);
+

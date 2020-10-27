@@ -1,0 +1,4 @@
+﻿/databases/denodo_training/folder.omc_pro/omc_pro.vql
+/databases/denodo_training/folder.omc_pro/datasources/jdbc/omc_dev.vql
+/databases/denodo_training/views/omc_disease_mstr.vql
+/databases/denodo_training/views/omc_disease_questions.vql

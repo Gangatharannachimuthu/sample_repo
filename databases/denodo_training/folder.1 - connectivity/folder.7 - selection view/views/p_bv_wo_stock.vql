@@ -1,0 +1,9 @@
+﻿CREATE OR REPLACE VIEW p_bv_wo_stock FOLDER = '/1 - connectivity/7 - selection view' AS SELECT bv_wo_stock.id AS id, bv_wo_stock.product_id AS product_id, bv_wo_stock.distribution_code AS distribution_code, bv_wo_stock.storage_id AS storage_id FROM bv_wo_stock WHERE id > 10 WITH CASCADED CHECK OPTION;
+
+ALTER VIEW p_bv_wo_stock
+ LAYOUT (bv_wo_stock = [20, 20, 390, 106]);
+
+ALTER VIEW p_bv_wo_stock
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE DEFAULT;
+

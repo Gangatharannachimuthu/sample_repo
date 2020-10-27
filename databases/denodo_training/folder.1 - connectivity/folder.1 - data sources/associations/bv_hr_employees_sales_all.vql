@@ -1,0 +1,9 @@
+﻿CREATE OR REPLACE ASSOCIATION bv_hr_employees_sales_all REFERENTIAL CONSTRAINT 
+FOLDER = '/1 - connectivity/1 - data sources'
+    ENDPOINT hr bv_hr_employees PRINCIPAL (1)
+    ENDPOINT employee f_sales_all (0,*)
+    ADD MAPPING employee_id=employeeid;
+
+ALTER ASSOCIATION bv_hr_employees_sales_all
+ LAYOUT (bv_hr_employees = [20, 20, 260, 259], f_sales_all = [550, 90, 200, 206]);
+

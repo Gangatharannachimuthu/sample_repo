@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE ASSOCIATION omc_disease_mstr_omc_disease_questions REFERENTIAL CONSTRAINT 
+    ENDPOINT omc_disease_questions omc_disease_mstr PRINCIPAL (0,1)
+    ENDPOINT omc_disease_mstr omc_disease_questions (0,*)
+    ADD MAPPING omc_dis_id=omc_dis_id;
+

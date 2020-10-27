@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW iv_data FOLDER = '/new source/drived view' AS SELECT id, first_name, last_name, email, phone, main_address, main_postcode, main_country, customer_code, status, date_placed, date_delivered, date_closed FROM (SELECT customer_code_internal AS customer_code, first_name, main_address, phone, email, main_postcode, main_country, last_name, registered_date AS date_closed, id FROM ass UNION SELECT * FROM bv_wo_orders);
+
+ALTER VIEW iv_data
+ LAYOUT (ass = [750, 30, 410, 226], bv_wo_orders = [40, 80, 230, 146]);
+

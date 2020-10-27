@@ -1,0 +1,8 @@
+﻿CREATE OR REPLACE VIEW iv_orders_historical FOLDER = '/2 - integration' (
+    date_placed (description = 'Date')
+)
+ AS SELECT bv_ho_order_item.id AS id, bv_ho_order_item.order_id AS order_id, bv_ho_order_item.product_id AS product_id, bv_ho_orders.customer_code AS customer_code, bv_ho_orders.status AS status, bv_ho_orders.date_placed AS date_placed, bv_ho_orders.date_delivered AS date_delivered, bv_ho_orders.date_closed AS date_closed FROM bv_ho_orders AS bv_ho_orders INNER JOIN bv_ho_order_item AS bv_ho_order_item ON bv_ho_orders.id = bv_ho_order_item.order_id ;
+
+ALTER VIEW iv_orders_historical
+ LAYOUT (bv_ho_orders = [0, 0, 200, 146], bv_ho_order_item = [250, 30, 200, 86]);
+

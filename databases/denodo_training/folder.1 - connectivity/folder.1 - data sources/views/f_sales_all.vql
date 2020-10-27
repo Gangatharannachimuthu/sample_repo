@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW f_sales_all FOLDER = '/1 - connectivity/1 - data sources' AS SELECT productid, saleid, sales_productid, employeeid, customerid, saledate, bundleamount, productsaleprice, totalprice FROM FLATTEN sales_all AS v ( v.sales);
+
+ALTER VIEW f_sales_all
+ LAYOUT (sales_all = [20, 20, 388, 226]);
+

@@ -1,0 +1,48 @@
+﻿CREATE OR REPLACE SOAP WEBSERVICE iv_interactions1_customer_web
+    CONNECTION (
+        CHUNKSIZE = 1000
+        CHUNKTIMEOUT = 90000
+        QUERYTIMEOUT = 900000
+        POOLENABLED = true
+        POOLINITSIZE = 0
+        POOLMAXACTIVE = 30
+    )
+    I18N  = us_pst
+    DATETYPEMAPPING DATE
+    NOWRAPARRAYS
+    RAISEFAULTONIDU
+    DONOTAPPLYOUTPUTXSLTTOERRORS
+    AUTHENTICATION (WSS BASIC
+    USER ''
+    PASSWORD '' ENCRYPTED )
+    OUTPUT 
+        ( STYLE DOCUMENT )
+    OPERATION 'getIV_INTERACTIONS1_CUSTOMERByCUSTOMER_CODEAndINTERACTIONS' (
+        TYPE SELECT
+        SCHEMA VIEW iv_interactions1_customer
+        VQL = 'SELECT customer_code, interactions FROM iv_interactions1_customer ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@VERBOSEERRORS,"")^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
+        INPUTS 'GetIV_INTERACTIONS1_CUSTOMERByCUSTOMER_CODEAndINTERACTIONS' (
+            'CUSTOMER_CODE' customer_code:'text' '=' 
+            'INTERACTIONS' interactions:'_array_register_agent_code_interaction_date_interaction_ip_case_id_interaction_phone_9854' '=' (
+                    '/INTERACTIONS/agent_code'='AGENT_CODE',
+                    '/INTERACTIONS/case_id'='CASE_ID',
+                    '/INTERACTIONS/interaction_date'='INTERACTION_DATE',
+                    '/INTERACTIONS/interaction_ip'='INTERACTION_IP',
+                    '/INTERACTIONS/interaction_phone'='INTERACTION_PHONE',
+                    '/INTERACTIONS'='INTERACTIONS':'_array_register_agent_code_interaction_date_interaction_ip_case_id_interaction_phone' / '_register_agent_code_interaction_date_interaction_ip_case_id_interaction_phone')
+        )
+        OUTPUT 
+            'IV_INTERACTIONS1_CUSTOMERReturn': Array of ( 'IV_INTERACTIONS1_CUSTOMERReturnRow': Register of (
+                customer_code : 'text',
+                interactions : '_array_register_agent_code_interaction_date_interaction_ip_case_id_interaction_phone_9854'
+            ) (
+                    '/customer_code'='CUSTOMER_CODE',
+                    '/interactions'='INTERACTIONS':'_array_register_agent_code_interaction_date_interaction_ip_case_id_interaction_phone' / '_register_agent_code_interaction_date_interaction_ip_case_id_interaction_phone',
+                    '/interactions/agent_code'='AGENT_CODE',
+                    '/interactions/case_id'='CASE_ID',
+                    '/interactions/interaction_date'='INTERACTION_DATE',
+                    '/interactions/interaction_ip'='INTERACTION_IP',
+                    '/interactions/interaction_phone'='INTERACTION_PHONE'))
+    )
+    FOLDER = '/ws/soapweb';
+

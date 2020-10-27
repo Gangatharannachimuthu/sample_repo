@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW f_dept_array FOLDER = '/ws' AS SELECT department_id, department_name FROM FLATTEN dept_array AS v ( v.dept);
+
+ALTER VIEW f_dept_array
+ LAYOUT (dept_array = [20, 20, 470, 86]);
+

@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW iv_wo_customer_u_bv_wo_orders FOLDER = '/1 - connectivity/1 - data sources' AS SELECT id, customer_code_internal, first_name, last_name, email, phone, main_address, main_postcode, main_country, registered_date, customer_code, status, date_placed, date_delivered, date_closed FROM (SELECT * FROM ass UNION SELECT date_closed, date_delivered, status, id, date_placed, customer_code FROM bv_wo_orders);
+
+ALTER VIEW iv_wo_customer_u_bv_wo_orders
+ LAYOUT (ass = [20, 20, 200, 225], bv_wo_orders = [420, 70, 200, 146]);
+

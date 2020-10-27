@@ -1,0 +1,6 @@
+﻿/databases/denodo_training/folder.ws/ws.vql
+/databases/denodo_training/folder.base view/base view.vql
+/databases/denodo_training/folder.1 - connectivity/1 - connectivity.vql
+/databases/denodo_training/folder.1 - connectivity/folder.del/del.vql
+/databases/denodo_training/folder.1 - connectivity/folder.del/datasources/ws/ds_product.vql
+/databases/denodo_training/folder.base view/views/bv_productdetails.vql

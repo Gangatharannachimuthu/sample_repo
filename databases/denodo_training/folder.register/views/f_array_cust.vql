@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW f_array_cust FOLDER = '/register' AS SELECT id, first_name, last_name, arr_id, arr_first_name FROM FLATTEN array_cust AS v ( v.arr);
+
+ALTER VIEW f_array_cust
+ LAYOUT (array_cust = [20, 20, 307, 146]);
+

@@ -1,0 +1,8 @@
+﻿CREATE OR REPLACE INTERFACE VIEW i_bv_hr_jobs (
+        job_id:text (sourcetyperadix = '10', sourcetypesize = '10', sourcetypeid = '12'),
+        job_title:text (sourcetyperadix = '10', sourcetypesize = '35', sourcetypeid = '12'),
+        min_salary:int (sourcetypedecimals = '0', sourcetyperadix = '10', sourcetypesize = '6', sourcetypeid = '4'),
+        max_salary:int (sourcetypedecimals = '0', sourcetyperadix = '10', sourcetypesize = '6', sourcetypeid = '4')
+    )
+    FOLDER = '/1 - connectivity/2 - base views';
+

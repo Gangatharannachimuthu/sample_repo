@@ -1,0 +1,18 @@
+﻿CREATE OR REPLACE TABLE ds_in I18N us_pst (
+        column_0:text (sourcetypeid = '12'), 
+        column_1:text (sourcetypeid = '12')
+    )
+    FOLDER = '/data source'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD ds_in(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD column_0 (any) OPT ANY
+             ADD column_1 (any) OPT ANY
+        )
+        OUTPUTLIST (column_0, column_1
+        )
+        WRAPPER (custom ds_in)
+    );
+

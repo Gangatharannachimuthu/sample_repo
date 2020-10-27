@@ -1,0 +1,9 @@
+﻿CREATE OR REPLACE ASSOCIATION association REFERENTIAL CONSTRAINT 
+FOLDER = '/ws'
+    ENDPOINT order bv_wo_orders PRINCIPAL (1)
+    ENDPOINT order_item bv_wo_order_item (1)
+    ADD MAPPING id=order_id;
+
+ALTER ASSOCIATION association
+ LAYOUT (bv_wo_orders = [20, 40, 460, 159], bv_wo_order_item = [540, 60, 400, 99]);
+

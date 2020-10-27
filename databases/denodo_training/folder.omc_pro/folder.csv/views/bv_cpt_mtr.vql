@@ -1,0 +1,41 @@
+﻿CREATE OR REPLACE WRAPPER DF bv_cpt_mtr
+    FOLDER = '/omc_pro/csv'
+    DATASOURCENAME=cpt_mtr
+    OUTPUTSCHEMA (
+        facind_0 = 'FAC IND' (OPT),
+        oppscapind_0 = 'OPPS CAP IND' (OPT),
+        proccode_0 = 'PROC CODE' (OPT),
+        modifier = 'MODIFIER' (OPT),
+        parfee_0 = 'PAR FEE' (OPT),
+        nonparfee_0 = 'NON PAR FEE' (OPT),
+        lc = 'LC' (OPT)
+    );
+
+CREATE OR REPLACE TABLE bv_cpt_mtr I18N us_pst (
+        facind_0:text, 
+        oppscapind_0:text, 
+        proccode_0:text, 
+        modifier:text, 
+        parfee_0:text, 
+        nonparfee_0:text, 
+        lc:text
+    )
+    FOLDER = '/omc_pro/csv'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD bv_cpt_mtr(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD facind_0 (=,in) OPT ANY
+             ADD oppscapind_0 (=,in) OPT ANY
+             ADD proccode_0 (=,in) OPT ANY
+             ADD modifier (=,in) OPT ANY
+             ADD parfee_0 (=,in) OPT ANY
+             ADD nonparfee_0 (=,in) OPT ANY
+             ADD lc (=,in) OPT ANY
+        )
+        OUTPUTLIST (facind_0, lc, modifier, nonparfee_0, oppscapind_0, parfee_0, proccode_0
+        )
+        WRAPPER (df bv_cpt_mtr)
+    );
+

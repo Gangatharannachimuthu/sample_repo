@@ -1,0 +1,9 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE DATASOURCE XML xml
+    FOLDER = '/data source'
+    SCHEMA LOCAL 'LocalConnection' '${databases.denodo_training.folder.data source.datasources.xml.xml.SCHEMA.ROUTE.LOCAL.PATH}'
+    ROUTE HTTP 'http.CommonsHttpClientConnection,120000' GET '${databases.denodo_training.folder.data source.datasources.xml.xml.ROUTE.HTTP.URL}'
+    AUTHENTICATION OFF
+    PROXY OFF
+    VALIDATE = FALSE;
+

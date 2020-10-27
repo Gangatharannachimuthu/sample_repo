@@ -1,0 +1,29 @@
+﻿CREATE OR REPLACE WRAPPER DF ds_connections_date1
+    FOLDER = '/data source'
+    DATASOURCENAME=ds_connections_date
+    OUTPUTSCHEMA (
+        column0 = 'Column0' (OPT),
+        column1 = 'Column1' (OPT),
+        column2 = 'Column2' (OPT)
+    );
+
+CREATE OR REPLACE TABLE ds_connections_date1 I18N us_pst (
+        column0:text, 
+        column1:text, 
+        column2:text
+    )
+    FOLDER = '/data source'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD ds_connections_date1(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD column0 (=,in) OPT ANY
+             ADD column1 (=,in) OPT ANY
+             ADD column2 (=,in) OPT ANY
+        )
+        OUTPUTLIST (column0, column1, column2
+        )
+        WRAPPER (df ds_connections_date1)
+    );
+

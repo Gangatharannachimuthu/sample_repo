@@ -1,0 +1,23 @@
+﻿CREATE OR REPLACE INTERFACE VIEW interface_order (
+        customer_code:text,
+        product_id:decimal,
+        id:decimal,
+        status:text,
+        date_placed:localdate,
+        date_delivered:localdate,
+        date_closed:localdate
+    )
+    SET IMPLEMENTATION iv_orders_current(
+        customer_code = customer_code,
+        product_id = product_id,
+        id = id,
+        status = status,
+        date_placed = date_placed,
+        date_delivered = date_delivered,
+        date_closed = date_closed    
+)
+    FOLDER = '/importedmodels/lab';
+
+ALTER VIEW interface_order
+ LAYOUT (iv_orders_current = [440, 20, 203, 186]);
+

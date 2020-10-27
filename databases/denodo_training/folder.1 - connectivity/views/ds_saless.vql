@@ -1,0 +1,52 @@
+﻿CREATE OR REPLACE WRAPPER JSON ds_saless
+    FOLDER = '/1 - connectivity'
+    DATASOURCENAME=ds_saless
+    TUPLEROOT '/JSONFile/salesData'
+    OUTPUTSCHEMA (jsonfile = 'JSONFile' : REGISTER OF (
+        productid = 'JSONFile.salesData.productId' : 'java.lang.String',
+        sales = 'JSONFile.salesData.sales' : ARRAY OF (
+            sales = 'sales' : REGISTER OF (
+                saleid = 'saleId' : 'java.lang.String',
+                productid = 'productId' : 'java.lang.String',
+                employeeid = 'employeeId' : 'java.lang.String',
+                customerid = 'customerId' : 'java.lang.String',
+                saledate = 'saleDate' : 'java.lang.String',
+                bundleamount = 'bundleAmount' : 'java.lang.String',
+                productsaleprice = 'productSalePrice' : 'java.lang.String',
+                totalprice = 'totalPrice' : 'java.lang.String'
+            )
+        )
+    )
+    );
+
+CREATE OR REPLACE TYPE ds_saless_sales_sales AS REGISTER OF (saleid:text, productid:text, employeeid:text, customerid:text, saledate:text, bundleamount:text, productsaleprice:text, totalprice:text);
+
+CREATE OR REPLACE TYPE ds_saless_sales AS ARRAY OF ds_saless_sales_sales;
+
+CREATE OR REPLACE TABLE ds_saless I18N us_pst (
+        productid:text, 
+        sales:ds_saless_sales
+    )
+    FOLDER = '/1 - connectivity'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD ds_saless(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD productid NOS ZERO ()
+             ADD sales NOS ZERO ()
+             ADD sales NOS ZERO ()
+             ADD sales.saleid NOS ZERO ()
+             ADD sales.productid NOS ZERO ()
+             ADD sales.employeeid NOS ZERO ()
+             ADD sales.customerid NOS ZERO ()
+             ADD sales.saledate NOS ZERO ()
+             ADD sales.bundleamount NOS ZERO ()
+             ADD sales.productsaleprice NOS ZERO ()
+             ADD sales.totalprice NOS ZERO ()
+        )
+        OUTPUTLIST (productid, sales
+        )
+        WRAPPER (json ds_saless)
+    );
+

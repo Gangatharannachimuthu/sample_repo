@@ -1,0 +1,39 @@
+﻿CREATE OR REPLACE WRAPPER JDBC delivery_5113
+    FOLDER = '/1 - connectivity/1 - data sources'
+    DATASOURCENAME=ds_web_orders
+    RELATIONNAME='delivery' 
+    OUTPUTSCHEMA (
+        id = 'ID' :'java.lang.Double' (OPT) (sourcetypedecimals='10', sourcetyperadix='10', sourcetypesize='2000000000', sourcetypeid='6', sourcetypename='DECIMAL(22,0)')  NOT NULL NOT SORTABLE,
+        order_item_id = 'ORDER_ITEM_ID' :'java.lang.Double' (OPT) (sourcetypedecimals='10', sourcetyperadix='10', sourcetypesize='2000000000', sourcetypeid='6', sourcetypename='DECIMAL(22,0)')  NOT NULL NOT SORTABLE,
+        date_sent = 'DATE_SENT' :'java.lang.String' (OPT) (sourcetypedecimals='10', sourcetyperadix='10', sourcetypesize='2000000000', sourcetypeid='12', sourcetypename='DATETIME')  NOT SORTABLE,
+        date_received = 'DATE_RECEIVED' :'java.lang.String' (OPT) (sourcetypedecimals='10', sourcetyperadix='10', sourcetypesize='2000000000', sourcetypeid='12', sourcetypename='DATETIME')  NOT SORTABLE,
+        status = 'STATUS' :'java.lang.String' (OPT) (sourcetypedecimals='10', sourcetyperadix='10', sourcetypesize='2000000000', sourcetypeid='12', sourcetypename='VARCHAR(50)')  SORTABLE
+    )
+    PRIMARY KEY ( 'ID' )
+    INDEX 'sqlite_autoindex_delivery_1' OTHER UNIQUE PRIMARY ( 'ID' );
+
+CREATE OR REPLACE TABLE delivery I18N us_pst (
+        id:double (sourcetypeid = '6', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
+        order_item_id:double (sourcetypeid = '6', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
+        date_sent:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
+        date_received:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
+        status:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000')
+    )
+    FOLDER = '/1 - connectivity/1 - data sources'
+    PRIMARY KEY ( 'id' )
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD delivery(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD id (any) OPT ANY
+             ADD order_item_id (any) OPT ANY
+             ADD date_sent (any) OPT ANY
+             ADD date_received (any) OPT ANY
+             ADD status (any) OPT ANY
+        )
+        OUTPUTLIST (date_received, date_sent, id, order_item_id, status
+        )
+        WRAPPER (jdbc delivery_5113)
+    );
+

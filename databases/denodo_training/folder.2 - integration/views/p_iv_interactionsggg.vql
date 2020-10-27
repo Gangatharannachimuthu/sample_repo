@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW p_iv_interactionsggg FOLDER = '/2 - integration' AS SELECT agent_code AS agent_id, interaction_date AS interaction_date, interaction_ip AS interaction_ip, case_id AS case_id, interaction_phone AS interaction_phone, customer_code AS customer_code FROM iv_interactions GROUP BY agent_code, interaction_date, interaction_ip, case_id, interaction_phone, customer_code;
+
+ALTER VIEW p_iv_interactionsggg
+ LAYOUT (iv_interactions = [20, 20, 235, 466]);
+

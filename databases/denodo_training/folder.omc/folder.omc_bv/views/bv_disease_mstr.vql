@@ -1,0 +1,41 @@
+﻿CREATE OR REPLACE WRAPPER DF disease_mstr
+    FOLDER = '/omc/omc_bv'
+    DATASOURCENAME=disease_mstr
+    OUTPUTSCHEMA (
+        diseaseacronym_0 = 'Disease Acronym' (OPT),
+        diseasedisplayname_0 = 'Disease Display Name' (OPT),
+        enabled = 'Enabled' (OPT),
+        iconfilepath = 'IconFilePath' (OPT),
+        activeflag_0 = 'Active Flag' (OPT),
+        id_0 = '' (OPT),
+        insertintoomc_disease_mstromc_dis_nameomc_dis_abbromc_icon_fle_pthomc_dis_stsomc_crt_byomc_crt_tso_0 = '"insert into omc_disease_mstr (omc_dis_name,omc_dis_abbr,omc_icon_fle_pth,omc_dis_sts,omc_crt_by,omc_crt_ts,omc_lst_upd_by,omc_lst_upd_ts) values "' (OPT)
+    );
+
+CREATE OR REPLACE TABLE bv_disease_mstr I18N us_pst (
+        diseaseacronym_0:text, 
+        diseasedisplayname_0:text, 
+        enabled:text, 
+        iconfilepath:text, 
+        activeflag_0:text, 
+        id_0:text, 
+        insertintoomc_disease_mstromc_dis_nameomc_dis_abbromc_icon_fle_pthomc_dis_stsomc_crt_byomc_crt_tso_0:text
+    )
+    FOLDER = '/omc/omc_bv'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD disease_mstr(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD diseaseacronym_0 (=,in) OPT ANY
+             ADD diseasedisplayname_0 (=,in) OPT ANY
+             ADD enabled (=,in) OPT ANY
+             ADD iconfilepath (=,in) OPT ANY
+             ADD activeflag_0 (=,in) OPT ANY
+             ADD id_0 (=,in) OPT ANY
+             ADD insertintoomc_disease_mstromc_dis_nameomc_dis_abbromc_icon_fle_pthomc_dis_stsomc_crt_byomc_crt_tso_0 (=,in) OPT ANY
+        )
+        OUTPUTLIST (activeflag_0, diseaseacronym_0, diseasedisplayname_0, enabled, iconfilepath, id_0, insertintoomc_disease_mstromc_dis_nameomc_dis_abbromc_icon_fle_pthomc_dis_stsomc_crt_byomc_crt_tso_0
+        )
+        WRAPPER (df disease_mstr)
+    );
+

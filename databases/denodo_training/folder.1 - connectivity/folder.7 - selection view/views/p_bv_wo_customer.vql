@@ -1,0 +1,9 @@
+﻿CREATE OR REPLACE VIEW p_bv_wo_customer FOLDER = '/1 - connectivity/7 - selection view' AS SELECT ass.id AS cus_id, ass.customer_code_internal AS customer_code_internal, ass.first_name AS first_name, ass.last_name AS last_name, ass.email AS email, ass.phone AS phone, ass.main_address AS main_address, ass.main_postcode AS main_postcode, ass.main_country AS main_country, ass.registered_date AS registered_date FROM ass WHERE first_name = 'Ryan';
+
+ALTER VIEW p_bv_wo_customer
+ LAYOUT (ass = [20, 20, 340, 226]);
+
+ALTER VIEW p_bv_wo_customer
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE DEFAULT;
+

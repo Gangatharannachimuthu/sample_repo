@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW regis_customer FOLDER = '/register' AS SELECT main_country AS main_country, register(first_name, last_name) AS reg FROM bv_customer GROUP BY main_country, first_name, last_name;
+
+ALTER VIEW regis_customer
+ LAYOUT (bv_customer = [20, 20, 264, 226]);
+

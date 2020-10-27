@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW p_storages FOLDER = '/ws' AS SELECT id AS id, count(*) AS total FROM bv_wo_storages GROUP BY id HAVING count(*) < 1;
+
+ALTER VIEW p_storages
+ LAYOUT (bv_wo_storages = [20, 20, 200, 186]);
+

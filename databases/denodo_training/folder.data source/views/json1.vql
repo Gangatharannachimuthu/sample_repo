@@ -1,0 +1,2448 @@
+﻿CREATE OR REPLACE WRAPPER JSON json1
+    FOLDER = '/data source'
+    DATASOURCENAME=json
+    TUPLEROOT '/JSONFile'
+    OUTPUTSCHEMA (jsonfile = 'JSONFile' : REGISTER OF (
+        swagger = 'swagger' : 'java.lang.String',
+        info = 'info' : REGISTER OF (
+            description = 'description' : 'java.lang.String',
+            version = 'version' : 'java.lang.String',
+            title = 'title' : 'java.lang.String'
+        ),
+        host = 'host' : 'java.lang.String',
+        basepath = 'basePath' : 'java.lang.String',
+        tags = 'tags' : ARRAY OF (
+            tags = 'tags' : REGISTER OF (
+                name = 'name' : 'java.lang.String',
+                description = 'description' : 'java.lang.String'
+            )
+        ),
+        schemes = 'schemes' : ARRAY OF (
+            schemes = 'schemes' : REGISTER OF (
+                field_0 = 'field_0' : 'java.lang.String'
+            )
+        ),
+        paths = 'paths' : REGISTER OF (
+            viewsagentcount_0 = '/views/agent/$$count' : REGISTER OF (
+                get = 'get' : REGISTER OF (
+                    tags = 'tags' : ARRAY OF (
+                        tags = 'tags' : REGISTER OF (
+                            field_0 = 'field_0' : 'java.lang.String'
+                        )
+                    ),
+                    description = 'description' : 'java.lang.String',
+                    operationid = 'operationId' : 'java.lang.String',
+                    produces = 'produces' : ARRAY OF (
+                        produces = 'produces' : REGISTER OF (
+                            field_0 = 'field_0' : 'java.lang.String'
+                        )
+                    ),
+                    parameters = 'parameters' : ARRAY OF (
+                        parameters = 'parameters' : REGISTER OF (
+                            ref_0 = '$$ref' : 'java.lang.String'
+                        )
+                    ),
+                    responses = 'responses' : REGISTER OF (
+                        id_5 = '200' : REGISTER OF (
+                            description = 'description' : 'java.lang.String',
+                            schema = 'schema' : REGISTER OF (
+                                type = 'type' : 'java.lang.String',
+                                format = 'format' : 'java.lang.String'
+                            )
+                        ),
+                        id_4 = '204' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_3 = '400' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_2 = '401' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_1 = '403' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_0 = '500' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        )
+                    )
+                )
+            ),
+            viewsagentprimarykeyvalue_0 = '/views/agent/{{primaryKeyValue}}' : REGISTER OF (
+                get = 'get' : REGISTER OF (
+                    tags = 'tags' : ARRAY OF (
+                        tags = 'tags' : REGISTER OF (
+                            field_0 = 'field_0' : 'java.lang.String'
+                        )
+                    ),
+                    description = 'description' : 'java.lang.String',
+                    operationid = 'operationId' : 'java.lang.String',
+                    produces = 'produces' : ARRAY OF (
+                        produces = 'produces' : REGISTER OF (
+                            field_0 = 'field_0' : 'java.lang.String'
+                        )
+                    ),
+                    parameters = 'parameters' : ARRAY OF (
+                        parameters = 'parameters' : REGISTER OF (
+                            ref_0 = '$$ref' : 'java.lang.String'
+                        )
+                    ),
+                    responses = 'responses' : REGISTER OF (
+                        id_5 = '200' : REGISTER OF (
+                            description = 'description' : 'java.lang.String',
+                            schema = 'schema' : REGISTER OF (
+                                ref_0 = '$$ref' : 'java.lang.String'
+                            )
+                        ),
+                        id_4 = '204' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_3 = '400' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_2 = '401' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_1 = '403' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_0 = '500' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        )
+                    )
+                ),
+                put = 'put' : REGISTER OF (
+                    tags = 'tags' : ARRAY OF (
+                        tags = 'tags' : REGISTER OF (
+                            field_0 = 'field_0' : 'java.lang.String'
+                        )
+                    ),
+                    description = 'description' : 'java.lang.String',
+                    operationid = 'operationId' : 'java.lang.String',
+                    consumes = 'consumes' : ARRAY OF (
+                        consumes = 'consumes' : REGISTER OF (
+                            field_0 = 'field_0' : 'java.lang.String'
+                        )
+                    ),
+                    produces = 'produces' : ARRAY OF (
+                        produces = 'produces' : REGISTER OF (
+                            field_0 = 'field_0' : 'java.lang.String'
+                        )
+                    ),
+                    parameters = 'parameters' : ARRAY OF (
+                        parameters = 'parameters' : REGISTER OF (
+                            ref_0 = '$$ref' : 'java.lang.String',
+                            in = 'in' : 'java.lang.String',
+                            name = 'name' : 'java.lang.String',
+                            required = 'required' : 'java.lang.String',
+                            schema = 'schema' : REGISTER OF (
+                                ref_0 = '$$ref' : 'java.lang.String'
+                            )
+                        )
+                    ),
+                    responses = 'responses' : REGISTER OF (
+                        id_4 = '204' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_3 = '400' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_2 = '401' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_1 = '403' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_0 = '500' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        )
+                    )
+                ),
+                delete = 'delete' : REGISTER OF (
+                    tags = 'tags' : ARRAY OF (
+                        tags = 'tags' : REGISTER OF (
+                            field_0 = 'field_0' : 'java.lang.String'
+                        )
+                    ),
+                    description = 'description' : 'java.lang.String',
+                    operationid = 'operationId' : 'java.lang.String',
+                    parameters = 'parameters' : ARRAY OF (
+                        parameters = 'parameters' : REGISTER OF (
+                            ref_0 = '$$ref' : 'java.lang.String'
+                        )
+                    ),
+                    responses = 'responses' : REGISTER OF (
+                        id_4 = '204' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_3 = '400' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_2 = '401' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_1 = '403' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_0 = '500' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        )
+                    )
+                ),
+                parameters = 'parameters' : ARRAY OF (
+                    parameters = 'parameters' : REGISTER OF (
+                        name = 'name' : 'java.lang.String',
+                        in = 'in' : 'java.lang.String',
+                        description = 'description' : 'java.lang.String',
+                        required = 'required' : 'java.lang.String',
+                        type = 'type' : 'java.lang.String',
+                        items = 'items' : REGISTER OF (
+                            type = 'type' : 'java.lang.String'
+                        ),
+                        collectionformat = 'collectionFormat' : 'java.lang.String',
+                        maxitems = 'maxItems' : 'java.lang.Integer',
+                        minitems = 'minItems' : 'java.lang.Integer'
+                    )
+                )
+            ),
+            viewsagentmetadata_0 = '/views/agent/$$metadata' : REGISTER OF (
+                get = 'get' : REGISTER OF (
+                    tags = 'tags' : ARRAY OF (
+                        tags = 'tags' : REGISTER OF (
+                            field_0 = 'field_0' : 'java.lang.String'
+                        )
+                    ),
+                    description = 'description' : 'java.lang.String',
+                    operationid = 'operationId' : 'java.lang.String',
+                    produces = 'produces' : ARRAY OF (
+                        produces = 'produces' : REGISTER OF (
+                            field_0 = 'field_0' : 'java.lang.String'
+                        )
+                    ),
+                    parameters = 'parameters' : ARRAY OF (
+                        parameters = 'parameters' : REGISTER OF (
+                            ref_0 = '$$ref' : 'java.lang.String'
+                        )
+                    ),
+                    responses = 'responses' : REGISTER OF (
+                        id_4 = '200' : REGISTER OF (
+                            description = 'description' : 'java.lang.String',
+                            schema = 'schema' : REGISTER OF (
+                                ref_0 = '$$ref' : 'java.lang.String'
+                            )
+                        ),
+                        id_3 = '400' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_2 = '401' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_1 = '403' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_0 = '500' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        )
+                    )
+                )
+            ),
+            viewsagentassociations_0 = '/views/agent/$$associations' : REGISTER OF (
+                get = 'get' : REGISTER OF (
+                    tags = 'tags' : ARRAY OF (
+                        tags = 'tags' : REGISTER OF (
+                            field_0 = 'field_0' : 'java.lang.String'
+                        )
+                    ),
+                    description = 'description' : 'java.lang.String',
+                    operationid = 'operationId' : 'java.lang.String',
+                    produces = 'produces' : ARRAY OF (
+                        produces = 'produces' : REGISTER OF (
+                            field_0 = 'field_0' : 'java.lang.String'
+                        )
+                    ),
+                    parameters = 'parameters' : ARRAY OF (
+                        parameters = 'parameters' : REGISTER OF (
+                            ref_0 = '$$ref' : 'java.lang.String'
+                        )
+                    ),
+                    responses = 'responses' : REGISTER OF (
+                        id_4 = '200' : REGISTER OF (
+                            description = 'description' : 'java.lang.String',
+                            schema = 'schema' : REGISTER OF (
+                                ref_0 = '$$ref' : 'java.lang.String'
+                            )
+                        ),
+                        id_3 = '400' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_2 = '401' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_1 = '403' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_0 = '500' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        )
+                    )
+                )
+            ),
+            viewsagentxsd_0 = '/views/agent/$$xsd' : REGISTER OF (
+                get = 'get' : REGISTER OF (
+                    tags = 'tags' : ARRAY OF (
+                        tags = 'tags' : REGISTER OF (
+                            field_0 = 'field_0' : 'java.lang.String'
+                        )
+                    ),
+                    description = 'description' : 'java.lang.String',
+                    operationid = 'operationId' : 'java.lang.String',
+                    produces = 'produces' : ARRAY OF (
+                        produces = 'produces' : REGISTER OF (
+                            field_0 = 'field_0' : 'java.lang.String'
+                        )
+                    ),
+                    parameters = 'parameters' : ARRAY OF (
+                        parameters = 'parameters' : REGISTER OF (
+                            ref_0 = '$$ref' : 'java.lang.String'
+                        )
+                    ),
+                    responses = 'responses' : REGISTER OF (
+                        id_4 = '200' : REGISTER OF (
+                            description = 'description' : 'java.lang.String',
+                            schema = 'schema' : REGISTER OF (
+                                ref_0 = '$$ref' : 'java.lang.String'
+                            )
+                        ),
+                        id_3 = '400' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_2 = '401' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_1 = '403' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_0 = '500' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        )
+                    )
+                )
+            ),
+            viewsagentschema_0 = '/views/agent/$$schema' : REGISTER OF (
+                get = 'get' : REGISTER OF (
+                    tags = 'tags' : ARRAY OF (
+                        tags = 'tags' : REGISTER OF (
+                            field_0 = 'field_0' : 'java.lang.String'
+                        )
+                    ),
+                    description = 'description' : 'java.lang.String',
+                    operationid = 'operationId' : 'java.lang.String',
+                    produces = 'produces' : ARRAY OF (
+                        produces = 'produces' : REGISTER OF (
+                            field_0 = 'field_0' : 'java.lang.String'
+                        )
+                    ),
+                    parameters = 'parameters' : ARRAY OF (
+                        parameters = 'parameters' : REGISTER OF (
+                            ref_0 = '$$ref' : 'java.lang.String'
+                        )
+                    ),
+                    responses = 'responses' : REGISTER OF (
+                        id_4 = '200' : REGISTER OF (
+                            description = 'description' : 'java.lang.String',
+                            schema = 'schema' : REGISTER OF (
+                                ref_0 = '$$ref' : 'java.lang.String'
+                            )
+                        ),
+                        id_3 = '400' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_2 = '401' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_1 = '403' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_0 = '500' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        )
+                    )
+                )
+            ),
+            viewsagent_0 = '/views/agent' : REGISTER OF (
+                get = 'get' : REGISTER OF (
+                    tags = 'tags' : ARRAY OF (
+                        tags = 'tags' : REGISTER OF (
+                            field_0 = 'field_0' : 'java.lang.String'
+                        )
+                    ),
+                    description = 'description' : 'java.lang.String',
+                    operationid = 'operationId' : 'java.lang.String',
+                    produces = 'produces' : ARRAY OF (
+                        produces = 'produces' : REGISTER OF (
+                            field_0 = 'field_0' : 'java.lang.String'
+                        )
+                    ),
+                    parameters = 'parameters' : ARRAY OF (
+                        parameters = 'parameters' : REGISTER OF (
+                            ref_0 = '$$ref' : 'java.lang.String'
+                        )
+                    ),
+                    responses = 'responses' : REGISTER OF (
+                        id_5 = '200' : REGISTER OF (
+                            description = 'description' : 'java.lang.String',
+                            schema = 'schema' : REGISTER OF (
+                                ref_0 = '$$ref' : 'java.lang.String'
+                            )
+                        ),
+                        id_4 = '204' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_3 = '400' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_2 = '401' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_1 = '403' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_0 = '500' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        )
+                    )
+                ),
+                post = 'post' : REGISTER OF (
+                    tags = 'tags' : ARRAY OF (
+                        tags = 'tags' : REGISTER OF (
+                            field_0 = 'field_0' : 'java.lang.String'
+                        )
+                    ),
+                    description = 'description' : 'java.lang.String',
+                    operationid = 'operationId' : 'java.lang.String',
+                    consumes = 'consumes' : ARRAY OF (
+                        consumes = 'consumes' : REGISTER OF (
+                            field_0 = 'field_0' : 'java.lang.String'
+                        )
+                    ),
+                    produces = 'produces' : ARRAY OF (
+                        produces = 'produces' : REGISTER OF (
+                            field_0 = 'field_0' : 'java.lang.String'
+                        )
+                    ),
+                    parameters = 'parameters' : ARRAY OF (
+                        parameters = 'parameters' : REGISTER OF (
+                            ref_0 = '$$ref' : 'java.lang.String',
+                            in = 'in' : 'java.lang.String',
+                            name = 'name' : 'java.lang.String',
+                            required = 'required' : 'java.lang.String',
+                            schema = 'schema' : REGISTER OF (
+                                ref_0 = '$$ref' : 'java.lang.String'
+                            )
+                        )
+                    ),
+                    responses = 'responses' : REGISTER OF (
+                        id_4 = '201' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_3 = '400' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_2 = '401' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_1 = '403' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        ),
+                        id_0 = '500' : REGISTER OF (
+                            description = 'description' : 'java.lang.String'
+                        )
+                    )
+                )
+            )
+        ),
+        definitions = 'definitions' : REGISTER OF (
+            links_def = 'links_def' : REGISTER OF (
+                required = 'required' : ARRAY OF (
+                    required = 'required' : REGISTER OF (
+                        field_0 = 'field_0' : 'java.lang.String'
+                    )
+                ),
+                properties = 'properties' : REGISTER OF (
+                    rel = 'rel' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        xml = 'xml' : REGISTER OF (
+                            attribute = 'attribute' : 'java.lang.String'
+                        )
+                    ),
+                    href = 'href' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        xml = 'xml' : REGISTER OF (
+                            attribute = 'attribute' : 'java.lang.String'
+                        )
+                    ),
+                    title = 'title' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        xml = 'xml' : REGISTER OF (
+                            attribute = 'attribute' : 'java.lang.String'
+                        )
+                    ),
+                    type = 'type' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        xml = 'xml' : REGISTER OF (
+                            attribute = 'attribute' : 'java.lang.String'
+                        ),
+                        description = 'description' : 'java.lang.String'
+                    )
+                ),
+                xml = 'xml' : REGISTER OF (
+                    name = 'name' : 'java.lang.String',
+                    namespace = 'namespace' : 'java.lang.String'
+                )
+            ),
+            associations_def = 'associations_def' : REGISTER OF (
+                properties = 'properties' : REGISTER OF (
+                    viewname_0 = 'view-name' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        xml = 'xml' : REGISTER OF (
+                            attribute = 'attribute' : 'java.lang.String'
+                        ),
+                        description = 'description' : 'java.lang.String'
+                    ),
+                    associationmetadata_0 = 'association-metadata' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        items = 'items' : REGISTER OF (
+                            type = 'type' : 'java.lang.String',
+                            properties = 'properties' : REGISTER OF (
+                                endpoints = 'endpoints' : REGISTER OF (
+                                    type = 'type' : 'java.lang.String',
+                                    items = 'items' : REGISTER OF (
+                                        type = 'type' : 'java.lang.String',
+                                        xml = 'xml' : REGISTER OF (
+                                            name = 'name' : 'java.lang.String'
+                                        ),
+                                        properties = 'properties' : REGISTER OF (
+                                            multiplicity = 'multiplicity' : REGISTER OF (
+                                                type = 'type' : 'java.lang.String',
+                                                xml = 'xml' : REGISTER OF (
+                                                    attribute = 'attribute' : 'java.lang.String'
+                                                ),
+                                                description = 'description' : 'java.lang.String',
+                                                enum = 'enum' : ARRAY OF (
+                                                    enum = 'enum' : REGISTER OF (
+                                                        field_0 = 'field_0' : 'java.lang.String'
+                                                    )
+                                                )
+                                            ),
+                                            principal = 'principal' : REGISTER OF (
+                                                type = 'type' : 'java.lang.String',
+                                                xml = 'xml' : REGISTER OF (
+                                                    attribute = 'attribute' : 'java.lang.String'
+                                                ),
+                                                description = 'description' : 'java.lang.String'
+                                            ),
+                                            roledescription_0 = 'role-description' : REGISTER OF (
+                                                type = 'type' : 'java.lang.String',
+                                                xml = 'xml' : REGISTER OF (
+                                                    attribute = 'attribute' : 'java.lang.String'
+                                                ),
+                                                description = 'description' : 'java.lang.String'
+                                            ),
+                                            rolename_0 = 'role-name' : REGISTER OF (
+                                                type = 'type' : 'java.lang.String',
+                                                xml = 'xml' : REGISTER OF (
+                                                    attribute = 'attribute' : 'java.lang.String'
+                                                ),
+                                                description = 'description' : 'java.lang.String'
+                                            ),
+                                            viewname_0 = 'view-name' : REGISTER OF (
+                                                type = 'type' : 'java.lang.String',
+                                                xml = 'xml' : REGISTER OF (
+                                                    attribute = 'attribute' : 'java.lang.String'
+                                                ),
+                                                description = 'description' : 'java.lang.String'
+                                            )
+                                        )
+                                    )
+                                ),
+                                link = 'link' : REGISTER OF (
+                                    ref_0 = '$$ref' : 'java.lang.String'
+                                ),
+                                name = 'name' : REGISTER OF (
+                                    type = 'type' : 'java.lang.String',
+                                    xml = 'xml' : REGISTER OF (
+                                        attribute = 'attribute' : 'java.lang.String'
+                                    ),
+                                    description = 'description' : 'java.lang.String'
+                                ),
+                                referentialconstraint_0 = 'referential-constraint' : REGISTER OF (
+                                    type = 'type' : 'java.lang.String',
+                                    xml = 'xml' : REGISTER OF (
+                                        attribute = 'attribute' : 'java.lang.String'
+                                    ),
+                                    description = 'description' : 'java.lang.String'
+                                )
+                            )
+                        )
+                    ),
+                    link = 'link' : REGISTER OF (
+                        ref_0 = '$$ref' : 'java.lang.String'
+                    )
+                ),
+                xml = 'xml' : REGISTER OF (
+                    name = 'name' : 'java.lang.String',
+                    namespace = 'namespace' : 'java.lang.String'
+                )
+            ),
+            agent_element_def = 'agent_element_def' : REGISTER OF (
+                properties = 'properties' : REGISTER OF (
+                    agent_id = 'agent_id' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        description = 'description' : 'java.lang.String'
+                    ),
+                    agent_code = 'agent_code' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        description = 'description' : 'java.lang.String'
+                    ),
+                    agent_name = 'agent_name' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        description = 'description' : 'java.lang.String'
+                    ),
+                    links = 'links' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        items = 'items' : REGISTER OF (
+                            ref_0 = '$$ref' : 'java.lang.String'
+                        )
+                    )
+                ),
+                description = 'description' : 'java.lang.String',
+                xml = 'xml' : REGISTER OF (
+                    name = 'name' : 'java.lang.String',
+                    namespace = 'namespace' : 'java.lang.String'
+                )
+            ),
+            agent_element_post_def = 'agent_element_post_def' : REGISTER OF (
+                properties = 'properties' : REGISTER OF (
+                    agent_id = 'agent_id' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        description = 'description' : 'java.lang.String'
+                    ),
+                    agent_code = 'agent_code' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        description = 'description' : 'java.lang.String'
+                    ),
+                    agent_name = 'agent_name' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        description = 'description' : 'java.lang.String'
+                    )
+                ),
+                description = 'description' : 'java.lang.String',
+                xml = 'xml' : REGISTER OF (
+                    name = 'name' : 'java.lang.String',
+                    namespace = 'namespace' : 'java.lang.String'
+                )
+            ),
+            agent_element_put_def = 'agent_element_put_def' : REGISTER OF (
+                properties = 'properties' : REGISTER OF (
+                    agent_code = 'agent_code' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        description = 'description' : 'java.lang.String'
+                    ),
+                    agent_name = 'agent_name' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        description = 'description' : 'java.lang.String'
+                    )
+                ),
+                description = 'description' : 'java.lang.String',
+                xml = 'xml' : REGISTER OF (
+                    name = 'name' : 'java.lang.String',
+                    namespace = 'namespace' : 'java.lang.String'
+                )
+            ),
+            agent_element_simplified_def = 'agent_element_simplified_def' : REGISTER OF (
+                properties = 'properties' : REGISTER OF (
+                    agent_id = 'agent_id' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        properties = 'properties' : REGISTER OF (
+                            type = 'type' : REGISTER OF (
+                                type = 'type' : 'java.lang.String',
+                                description = 'description' : 'java.lang.String'
+                            )
+                        )
+                    ),
+                    agent_code = 'agent_code' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        properties = 'properties' : REGISTER OF (
+                            type = 'type' : REGISTER OF (
+                                type = 'type' : 'java.lang.String',
+                                description = 'description' : 'java.lang.String'
+                            )
+                        )
+                    ),
+                    agent_name = 'agent_name' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        properties = 'properties' : REGISTER OF (
+                            type = 'type' : REGISTER OF (
+                                type = 'type' : 'java.lang.String',
+                                description = 'description' : 'java.lang.String'
+                            )
+                        )
+                    )
+                ),
+                description = 'description' : 'java.lang.String',
+                xml = 'xml' : REGISTER OF (
+                    name = 'name' : 'java.lang.String',
+                    namespace = 'namespace' : 'java.lang.String'
+                )
+            ),
+            agent_xsd_def = 'agent_xsd_def' : REGISTER OF (
+                properties = 'properties' : REGISTER OF (
+                    targetnamespace = 'targetNamespace' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        xml = 'xml' : REGISTER OF (
+                            attribute = 'attribute' : 'java.lang.String'
+                        ),
+                        description = 'description' : 'java.lang.String'
+                    ),
+                    element = 'element' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        properties = 'properties' : REGISTER OF (
+                            complextype = 'complexType' : REGISTER OF (
+                                type = 'type' : 'java.lang.String',
+                                properties = 'properties' : REGISTER OF (
+                                    sequence = 'sequence' : REGISTER OF (
+                                        type = 'type' : 'java.lang.String',
+                                        properties = 'properties' : REGISTER OF (
+                                            agent_code = 'agent_code' : REGISTER OF (
+                                                type = 'type' : 'java.lang.String',
+                                                xml = 'xml' : REGISTER OF (
+                                                    name = 'name' : 'java.lang.String'
+                                                ),
+                                                properties = 'properties' : REGISTER OF (
+                                                    name = 'name' : REGISTER OF (
+                                                        type = 'type' : 'java.lang.String',
+                                                        xml = 'xml' : REGISTER OF (
+                                                            attribute = 'attribute' : 'java.lang.String'
+                                                        )
+                                                    ),
+                                                    type = 'type' : REGISTER OF (
+                                                        type = 'type' : 'java.lang.String',
+                                                        xml = 'xml' : REGISTER OF (
+                                                            attribute = 'attribute' : 'java.lang.String'
+                                                        ),
+                                                        description = 'description' : 'java.lang.String'
+                                                    ),
+                                                    nillable = 'nillable' : REGISTER OF (
+                                                        type = 'type' : 'java.lang.String',
+                                                        xml = 'xml' : REGISTER OF (
+                                                            attribute = 'attribute' : 'java.lang.String'
+                                                        )
+                                                    )
+                                                )
+                                            ),
+                                            agent_id = 'agent_id' : REGISTER OF (
+                                                type = 'type' : 'java.lang.String',
+                                                xml = 'xml' : REGISTER OF (
+                                                    name = 'name' : 'java.lang.String'
+                                                ),
+                                                properties = 'properties' : REGISTER OF (
+                                                    name = 'name' : REGISTER OF (
+                                                        type = 'type' : 'java.lang.String',
+                                                        xml = 'xml' : REGISTER OF (
+                                                            attribute = 'attribute' : 'java.lang.String'
+                                                        )
+                                                    ),
+                                                    type = 'type' : REGISTER OF (
+                                                        type = 'type' : 'java.lang.String',
+                                                        xml = 'xml' : REGISTER OF (
+                                                            attribute = 'attribute' : 'java.lang.String'
+                                                        ),
+                                                        description = 'description' : 'java.lang.String'
+                                                    ),
+                                                    nillable = 'nillable' : REGISTER OF (
+                                                        type = 'type' : 'java.lang.String',
+                                                        xml = 'xml' : REGISTER OF (
+                                                            attribute = 'attribute' : 'java.lang.String'
+                                                        )
+                                                    )
+                                                )
+                                            ),
+                                            agent_name = 'agent_name' : REGISTER OF (
+                                                type = 'type' : 'java.lang.String',
+                                                xml = 'xml' : REGISTER OF (
+                                                    name = 'name' : 'java.lang.String'
+                                                ),
+                                                properties = 'properties' : REGISTER OF (
+                                                    name = 'name' : REGISTER OF (
+                                                        type = 'type' : 'java.lang.String',
+                                                        xml = 'xml' : REGISTER OF (
+                                                            attribute = 'attribute' : 'java.lang.String'
+                                                        )
+                                                    ),
+                                                    type = 'type' : REGISTER OF (
+                                                        type = 'type' : 'java.lang.String',
+                                                        xml = 'xml' : REGISTER OF (
+                                                            attribute = 'attribute' : 'java.lang.String'
+                                                        ),
+                                                        description = 'description' : 'java.lang.String'
+                                                    ),
+                                                    nillable = 'nillable' : REGISTER OF (
+                                                        type = 'type' : 'java.lang.String',
+                                                        xml = 'xml' : REGISTER OF (
+                                                            attribute = 'attribute' : 'java.lang.String'
+                                                        )
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            ),
+                            name = 'name' : REGISTER OF (
+                                type = 'type' : 'java.lang.String',
+                                xml = 'xml' : REGISTER OF (
+                                    attribute = 'attribute' : 'java.lang.String'
+                                ),
+                                description = 'description' : 'java.lang.String'
+                            )
+                        )
+                    )
+                ),
+                description = 'description' : 'java.lang.String',
+                xml = 'xml' : REGISTER OF (
+                    name = 'name' : 'java.lang.String',
+                    namespace = 'namespace' : 'java.lang.String'
+                )
+            ),
+            agent_response_def = 'agent_response_def' : REGISTER OF (
+                properties = 'properties' : REGISTER OF (
+                    name = 'name' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        xml = 'xml' : REGISTER OF (
+                            attribute = 'attribute' : 'java.lang.String'
+                        ),
+                        description = 'description' : 'java.lang.String'
+                    ),
+                    description = 'description' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        xml = 'xml' : REGISTER OF (
+                            attribute = 'attribute' : 'java.lang.String'
+                        ),
+                        description = 'description' : 'java.lang.String'
+                    ),
+                    elements = 'elements' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        description = 'description' : 'java.lang.String',
+                        items = 'items' : REGISTER OF (
+                            ref_0 = '$$ref' : 'java.lang.String'
+                        )
+                    ),
+                    links = 'links' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        description = 'description' : 'java.lang.String',
+                        items = 'items' : REGISTER OF (
+                            ref_0 = '$$ref' : 'java.lang.String'
+                        )
+                    )
+                ),
+                xml = 'xml' : REGISTER OF (
+                    name = 'name' : 'java.lang.String',
+                    namespace = 'namespace' : 'java.lang.String'
+                )
+            ),
+            agent_schema_def = 'agent_schema_def' : REGISTER OF (
+                properties = 'properties' : REGISTER OF (
+                    name = 'name' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        description = 'description' : 'java.lang.String'
+                    ),
+                    properties = 'properties' : REGISTER OF (
+                        ref_0 = '$$ref' : 'java.lang.String'
+                    )
+                )
+            ),
+            agent_metadata_def = 'agent_metadata_def' : REGISTER OF (
+                properties = 'properties' : REGISTER OF (
+                    name = 'name' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        xml = 'xml' : REGISTER OF (
+                            attribute = 'attribute' : 'java.lang.String'
+                        ),
+                        description = 'description' : 'java.lang.String'
+                    ),
+                    description = 'description' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        xml = 'xml' : REGISTER OF (
+                            attribute = 'attribute' : 'java.lang.String'
+                        ),
+                        description = 'description' : 'java.lang.String'
+                    ),
+                    viewsmetadata_0 = 'views-metadata' : REGISTER OF (
+                        type = 'type' : 'java.lang.String',
+                        xml = 'xml' : REGISTER OF (
+                            name = 'name' : 'java.lang.String'
+                        ),
+                        properties = 'properties' : REGISTER OF (
+                            links = 'links' : REGISTER OF (
+                                type = 'type' : 'java.lang.String',
+                                items = 'items' : REGISTER OF (
+                                    ref_0 = '$$ref' : 'java.lang.String'
+                                )
+                            ),
+                            name = 'name' : REGISTER OF (
+                                type = 'type' : 'java.lang.String',
+                                xml = 'xml' : REGISTER OF (
+                                    attribute = 'attribute' : 'java.lang.String'
+                                ),
+                                description = 'description' : 'java.lang.String'
+                            )
+                        ),
+                        required = 'required' : ARRAY OF (
+                            required = 'required' : REGISTER OF (
+                                field_0 = 'field_0' : 'java.lang.String'
+                            )
+                        )
+                    )
+                ),
+                xml = 'xml' : REGISTER OF (
+                    name = 'name' : 'java.lang.String',
+                    namespace = 'namespace' : 'java.lang.String'
+                )
+            )
+        ),
+        parameters = 'parameters' : REGISTER OF (
+            count_parameter = 'count_parameter' : REGISTER OF (
+                name = 'name' : 'java.lang.String',
+                in = 'in' : 'java.lang.String',
+                description = 'description' : 'java.lang.String',
+                required = 'required' : 'java.lang.String',
+                type = 'type' : 'java.lang.String'
+            ),
+            select_parameter = 'select_parameter' : REGISTER OF (
+                name = 'name' : 'java.lang.String',
+                in = 'in' : 'java.lang.String',
+                description = 'description' : 'java.lang.String',
+                required = 'required' : 'java.lang.String',
+                type = 'type' : 'java.lang.String',
+                items = 'items' : REGISTER OF (
+                    type = 'type' : 'java.lang.String'
+                ),
+                collectionformat = 'collectionFormat' : 'java.lang.String'
+            ),
+            start_index_parameter = 'start_index_parameter' : REGISTER OF (
+                name = 'name' : 'java.lang.String',
+                in = 'in' : 'java.lang.String',
+                description = 'description' : 'java.lang.String',
+                required = 'required' : 'java.lang.String',
+                type = 'type' : 'java.lang.String'
+            ),
+            noescape_html_parameter = 'noescape_html_parameter' : REGISTER OF (
+                name = 'name' : 'java.lang.String',
+                in = 'in' : 'java.lang.String',
+                description = 'description' : 'java.lang.String',
+                required = 'required' : 'java.lang.String',
+                type = 'type' : 'java.lang.String',
+                items = 'items' : REGISTER OF (
+                    type = 'type' : 'java.lang.String'
+                ),
+                collectionformat = 'collectionFormat' : 'java.lang.String'
+            ),
+            user_agent_header_parameter = 'user_agent_header_parameter' : REGISTER OF (
+                name = 'name' : 'java.lang.String',
+                in = 'in' : 'java.lang.String',
+                description = 'description' : 'java.lang.String',
+                required = 'required' : 'java.lang.String',
+                type = 'type' : 'java.lang.String'
+            ),
+            filter_parameter = 'filter_parameter' : REGISTER OF (
+                name = 'name' : 'java.lang.String',
+                in = 'in' : 'java.lang.String',
+                description = 'description' : 'java.lang.String',
+                required = 'required' : 'java.lang.String',
+                type = 'type' : 'java.lang.String'
+            ),
+            jsoncallback_parameter = 'jsoncallback_parameter' : REGISTER OF (
+                name = 'name' : 'java.lang.String',
+                in = 'in' : 'java.lang.String',
+                description = 'description' : 'java.lang.String',
+                required = 'required' : 'java.lang.String',
+                type = 'type' : 'java.lang.String'
+            ),
+            reduced_format_parameter = 'reduced_format_parameter' : REGISTER OF (
+                name = 'name' : 'java.lang.String',
+                in = 'in' : 'java.lang.String',
+                description = 'description' : 'java.lang.String',
+                required = 'required' : 'java.lang.String',
+                type = 'type' : 'java.lang.String',
+                default_0 = 'default' : 'java.lang.String',
+                enum = 'enum' : ARRAY OF (
+                    enum = 'enum' : REGISTER OF (
+                        field_0 = 'field_0' : 'java.lang.String'
+                    )
+                )
+            ),
+            having_parameter = 'having_parameter' : REGISTER OF (
+                name = 'name' : 'java.lang.String',
+                in = 'in' : 'java.lang.String',
+                description = 'description' : 'java.lang.String',
+                required = 'required' : 'java.lang.String',
+                type = 'type' : 'java.lang.String',
+                items = 'items' : REGISTER OF (
+                    type = 'type' : 'java.lang.String'
+                ),
+                collectionformat = 'collectionFormat' : 'java.lang.String'
+            ),
+            display_restful_references_parameter = 'display_restful_references_parameter' : REGISTER OF (
+                name = 'name' : 'java.lang.String',
+                in = 'in' : 'java.lang.String',
+                description = 'description' : 'java.lang.String',
+                required = 'required' : 'java.lang.String',
+                type = 'type' : 'java.lang.String'
+            ),
+            expand_parameter = 'expand_parameter' : REGISTER OF (
+                name = 'name' : 'java.lang.String',
+                in = 'in' : 'java.lang.String',
+                description = 'description' : 'java.lang.String',
+                required = 'required' : 'java.lang.String',
+                type = 'type' : 'java.lang.String',
+                items = 'items' : REGISTER OF (
+                    type = 'type' : 'java.lang.String'
+                ),
+                collectionformat = 'collectionFormat' : 'java.lang.String'
+            ),
+            order_by_parameter = 'order_by_parameter' : REGISTER OF (
+                name = 'name' : 'java.lang.String',
+                in = 'in' : 'java.lang.String',
+                description = 'description' : 'java.lang.String',
+                required = 'required' : 'java.lang.String',
+                type = 'type' : 'java.lang.String',
+                items = 'items' : REGISTER OF (
+                    type = 'type' : 'java.lang.String'
+                ),
+                collectionformat = 'collectionFormat' : 'java.lang.String'
+            ),
+            format_parameter = 'format_parameter' : REGISTER OF (
+                name = 'name' : 'java.lang.String',
+                in = 'in' : 'java.lang.String',
+                description = 'description' : 'java.lang.String',
+                required = 'required' : 'java.lang.String',
+                type = 'type' : 'java.lang.String',
+                default_0 = 'default' : 'java.lang.String',
+                enum = 'enum' : ARRAY OF (
+                    enum = 'enum' : REGISTER OF (
+                        field_0 = 'field_0' : 'java.lang.String'
+                    )
+                )
+            ),
+            group_by_parameter = 'group_by_parameter' : REGISTER OF (
+                name = 'name' : 'java.lang.String',
+                in = 'in' : 'java.lang.String',
+                description = 'description' : 'java.lang.String',
+                required = 'required' : 'java.lang.String',
+                type = 'type' : 'java.lang.String',
+                items = 'items' : REGISTER OF (
+                    type = 'type' : 'java.lang.String'
+                ),
+                collectionformat = 'collectionFormat' : 'java.lang.String'
+            )
+        )
+    )
+    );
+
+CREATE OR REPLACE TYPE json_info AS REGISTER OF (description:text, version:text, title:text);
+
+CREATE OR REPLACE TYPE json_tags_tags AS REGISTER OF (name:text, description:text);
+
+CREATE OR REPLACE TYPE json_tags AS ARRAY OF json_tags_tags;
+
+CREATE OR REPLACE TYPE json_schemes_schemes AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_schemes AS ARRAY OF json_schemes_schemes;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentcount_0_get_tags_tags AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentcount_0_get_tags AS ARRAY OF json_paths_viewsagentcount_0_get_tags_tags;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentcount_0_get_produces_produces AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentcount_0_get_produces AS ARRAY OF json_paths_viewsagentcount_0_get_produces_produces;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentcount_0_get_parameters_parameters AS REGISTER OF (ref_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentcount_0_get_parameters AS ARRAY OF json_paths_viewsagentcount_0_get_parameters_parameters;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentcount_0_get_responses_id_5_schema AS REGISTER OF (type:text, format:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentcount_0_get_responses_id_5 AS REGISTER OF (description:text, schema:json_paths_viewsagentcount_0_get_responses_id_5_schema);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentcount_0_get_responses_id_4 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentcount_0_get_responses_id_3 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentcount_0_get_responses_id_2 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentcount_0_get_responses_id_1 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentcount_0_get_responses_id_0 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentcount_0_get_responses AS REGISTER OF (id_5:json_paths_viewsagentcount_0_get_responses_id_5, id_4:json_paths_viewsagentcount_0_get_responses_id_4, id_3:json_paths_viewsagentcount_0_get_responses_id_3, id_2:json_paths_viewsagentcount_0_get_responses_id_2, id_1:json_paths_viewsagentcount_0_get_responses_id_1, id_0:json_paths_viewsagentcount_0_get_responses_id_0);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentcount_0_get AS REGISTER OF (tags:json_paths_viewsagentcount_0_get_tags, description:text, operationid:text, produces:json_paths_viewsagentcount_0_get_produces, parameters:json_paths_viewsagentcount_0_get_parameters, responses:json_paths_viewsagentcount_0_get_responses);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentcount_0 AS REGISTER OF (get:json_paths_viewsagentcount_0_get);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_get_tags_tags AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_get_tags AS ARRAY OF json_paths_viewsagentprimarykeyvalue_0_get_tags_tags;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_get_produces_produces AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_get_produces AS ARRAY OF json_paths_viewsagentprimarykeyvalue_0_get_produces_produces;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_get_parameters_parameters AS REGISTER OF (ref_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_get_parameters AS ARRAY OF json_paths_viewsagentprimarykeyvalue_0_get_parameters_parameters;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_get_responses_id_5_schema AS REGISTER OF (ref_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_get_responses_id_5 AS REGISTER OF (description:text, schema:json_paths_viewsagentprimarykeyvalue_0_get_responses_id_5_schema);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_get_responses_id_4 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_get_responses_id_3 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_get_responses_id_2 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_get_responses_id_1 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_get_responses_id_0 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_get_responses AS REGISTER OF (id_5:json_paths_viewsagentprimarykeyvalue_0_get_responses_id_5, id_4:json_paths_viewsagentprimarykeyvalue_0_get_responses_id_4, id_3:json_paths_viewsagentprimarykeyvalue_0_get_responses_id_3, id_2:json_paths_viewsagentprimarykeyvalue_0_get_responses_id_2, id_1:json_paths_viewsagentprimarykeyvalue_0_get_responses_id_1, id_0:json_paths_viewsagentprimarykeyvalue_0_get_responses_id_0);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_get AS REGISTER OF (tags:json_paths_viewsagentprimarykeyvalue_0_get_tags, description:text, operationid:text, produces:json_paths_viewsagentprimarykeyvalue_0_get_produces, parameters:json_paths_viewsagentprimarykeyvalue_0_get_parameters, responses:json_paths_viewsagentprimarykeyvalue_0_get_responses);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_put_tags_tags AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_put_tags AS ARRAY OF json_paths_viewsagentprimarykeyvalue_0_put_tags_tags;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_put_consumes_consumes AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_put_consumes AS ARRAY OF json_paths_viewsagentprimarykeyvalue_0_put_consumes_consumes;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_put_produces_produces AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_put_produces AS ARRAY OF json_paths_viewsagentprimarykeyvalue_0_put_produces_produces;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_put_parameters_parameters_schema AS REGISTER OF (ref_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_put_parameters_parameters AS REGISTER OF (ref_0:text, in:text, name:text, required:text, schema:json_paths_viewsagentprimarykeyvalue_0_put_parameters_parameters_schema);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_put_parameters AS ARRAY OF json_paths_viewsagentprimarykeyvalue_0_put_parameters_parameters;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_put_responses_id_4 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_put_responses_id_3 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_put_responses_id_2 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_put_responses_id_1 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_put_responses_id_0 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_put_responses AS REGISTER OF (id_4:json_paths_viewsagentprimarykeyvalue_0_put_responses_id_4, id_3:json_paths_viewsagentprimarykeyvalue_0_put_responses_id_3, id_2:json_paths_viewsagentprimarykeyvalue_0_put_responses_id_2, id_1:json_paths_viewsagentprimarykeyvalue_0_put_responses_id_1, id_0:json_paths_viewsagentprimarykeyvalue_0_put_responses_id_0);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_put AS REGISTER OF (tags:json_paths_viewsagentprimarykeyvalue_0_put_tags, description:text, operationid:text, consumes:json_paths_viewsagentprimarykeyvalue_0_put_consumes, produces:json_paths_viewsagentprimarykeyvalue_0_put_produces, parameters:json_paths_viewsagentprimarykeyvalue_0_put_parameters, responses:json_paths_viewsagentprimarykeyvalue_0_put_responses);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_delete_tags_tags AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_delete_tags AS ARRAY OF json_paths_viewsagentprimarykeyvalue_0_delete_tags_tags;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_delete_parameters_parameters AS REGISTER OF (ref_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_delete_parameters AS ARRAY OF json_paths_viewsagentprimarykeyvalue_0_delete_parameters_parameters;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_delete_responses_id_4 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_delete_responses_id_3 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_delete_responses_id_2 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_delete_responses_id_1 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_delete_responses_id_0 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_delete_responses AS REGISTER OF (id_4:json_paths_viewsagentprimarykeyvalue_0_delete_responses_id_4, id_3:json_paths_viewsagentprimarykeyvalue_0_delete_responses_id_3, id_2:json_paths_viewsagentprimarykeyvalue_0_delete_responses_id_2, id_1:json_paths_viewsagentprimarykeyvalue_0_delete_responses_id_1, id_0:json_paths_viewsagentprimarykeyvalue_0_delete_responses_id_0);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_delete AS REGISTER OF (tags:json_paths_viewsagentprimarykeyvalue_0_delete_tags, description:text, operationid:text, parameters:json_paths_viewsagentprimarykeyvalue_0_delete_parameters, responses:json_paths_viewsagentprimarykeyvalue_0_delete_responses);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_parameters_parameters_items AS REGISTER OF (type:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_parameters_parameters AS REGISTER OF (name:text, in:text, description:text, required:text, type:text, items:json_paths_viewsagentprimarykeyvalue_0_parameters_parameters_items, collectionformat:text, maxitems:int, minitems:int);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0_parameters AS ARRAY OF json_paths_viewsagentprimarykeyvalue_0_parameters_parameters;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentprimarykeyvalue_0 AS REGISTER OF (get:json_paths_viewsagentprimarykeyvalue_0_get, put:json_paths_viewsagentprimarykeyvalue_0_put, delete:json_paths_viewsagentprimarykeyvalue_0_delete, parameters:json_paths_viewsagentprimarykeyvalue_0_parameters);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentmetadata_0_get_tags_tags AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentmetadata_0_get_tags AS ARRAY OF json_paths_viewsagentmetadata_0_get_tags_tags;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentmetadata_0_get_produces_produces AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentmetadata_0_get_produces AS ARRAY OF json_paths_viewsagentmetadata_0_get_produces_produces;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentmetadata_0_get_parameters_parameters AS REGISTER OF (ref_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentmetadata_0_get_parameters AS ARRAY OF json_paths_viewsagentmetadata_0_get_parameters_parameters;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentmetadata_0_get_responses_id_4_schema AS REGISTER OF (ref_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentmetadata_0_get_responses_id_4 AS REGISTER OF (description:text, schema:json_paths_viewsagentmetadata_0_get_responses_id_4_schema);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentmetadata_0_get_responses_id_3 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentmetadata_0_get_responses_id_2 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentmetadata_0_get_responses_id_1 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentmetadata_0_get_responses_id_0 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentmetadata_0_get_responses AS REGISTER OF (id_4:json_paths_viewsagentmetadata_0_get_responses_id_4, id_3:json_paths_viewsagentmetadata_0_get_responses_id_3, id_2:json_paths_viewsagentmetadata_0_get_responses_id_2, id_1:json_paths_viewsagentmetadata_0_get_responses_id_1, id_0:json_paths_viewsagentmetadata_0_get_responses_id_0);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentmetadata_0_get AS REGISTER OF (tags:json_paths_viewsagentmetadata_0_get_tags, description:text, operationid:text, produces:json_paths_viewsagentmetadata_0_get_produces, parameters:json_paths_viewsagentmetadata_0_get_parameters, responses:json_paths_viewsagentmetadata_0_get_responses);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentmetadata_0 AS REGISTER OF (get:json_paths_viewsagentmetadata_0_get);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentassociations_0_get_tags_tags AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentassociations_0_get_tags AS ARRAY OF json_paths_viewsagentassociations_0_get_tags_tags;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentassociations_0_get_produces_produces AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentassociations_0_get_produces AS ARRAY OF json_paths_viewsagentassociations_0_get_produces_produces;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentassociations_0_get_parameters_parameters AS REGISTER OF (ref_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentassociations_0_get_parameters AS ARRAY OF json_paths_viewsagentassociations_0_get_parameters_parameters;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentassociations_0_get_responses_id_4_schema AS REGISTER OF (ref_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentassociations_0_get_responses_id_4 AS REGISTER OF (description:text, schema:json_paths_viewsagentassociations_0_get_responses_id_4_schema);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentassociations_0_get_responses_id_3 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentassociations_0_get_responses_id_2 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentassociations_0_get_responses_id_1 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentassociations_0_get_responses_id_0 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentassociations_0_get_responses AS REGISTER OF (id_4:json_paths_viewsagentassociations_0_get_responses_id_4, id_3:json_paths_viewsagentassociations_0_get_responses_id_3, id_2:json_paths_viewsagentassociations_0_get_responses_id_2, id_1:json_paths_viewsagentassociations_0_get_responses_id_1, id_0:json_paths_viewsagentassociations_0_get_responses_id_0);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentassociations_0_get AS REGISTER OF (tags:json_paths_viewsagentassociations_0_get_tags, description:text, operationid:text, produces:json_paths_viewsagentassociations_0_get_produces, parameters:json_paths_viewsagentassociations_0_get_parameters, responses:json_paths_viewsagentassociations_0_get_responses);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentassociations_0 AS REGISTER OF (get:json_paths_viewsagentassociations_0_get);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentxsd_0_get_tags_tags AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentxsd_0_get_tags AS ARRAY OF json_paths_viewsagentxsd_0_get_tags_tags;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentxsd_0_get_produces_produces AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentxsd_0_get_produces AS ARRAY OF json_paths_viewsagentxsd_0_get_produces_produces;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentxsd_0_get_parameters_parameters AS REGISTER OF (ref_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentxsd_0_get_parameters AS ARRAY OF json_paths_viewsagentxsd_0_get_parameters_parameters;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentxsd_0_get_responses_id_4_schema AS REGISTER OF (ref_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentxsd_0_get_responses_id_4 AS REGISTER OF (description:text, schema:json_paths_viewsagentxsd_0_get_responses_id_4_schema);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentxsd_0_get_responses_id_3 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentxsd_0_get_responses_id_2 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentxsd_0_get_responses_id_1 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentxsd_0_get_responses_id_0 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentxsd_0_get_responses AS REGISTER OF (id_4:json_paths_viewsagentxsd_0_get_responses_id_4, id_3:json_paths_viewsagentxsd_0_get_responses_id_3, id_2:json_paths_viewsagentxsd_0_get_responses_id_2, id_1:json_paths_viewsagentxsd_0_get_responses_id_1, id_0:json_paths_viewsagentxsd_0_get_responses_id_0);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentxsd_0_get AS REGISTER OF (tags:json_paths_viewsagentxsd_0_get_tags, description:text, operationid:text, produces:json_paths_viewsagentxsd_0_get_produces, parameters:json_paths_viewsagentxsd_0_get_parameters, responses:json_paths_viewsagentxsd_0_get_responses);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentxsd_0 AS REGISTER OF (get:json_paths_viewsagentxsd_0_get);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentschema_0_get_tags_tags AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentschema_0_get_tags AS ARRAY OF json_paths_viewsagentschema_0_get_tags_tags;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentschema_0_get_produces_produces AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentschema_0_get_produces AS ARRAY OF json_paths_viewsagentschema_0_get_produces_produces;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentschema_0_get_parameters_parameters AS REGISTER OF (ref_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentschema_0_get_parameters AS ARRAY OF json_paths_viewsagentschema_0_get_parameters_parameters;
+
+CREATE OR REPLACE TYPE json_paths_viewsagentschema_0_get_responses_id_4_schema AS REGISTER OF (ref_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentschema_0_get_responses_id_4 AS REGISTER OF (description:text, schema:json_paths_viewsagentschema_0_get_responses_id_4_schema);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentschema_0_get_responses_id_3 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentschema_0_get_responses_id_2 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentschema_0_get_responses_id_1 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentschema_0_get_responses_id_0 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentschema_0_get_responses AS REGISTER OF (id_4:json_paths_viewsagentschema_0_get_responses_id_4, id_3:json_paths_viewsagentschema_0_get_responses_id_3, id_2:json_paths_viewsagentschema_0_get_responses_id_2, id_1:json_paths_viewsagentschema_0_get_responses_id_1, id_0:json_paths_viewsagentschema_0_get_responses_id_0);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentschema_0_get AS REGISTER OF (tags:json_paths_viewsagentschema_0_get_tags, description:text, operationid:text, produces:json_paths_viewsagentschema_0_get_produces, parameters:json_paths_viewsagentschema_0_get_parameters, responses:json_paths_viewsagentschema_0_get_responses);
+
+CREATE OR REPLACE TYPE json_paths_viewsagentschema_0 AS REGISTER OF (get:json_paths_viewsagentschema_0_get);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_get_tags_tags AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_get_tags AS ARRAY OF json_paths_viewsagent_0_get_tags_tags;
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_get_produces_produces AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_get_produces AS ARRAY OF json_paths_viewsagent_0_get_produces_produces;
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_get_parameters_parameters AS REGISTER OF (ref_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_get_parameters AS ARRAY OF json_paths_viewsagent_0_get_parameters_parameters;
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_get_responses_id_5_schema AS REGISTER OF (ref_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_get_responses_id_5 AS REGISTER OF (description:text, schema:json_paths_viewsagent_0_get_responses_id_5_schema);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_get_responses_id_4 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_get_responses_id_3 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_get_responses_id_2 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_get_responses_id_1 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_get_responses_id_0 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_get_responses AS REGISTER OF (id_5:json_paths_viewsagent_0_get_responses_id_5, id_4:json_paths_viewsagent_0_get_responses_id_4, id_3:json_paths_viewsagent_0_get_responses_id_3, id_2:json_paths_viewsagent_0_get_responses_id_2, id_1:json_paths_viewsagent_0_get_responses_id_1, id_0:json_paths_viewsagent_0_get_responses_id_0);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_get AS REGISTER OF (tags:json_paths_viewsagent_0_get_tags, description:text, operationid:text, produces:json_paths_viewsagent_0_get_produces, parameters:json_paths_viewsagent_0_get_parameters, responses:json_paths_viewsagent_0_get_responses);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_post_tags_tags AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_post_tags AS ARRAY OF json_paths_viewsagent_0_post_tags_tags;
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_post_consumes_consumes AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_post_consumes AS ARRAY OF json_paths_viewsagent_0_post_consumes_consumes;
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_post_produces_produces AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_post_produces AS ARRAY OF json_paths_viewsagent_0_post_produces_produces;
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_post_parameters_parameters_schema AS REGISTER OF (ref_0:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_post_parameters_parameters AS REGISTER OF (ref_0:text, in:text, name:text, required:text, schema:json_paths_viewsagent_0_post_parameters_parameters_schema);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_post_parameters AS ARRAY OF json_paths_viewsagent_0_post_parameters_parameters;
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_post_responses_id_4 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_post_responses_id_3 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_post_responses_id_2 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_post_responses_id_1 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_post_responses_id_0 AS REGISTER OF (description:text);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_post_responses AS REGISTER OF (id_4:json_paths_viewsagent_0_post_responses_id_4, id_3:json_paths_viewsagent_0_post_responses_id_3, id_2:json_paths_viewsagent_0_post_responses_id_2, id_1:json_paths_viewsagent_0_post_responses_id_1, id_0:json_paths_viewsagent_0_post_responses_id_0);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0_post AS REGISTER OF (tags:json_paths_viewsagent_0_post_tags, description:text, operationid:text, consumes:json_paths_viewsagent_0_post_consumes, produces:json_paths_viewsagent_0_post_produces, parameters:json_paths_viewsagent_0_post_parameters, responses:json_paths_viewsagent_0_post_responses);
+
+CREATE OR REPLACE TYPE json_paths_viewsagent_0 AS REGISTER OF (get:json_paths_viewsagent_0_get, post:json_paths_viewsagent_0_post);
+
+CREATE OR REPLACE TYPE json_paths AS REGISTER OF (viewsagentcount_0:json_paths_viewsagentcount_0, viewsagentprimarykeyvalue_0:json_paths_viewsagentprimarykeyvalue_0, viewsagentmetadata_0:json_paths_viewsagentmetadata_0, viewsagentassociations_0:json_paths_viewsagentassociations_0, viewsagentxsd_0:json_paths_viewsagentxsd_0, viewsagentschema_0:json_paths_viewsagentschema_0, viewsagent_0:json_paths_viewsagent_0);
+
+CREATE OR REPLACE TYPE json_definitions_links_def_required_required AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_definitions_links_def_required AS ARRAY OF json_definitions_links_def_required_required;
+
+CREATE OR REPLACE TYPE json_definitions_links_def_properties_rel_xml AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_links_def_properties_rel AS REGISTER OF (type:text, xml:json_definitions_links_def_properties_rel_xml);
+
+CREATE OR REPLACE TYPE json_definitions_links_def_properties_href_xml AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_links_def_properties_href AS REGISTER OF (type:text, xml:json_definitions_links_def_properties_href_xml);
+
+CREATE OR REPLACE TYPE json_definitions_links_def_properties_title_xml AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_links_def_properties_title AS REGISTER OF (type:text, xml:json_definitions_links_def_properties_title_xml);
+
+CREATE OR REPLACE TYPE json_definitions_links_def_properties_type_xml AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_links_def_properties_type AS REGISTER OF (type:text, xml:json_definitions_links_def_properties_type_xml, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_links_def_properties AS REGISTER OF (rel:json_definitions_links_def_properties_rel, href:json_definitions_links_def_properties_href, title:json_definitions_links_def_properties_title, type:json_definitions_links_def_properties_type);
+
+CREATE OR REPLACE TYPE json_definitions_links_def_xml AS REGISTER OF (name:text, namespace:text);
+
+CREATE OR REPLACE TYPE json_definitions_links_def AS REGISTER OF (required:json_definitions_links_def_required, properties:json_definitions_links_def_properties, xml:json_definitions_links_def_xml);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_viewname_0_xml AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_viewname_0 AS REGISTER OF (type:text, xml:json_definitions_associations_def_properties_viewname_0_xml, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_item_0 AS REGISTER OF (name:text);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_item_3 AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_item_5 AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_item_4 AS ARRAY OF json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_item_5;
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_item_2 AS REGISTER OF (type:text, xml:json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_item_3, description:text, enum:json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_item_4);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_item_7 AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_item_6 AS REGISTER OF (type:text, xml:json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_item_7, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_item_9 AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_item_8 AS REGISTER OF (type:text, xml:json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_item_9, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_ite__0 AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_ite_10 AS REGISTER OF (type:text, xml:json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_ite__0, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_ite__1 AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_ite_11 AS REGISTER OF (type:text, xml:json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_ite__1, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_item_1 AS REGISTER OF (multiplicity:json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_item_2, principal:json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_item_6, roledescription_0:json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_item_8, rolename_0:json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_ite_10, viewname_0:json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_ite_11);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_items AS REGISTER OF (type:text, xml:json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_item_0, properties:json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_item_1);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints AS REGISTER OF (type:text, items:json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints_items);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_associationmetadata_0_items_properties_link AS REGISTER OF (ref_0:text);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_associationmetadata_0_items_properties_name_xml AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_associationmetadata_0_items_properties_name AS REGISTER OF (type:text, xml:json_definitions_associations_def_properties_associationmetadata_0_items_properties_name_xml, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_associationmetadata_0_items_properties_referentialcon_1 AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_associationmetadata_0_items_properties_referentialcon_0 AS REGISTER OF (type:text, xml:json_definitions_associations_def_properties_associationmetadata_0_items_properties_referentialcon_1, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_associationmetadata_0_items_properties AS REGISTER OF (endpoints:json_definitions_associations_def_properties_associationmetadata_0_items_properties_endpoints, link:json_definitions_associations_def_properties_associationmetadata_0_items_properties_link, name:json_definitions_associations_def_properties_associationmetadata_0_items_properties_name, referentialconstraint_0:json_definitions_associations_def_properties_associationmetadata_0_items_properties_referentialcon_0);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_associationmetadata_0_items AS REGISTER OF (type:text, properties:json_definitions_associations_def_properties_associationmetadata_0_items_properties);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_associationmetadata_0 AS REGISTER OF (type:text, items:json_definitions_associations_def_properties_associationmetadata_0_items);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties_link AS REGISTER OF (ref_0:text);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_properties AS REGISTER OF (viewname_0:json_definitions_associations_def_properties_viewname_0, associationmetadata_0:json_definitions_associations_def_properties_associationmetadata_0, link:json_definitions_associations_def_properties_link);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def_xml AS REGISTER OF (name:text, namespace:text);
+
+CREATE OR REPLACE TYPE json_definitions_associations_def AS REGISTER OF (properties:json_definitions_associations_def_properties, xml:json_definitions_associations_def_xml);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_def_properties_agent_id AS REGISTER OF (type:text, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_def_properties_agent_code AS REGISTER OF (type:text, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_def_properties_agent_name AS REGISTER OF (type:text, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_def_properties_links_items AS REGISTER OF (ref_0:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_def_properties_links AS REGISTER OF (type:text, items:json_definitions_agent_element_def_properties_links_items);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_def_properties AS REGISTER OF (agent_id:json_definitions_agent_element_def_properties_agent_id, agent_code:json_definitions_agent_element_def_properties_agent_code, agent_name:json_definitions_agent_element_def_properties_agent_name, links:json_definitions_agent_element_def_properties_links);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_def_xml AS REGISTER OF (name:text, namespace:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_def AS REGISTER OF (properties:json_definitions_agent_element_def_properties, description:text, xml:json_definitions_agent_element_def_xml);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_post_def_properties_agent_id AS REGISTER OF (type:text, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_post_def_properties_agent_code AS REGISTER OF (type:text, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_post_def_properties_agent_name AS REGISTER OF (type:text, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_post_def_properties AS REGISTER OF (agent_id:json_definitions_agent_element_post_def_properties_agent_id, agent_code:json_definitions_agent_element_post_def_properties_agent_code, agent_name:json_definitions_agent_element_post_def_properties_agent_name);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_post_def_xml AS REGISTER OF (name:text, namespace:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_post_def AS REGISTER OF (properties:json_definitions_agent_element_post_def_properties, description:text, xml:json_definitions_agent_element_post_def_xml);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_put_def_properties_agent_code AS REGISTER OF (type:text, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_put_def_properties_agent_name AS REGISTER OF (type:text, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_put_def_properties AS REGISTER OF (agent_code:json_definitions_agent_element_put_def_properties_agent_code, agent_name:json_definitions_agent_element_put_def_properties_agent_name);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_put_def_xml AS REGISTER OF (name:text, namespace:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_put_def AS REGISTER OF (properties:json_definitions_agent_element_put_def_properties, description:text, xml:json_definitions_agent_element_put_def_xml);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_simplified_def_properties_agent_id_properties_type AS REGISTER OF (type:text, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_simplified_def_properties_agent_id_properties AS REGISTER OF (type:json_definitions_agent_element_simplified_def_properties_agent_id_properties_type);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_simplified_def_properties_agent_id AS REGISTER OF (type:text, properties:json_definitions_agent_element_simplified_def_properties_agent_id_properties);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_simplified_def_properties_agent_code_properties_type AS REGISTER OF (type:text, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_simplified_def_properties_agent_code_properties AS REGISTER OF (type:json_definitions_agent_element_simplified_def_properties_agent_code_properties_type);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_simplified_def_properties_agent_code AS REGISTER OF (type:text, properties:json_definitions_agent_element_simplified_def_properties_agent_code_properties);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_simplified_def_properties_agent_name_properties_type AS REGISTER OF (type:text, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_simplified_def_properties_agent_name_properties AS REGISTER OF (type:json_definitions_agent_element_simplified_def_properties_agent_name_properties_type);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_simplified_def_properties_agent_name AS REGISTER OF (type:text, properties:json_definitions_agent_element_simplified_def_properties_agent_name_properties);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_simplified_def_properties AS REGISTER OF (agent_id:json_definitions_agent_element_simplified_def_properties_agent_id, agent_code:json_definitions_agent_element_simplified_def_properties_agent_code, agent_name:json_definitions_agent_element_simplified_def_properties_agent_name);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_simplified_def_xml AS REGISTER OF (name:text, namespace:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_element_simplified_def AS REGISTER OF (properties:json_definitions_agent_element_simplified_def_properties, description:text, xml:json_definitions_agent_element_simplified_def_xml);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_targetnamespace_xml AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_targetnamespace AS REGISTER OF (type:text, xml:json_definitions_agent_xsd_def_properties_targetnamespace_xml, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prope_2 AS REGISTER OF (name:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prope_5 AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prope_4 AS REGISTER OF (type:text, xml:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prope_5);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prope_7 AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prope_6 AS REGISTER OF (type:text, xml:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prope_7, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prope_9 AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prope_8 AS REGISTER OF (type:text, xml:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prope_9);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prope_3 AS REGISTER OF (name:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prope_4, type:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prope_6, nillable:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prope_8);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prope_1 AS REGISTER OF (type:text, xml:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prope_2, properties:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prope_3);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop__0 AS REGISTER OF (name:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop__3 AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop__2 AS REGISTER OF (type:text, xml:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop__3);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop__5 AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop__4 AS REGISTER OF (type:text, xml:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop__5, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop__7 AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop__6 AS REGISTER OF (type:text, xml:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop__7);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop__1 AS REGISTER OF (name:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop__2, type:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop__4, nillable:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop__6);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop_10 AS REGISTER OF (type:text, xml:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop__0, properties:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop__1);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop__8 AS REGISTER OF (name:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop_13 AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop_12 AS REGISTER OF (type:text, xml:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop_13);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop_15 AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop_14 AS REGISTER OF (type:text, xml:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop_15, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop_17 AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop_16 AS REGISTER OF (type:text, xml:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop_17);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop__9 AS REGISTER OF (name:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop_12, type:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop_14, nillable:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop_16);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop_11 AS REGISTER OF (type:text, xml:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop__8, properties:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop__9);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prope_0 AS REGISTER OF (agent_code:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prope_1, agent_id:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop_10, agent_name:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prop_11);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence AS REGISTER OF (type:text, properties:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence_prope_0);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype_properties AS REGISTER OF (sequence:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties_sequence);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_complextype AS REGISTER OF (type:text, properties:json_definitions_agent_xsd_def_properties_element_properties_complextype_properties);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_name_xml AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties_name AS REGISTER OF (type:text, xml:json_definitions_agent_xsd_def_properties_element_properties_name_xml, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element_properties AS REGISTER OF (complextype:json_definitions_agent_xsd_def_properties_element_properties_complextype, name:json_definitions_agent_xsd_def_properties_element_properties_name);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties_element AS REGISTER OF (type:text, properties:json_definitions_agent_xsd_def_properties_element_properties);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_properties AS REGISTER OF (targetnamespace:json_definitions_agent_xsd_def_properties_targetnamespace, element:json_definitions_agent_xsd_def_properties_element);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def_xml AS REGISTER OF (name:text, namespace:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_xsd_def AS REGISTER OF (properties:json_definitions_agent_xsd_def_properties, description:text, xml:json_definitions_agent_xsd_def_xml);
+
+CREATE OR REPLACE TYPE json_definitions_agent_response_def_properties_name_xml AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_response_def_properties_name AS REGISTER OF (type:text, xml:json_definitions_agent_response_def_properties_name_xml, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_response_def_properties_description_xml AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_response_def_properties_description AS REGISTER OF (type:text, xml:json_definitions_agent_response_def_properties_description_xml, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_response_def_properties_elements_items AS REGISTER OF (ref_0:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_response_def_properties_elements AS REGISTER OF (type:text, description:text, items:json_definitions_agent_response_def_properties_elements_items);
+
+CREATE OR REPLACE TYPE json_definitions_agent_response_def_properties_links_items AS REGISTER OF (ref_0:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_response_def_properties_links AS REGISTER OF (type:text, description:text, items:json_definitions_agent_response_def_properties_links_items);
+
+CREATE OR REPLACE TYPE json_definitions_agent_response_def_properties AS REGISTER OF (name:json_definitions_agent_response_def_properties_name, description:json_definitions_agent_response_def_properties_description, elements:json_definitions_agent_response_def_properties_elements, links:json_definitions_agent_response_def_properties_links);
+
+CREATE OR REPLACE TYPE json_definitions_agent_response_def_xml AS REGISTER OF (name:text, namespace:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_response_def AS REGISTER OF (properties:json_definitions_agent_response_def_properties, xml:json_definitions_agent_response_def_xml);
+
+CREATE OR REPLACE TYPE json_definitions_agent_schema_def_properties_name AS REGISTER OF (type:text, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_schema_def_properties_properties AS REGISTER OF (ref_0:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_schema_def_properties AS REGISTER OF (name:json_definitions_agent_schema_def_properties_name, properties:json_definitions_agent_schema_def_properties_properties);
+
+CREATE OR REPLACE TYPE json_definitions_agent_schema_def AS REGISTER OF (properties:json_definitions_agent_schema_def_properties);
+
+CREATE OR REPLACE TYPE json_definitions_agent_metadata_def_properties_name_xml AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_metadata_def_properties_name AS REGISTER OF (type:text, xml:json_definitions_agent_metadata_def_properties_name_xml, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_metadata_def_properties_description_xml AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_metadata_def_properties_description AS REGISTER OF (type:text, xml:json_definitions_agent_metadata_def_properties_description_xml, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_metadata_def_properties_viewsmetadata_0_xml AS REGISTER OF (name:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_metadata_def_properties_viewsmetadata_0_properties_links_items AS REGISTER OF (ref_0:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_metadata_def_properties_viewsmetadata_0_properties_links AS REGISTER OF (type:text, items:json_definitions_agent_metadata_def_properties_viewsmetadata_0_properties_links_items);
+
+CREATE OR REPLACE TYPE json_definitions_agent_metadata_def_properties_viewsmetadata_0_properties_name_xml AS REGISTER OF (attribute:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_metadata_def_properties_viewsmetadata_0_properties_name AS REGISTER OF (type:text, xml:json_definitions_agent_metadata_def_properties_viewsmetadata_0_properties_name_xml, description:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_metadata_def_properties_viewsmetadata_0_properties AS REGISTER OF (links:json_definitions_agent_metadata_def_properties_viewsmetadata_0_properties_links, name:json_definitions_agent_metadata_def_properties_viewsmetadata_0_properties_name);
+
+CREATE OR REPLACE TYPE json_definitions_agent_metadata_def_properties_viewsmetadata_0_required_required AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_metadata_def_properties_viewsmetadata_0_required AS ARRAY OF json_definitions_agent_metadata_def_properties_viewsmetadata_0_required_required;
+
+CREATE OR REPLACE TYPE json_definitions_agent_metadata_def_properties_viewsmetadata_0 AS REGISTER OF (type:text, xml:json_definitions_agent_metadata_def_properties_viewsmetadata_0_xml, properties:json_definitions_agent_metadata_def_properties_viewsmetadata_0_properties, required:json_definitions_agent_metadata_def_properties_viewsmetadata_0_required);
+
+CREATE OR REPLACE TYPE json_definitions_agent_metadata_def_properties AS REGISTER OF (name:json_definitions_agent_metadata_def_properties_name, description:json_definitions_agent_metadata_def_properties_description, viewsmetadata_0:json_definitions_agent_metadata_def_properties_viewsmetadata_0);
+
+CREATE OR REPLACE TYPE json_definitions_agent_metadata_def_xml AS REGISTER OF (name:text, namespace:text);
+
+CREATE OR REPLACE TYPE json_definitions_agent_metadata_def AS REGISTER OF (properties:json_definitions_agent_metadata_def_properties, xml:json_definitions_agent_metadata_def_xml);
+
+CREATE OR REPLACE TYPE json_definitions AS REGISTER OF (links_def:json_definitions_links_def, associations_def:json_definitions_associations_def, agent_element_def:json_definitions_agent_element_def, agent_element_post_def:json_definitions_agent_element_post_def, agent_element_put_def:json_definitions_agent_element_put_def, agent_element_simplified_def:json_definitions_agent_element_simplified_def, agent_xsd_def:json_definitions_agent_xsd_def, agent_response_def:json_definitions_agent_response_def, agent_schema_def:json_definitions_agent_schema_def, agent_metadata_def:json_definitions_agent_metadata_def);
+
+CREATE OR REPLACE TYPE json_parameters_count_parameter AS REGISTER OF (name:text, in:text, description:text, required:text, type:text);
+
+CREATE OR REPLACE TYPE json_parameters_select_parameter_items AS REGISTER OF (type:text);
+
+CREATE OR REPLACE TYPE json_parameters_select_parameter AS REGISTER OF (name:text, in:text, description:text, required:text, type:text, items:json_parameters_select_parameter_items, collectionformat:text);
+
+CREATE OR REPLACE TYPE json_parameters_start_index_parameter AS REGISTER OF (name:text, in:text, description:text, required:text, type:text);
+
+CREATE OR REPLACE TYPE json_parameters_noescape_html_parameter_items AS REGISTER OF (type:text);
+
+CREATE OR REPLACE TYPE json_parameters_noescape_html_parameter AS REGISTER OF (name:text, in:text, description:text, required:text, type:text, items:json_parameters_noescape_html_parameter_items, collectionformat:text);
+
+CREATE OR REPLACE TYPE json_parameters_user_agent_header_parameter AS REGISTER OF (name:text, in:text, description:text, required:text, type:text);
+
+CREATE OR REPLACE TYPE json_parameters_filter_parameter AS REGISTER OF (name:text, in:text, description:text, required:text, type:text);
+
+CREATE OR REPLACE TYPE json_parameters_jsoncallback_parameter AS REGISTER OF (name:text, in:text, description:text, required:text, type:text);
+
+CREATE OR REPLACE TYPE json_parameters_reduced_format_parameter_enum_enum AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_parameters_reduced_format_parameter_enum AS ARRAY OF json_parameters_reduced_format_parameter_enum_enum;
+
+CREATE OR REPLACE TYPE json_parameters_reduced_format_parameter AS REGISTER OF (name:text, in:text, description:text, required:text, type:text, default_0:text, enum:json_parameters_reduced_format_parameter_enum);
+
+CREATE OR REPLACE TYPE json_parameters_having_parameter_items AS REGISTER OF (type:text);
+
+CREATE OR REPLACE TYPE json_parameters_having_parameter AS REGISTER OF (name:text, in:text, description:text, required:text, type:text, items:json_parameters_having_parameter_items, collectionformat:text);
+
+CREATE OR REPLACE TYPE json_parameters_display_restful_references_parameter AS REGISTER OF (name:text, in:text, description:text, required:text, type:text);
+
+CREATE OR REPLACE TYPE json_parameters_expand_parameter_items AS REGISTER OF (type:text);
+
+CREATE OR REPLACE TYPE json_parameters_expand_parameter AS REGISTER OF (name:text, in:text, description:text, required:text, type:text, items:json_parameters_expand_parameter_items, collectionformat:text);
+
+CREATE OR REPLACE TYPE json_parameters_order_by_parameter_items AS REGISTER OF (type:text);
+
+CREATE OR REPLACE TYPE json_parameters_order_by_parameter AS REGISTER OF (name:text, in:text, description:text, required:text, type:text, items:json_parameters_order_by_parameter_items, collectionformat:text);
+
+CREATE OR REPLACE TYPE json_parameters_format_parameter_enum_enum AS REGISTER OF (field_0:text);
+
+CREATE OR REPLACE TYPE json_parameters_format_parameter_enum AS ARRAY OF json_parameters_format_parameter_enum_enum;
+
+CREATE OR REPLACE TYPE json_parameters_format_parameter AS REGISTER OF (name:text, in:text, description:text, required:text, type:text, default_0:text, enum:json_parameters_format_parameter_enum);
+
+CREATE OR REPLACE TYPE json_parameters_group_by_parameter_items AS REGISTER OF (type:text);
+
+CREATE OR REPLACE TYPE json_parameters_group_by_parameter AS REGISTER OF (name:text, in:text, description:text, required:text, type:text, items:json_parameters_group_by_parameter_items, collectionformat:text);
+
+CREATE OR REPLACE TYPE json_parameters AS REGISTER OF (count_parameter:json_parameters_count_parameter, select_parameter:json_parameters_select_parameter, start_index_parameter:json_parameters_start_index_parameter, noescape_html_parameter:json_parameters_noescape_html_parameter, user_agent_header_parameter:json_parameters_user_agent_header_parameter, filter_parameter:json_parameters_filter_parameter, jsoncallback_parameter:json_parameters_jsoncallback_parameter, reduced_format_parameter:json_parameters_reduced_format_parameter, having_parameter:json_parameters_having_parameter, display_restful_references_parameter:json_parameters_display_restful_references_parameter, expand_parameter:json_parameters_expand_parameter, order_by_parameter:json_parameters_order_by_parameter, format_parameter:json_parameters_format_parameter, group_by_parameter:json_parameters_group_by_parameter);
+
+CREATE OR REPLACE TABLE json1 I18N us_pst (
+        swagger:text, 
+        info:json_info, 
+        host:text, 
+        basepath:text, 
+        tags:json_tags, 
+        schemes:json_schemes, 
+        paths:json_paths, 
+        definitions:json_definitions, 
+        parameters:json_parameters
+    )
+    FOLDER = '/data source'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD json1(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD swagger NOS ZERO ()
+             ADD info NOS ZERO ()
+             ADD info.description NOS ZERO ()
+             ADD info.version NOS ZERO ()
+             ADD info.title NOS ZERO ()
+             ADD host NOS ZERO ()
+             ADD basepath NOS ZERO ()
+             ADD tags NOS ZERO ()
+             ADD tags NOS ZERO ()
+             ADD tags.name NOS ZERO ()
+             ADD tags.description NOS ZERO ()
+             ADD schemes NOS ZERO ()
+             ADD schemes NOS ZERO ()
+             ADD schemes.field_0 NOS ZERO ()
+             ADD paths NOS ZERO ()
+             ADD paths.viewsagentcount_0 NOS ZERO ()
+             ADD paths.viewsagentcount_0.get NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.tags NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.tags NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.tags.field_0 NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.description NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.operationid NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.produces NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.produces NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.produces.field_0 NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.parameters NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.parameters NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.parameters.ref_0 NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.responses NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.responses.id_5 NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.responses.id_5.description NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.responses.id_5.schema NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.responses.id_5.schema.type NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.responses.id_5.schema.format NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.responses.id_4 NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.responses.id_4.description NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.responses.id_3 NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.responses.id_3.description NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.responses.id_2 NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.responses.id_2.description NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.responses.id_1 NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.responses.id_1.description NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.responses.id_0 NOS ZERO ()
+             ADD paths.viewsagentcount_0.get.responses.id_0.description NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.tags NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.tags NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.tags.field_0 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.description NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.operationid NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.produces NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.produces NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.produces.field_0 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.parameters NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.parameters NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.parameters.ref_0 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.responses NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.responses.id_5 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.responses.id_5.description NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.responses.id_5.schema NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.responses.id_5.schema.ref_0 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.responses.id_4 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.responses.id_4.description NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.responses.id_3 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.responses.id_3.description NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.responses.id_2 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.responses.id_2.description NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.responses.id_1 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.responses.id_1.description NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.responses.id_0 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.get.responses.id_0.description NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.tags NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.tags NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.tags.field_0 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.description NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.operationid NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.consumes NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.consumes NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.consumes.field_0 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.produces NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.produces NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.produces.field_0 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.parameters NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.parameters NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.parameters.ref_0 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.parameters.in NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.parameters.name NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.parameters.required NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.parameters.schema NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.parameters.schema.ref_0 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.responses NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.responses.id_4 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.responses.id_4.description NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.responses.id_3 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.responses.id_3.description NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.responses.id_2 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.responses.id_2.description NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.responses.id_1 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.responses.id_1.description NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.responses.id_0 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.put.responses.id_0.description NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.delete NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.delete.tags NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.delete.tags NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.delete.tags.field_0 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.delete.description NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.delete.operationid NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.delete.parameters NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.delete.parameters NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.delete.parameters.ref_0 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.delete.responses NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.delete.responses.id_4 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.delete.responses.id_4.description NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.delete.responses.id_3 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.delete.responses.id_3.description NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.delete.responses.id_2 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.delete.responses.id_2.description NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.delete.responses.id_1 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.delete.responses.id_1.description NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.delete.responses.id_0 NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.delete.responses.id_0.description NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.parameters NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.parameters NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.parameters.name NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.parameters.in NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.parameters.description NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.parameters.required NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.parameters.type NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.parameters.items NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.parameters.items.type NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.parameters.collectionformat NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.parameters.maxitems NOS ZERO ()
+             ADD paths.viewsagentprimarykeyvalue_0.parameters.minitems NOS ZERO ()
+             ADD paths.viewsagentmetadata_0 NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get.tags NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get.tags NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get.tags.field_0 NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get.description NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get.operationid NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get.produces NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get.produces NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get.produces.field_0 NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get.parameters NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get.parameters NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get.parameters.ref_0 NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get.responses NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get.responses.id_4 NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get.responses.id_4.description NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get.responses.id_4.schema NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get.responses.id_4.schema.ref_0 NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get.responses.id_3 NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get.responses.id_3.description NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get.responses.id_2 NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get.responses.id_2.description NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get.responses.id_1 NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get.responses.id_1.description NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get.responses.id_0 NOS ZERO ()
+             ADD paths.viewsagentmetadata_0.get.responses.id_0.description NOS ZERO ()
+             ADD paths.viewsagentassociations_0 NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get.tags NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get.tags NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get.tags.field_0 NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get.description NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get.operationid NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get.produces NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get.produces NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get.produces.field_0 NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get.parameters NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get.parameters NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get.parameters.ref_0 NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get.responses NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get.responses.id_4 NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get.responses.id_4.description NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get.responses.id_4.schema NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get.responses.id_4.schema.ref_0 NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get.responses.id_3 NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get.responses.id_3.description NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get.responses.id_2 NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get.responses.id_2.description NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get.responses.id_1 NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get.responses.id_1.description NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get.responses.id_0 NOS ZERO ()
+             ADD paths.viewsagentassociations_0.get.responses.id_0.description NOS ZERO ()
+             ADD paths.viewsagentxsd_0 NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get.tags NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get.tags NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get.tags.field_0 NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get.description NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get.operationid NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get.produces NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get.produces NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get.produces.field_0 NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get.parameters NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get.parameters NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get.parameters.ref_0 NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get.responses NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get.responses.id_4 NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get.responses.id_4.description NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get.responses.id_4.schema NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get.responses.id_4.schema.ref_0 NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get.responses.id_3 NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get.responses.id_3.description NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get.responses.id_2 NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get.responses.id_2.description NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get.responses.id_1 NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get.responses.id_1.description NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get.responses.id_0 NOS ZERO ()
+             ADD paths.viewsagentxsd_0.get.responses.id_0.description NOS ZERO ()
+             ADD paths.viewsagentschema_0 NOS ZERO ()
+             ADD paths.viewsagentschema_0.get NOS ZERO ()
+             ADD paths.viewsagentschema_0.get.tags NOS ZERO ()
+             ADD paths.viewsagentschema_0.get.tags NOS ZERO ()
+             ADD paths.viewsagentschema_0.get.tags.field_0 NOS ZERO ()
+             ADD paths.viewsagentschema_0.get.description NOS ZERO ()
+             ADD paths.viewsagentschema_0.get.operationid NOS ZERO ()
+             ADD paths.viewsagentschema_0.get.produces NOS ZERO ()
+             ADD paths.viewsagentschema_0.get.produces NOS ZERO ()
+             ADD paths.viewsagentschema_0.get.produces.field_0 NOS ZERO ()
+             ADD paths.viewsagentschema_0.get.parameters NOS ZERO ()
+             ADD paths.viewsagentschema_0.get.parameters NOS ZERO ()
+             ADD paths.viewsagentschema_0.get.parameters.ref_0 NOS ZERO ()
+             ADD paths.viewsagentschema_0.get.responses NOS ZERO ()
+             ADD paths.viewsagentschema_0.get.responses.id_4 NOS ZERO ()
+             ADD paths.viewsagentschema_0.get.responses.id_4.description NOS ZERO ()
+             ADD paths.viewsagentschema_0.get.responses.id_4.schema NOS ZERO ()
+             ADD paths.viewsagentschema_0.get.responses.id_4.schema.ref_0 NOS ZERO ()
+             ADD paths.viewsagentschema_0.get.responses.id_3 NOS ZERO ()
+             ADD paths.viewsagentschema_0.get.responses.id_3.description NOS ZERO ()
+             ADD paths.viewsagentschema_0.get.responses.id_2 NOS ZERO ()
+             ADD paths.viewsagentschema_0.get.responses.id_2.description NOS ZERO ()
+             ADD paths.viewsagentschema_0.get.responses.id_1 NOS ZERO ()
+             ADD paths.viewsagentschema_0.get.responses.id_1.description NOS ZERO ()
+             ADD paths.viewsagentschema_0.get.responses.id_0 NOS ZERO ()
+             ADD paths.viewsagentschema_0.get.responses.id_0.description NOS ZERO ()
+             ADD paths.viewsagent_0 NOS ZERO ()
+             ADD paths.viewsagent_0.get NOS ZERO ()
+             ADD paths.viewsagent_0.get.tags NOS ZERO ()
+             ADD paths.viewsagent_0.get.tags NOS ZERO ()
+             ADD paths.viewsagent_0.get.tags.field_0 NOS ZERO ()
+             ADD paths.viewsagent_0.get.description NOS ZERO ()
+             ADD paths.viewsagent_0.get.operationid NOS ZERO ()
+             ADD paths.viewsagent_0.get.produces NOS ZERO ()
+             ADD paths.viewsagent_0.get.produces NOS ZERO ()
+             ADD paths.viewsagent_0.get.produces.field_0 NOS ZERO ()
+             ADD paths.viewsagent_0.get.parameters NOS ZERO ()
+             ADD paths.viewsagent_0.get.parameters NOS ZERO ()
+             ADD paths.viewsagent_0.get.parameters.ref_0 NOS ZERO ()
+             ADD paths.viewsagent_0.get.responses NOS ZERO ()
+             ADD paths.viewsagent_0.get.responses.id_5 NOS ZERO ()
+             ADD paths.viewsagent_0.get.responses.id_5.description NOS ZERO ()
+             ADD paths.viewsagent_0.get.responses.id_5.schema NOS ZERO ()
+             ADD paths.viewsagent_0.get.responses.id_5.schema.ref_0 NOS ZERO ()
+             ADD paths.viewsagent_0.get.responses.id_4 NOS ZERO ()
+             ADD paths.viewsagent_0.get.responses.id_4.description NOS ZERO ()
+             ADD paths.viewsagent_0.get.responses.id_3 NOS ZERO ()
+             ADD paths.viewsagent_0.get.responses.id_3.description NOS ZERO ()
+             ADD paths.viewsagent_0.get.responses.id_2 NOS ZERO ()
+             ADD paths.viewsagent_0.get.responses.id_2.description NOS ZERO ()
+             ADD paths.viewsagent_0.get.responses.id_1 NOS ZERO ()
+             ADD paths.viewsagent_0.get.responses.id_1.description NOS ZERO ()
+             ADD paths.viewsagent_0.get.responses.id_0 NOS ZERO ()
+             ADD paths.viewsagent_0.get.responses.id_0.description NOS ZERO ()
+             ADD paths.viewsagent_0.post NOS ZERO ()
+             ADD paths.viewsagent_0.post.tags NOS ZERO ()
+             ADD paths.viewsagent_0.post.tags NOS ZERO ()
+             ADD paths.viewsagent_0.post.tags.field_0 NOS ZERO ()
+             ADD paths.viewsagent_0.post.description NOS ZERO ()
+             ADD paths.viewsagent_0.post.operationid NOS ZERO ()
+             ADD paths.viewsagent_0.post.consumes NOS ZERO ()
+             ADD paths.viewsagent_0.post.consumes NOS ZERO ()
+             ADD paths.viewsagent_0.post.consumes.field_0 NOS ZERO ()
+             ADD paths.viewsagent_0.post.produces NOS ZERO ()
+             ADD paths.viewsagent_0.post.produces NOS ZERO ()
+             ADD paths.viewsagent_0.post.produces.field_0 NOS ZERO ()
+             ADD paths.viewsagent_0.post.parameters NOS ZERO ()
+             ADD paths.viewsagent_0.post.parameters NOS ZERO ()
+             ADD paths.viewsagent_0.post.parameters.ref_0 NOS ZERO ()
+             ADD paths.viewsagent_0.post.parameters.in NOS ZERO ()
+             ADD paths.viewsagent_0.post.parameters.name NOS ZERO ()
+             ADD paths.viewsagent_0.post.parameters.required NOS ZERO ()
+             ADD paths.viewsagent_0.post.parameters.schema NOS ZERO ()
+             ADD paths.viewsagent_0.post.parameters.schema.ref_0 NOS ZERO ()
+             ADD paths.viewsagent_0.post.responses NOS ZERO ()
+             ADD paths.viewsagent_0.post.responses.id_4 NOS ZERO ()
+             ADD paths.viewsagent_0.post.responses.id_4.description NOS ZERO ()
+             ADD paths.viewsagent_0.post.responses.id_3 NOS ZERO ()
+             ADD paths.viewsagent_0.post.responses.id_3.description NOS ZERO ()
+             ADD paths.viewsagent_0.post.responses.id_2 NOS ZERO ()
+             ADD paths.viewsagent_0.post.responses.id_2.description NOS ZERO ()
+             ADD paths.viewsagent_0.post.responses.id_1 NOS ZERO ()
+             ADD paths.viewsagent_0.post.responses.id_1.description NOS ZERO ()
+             ADD paths.viewsagent_0.post.responses.id_0 NOS ZERO ()
+             ADD paths.viewsagent_0.post.responses.id_0.description NOS ZERO ()
+             ADD definitions NOS ZERO ()
+             ADD definitions.links_def NOS ZERO ()
+             ADD definitions.links_def.required NOS ZERO ()
+             ADD definitions.links_def.required NOS ZERO ()
+             ADD definitions.links_def.required.field_0 NOS ZERO ()
+             ADD definitions.links_def.properties NOS ZERO ()
+             ADD definitions.links_def.properties.rel NOS ZERO ()
+             ADD definitions.links_def.properties.rel.type NOS ZERO ()
+             ADD definitions.links_def.properties.rel.xml NOS ZERO ()
+             ADD definitions.links_def.properties.rel.xml.attribute NOS ZERO ()
+             ADD definitions.links_def.properties.href NOS ZERO ()
+             ADD definitions.links_def.properties.href.type NOS ZERO ()
+             ADD definitions.links_def.properties.href.xml NOS ZERO ()
+             ADD definitions.links_def.properties.href.xml.attribute NOS ZERO ()
+             ADD definitions.links_def.properties.title NOS ZERO ()
+             ADD definitions.links_def.properties.title.type NOS ZERO ()
+             ADD definitions.links_def.properties.title.xml NOS ZERO ()
+             ADD definitions.links_def.properties.title.xml.attribute NOS ZERO ()
+             ADD definitions.links_def.properties.type NOS ZERO ()
+             ADD definitions.links_def.properties.type.type NOS ZERO ()
+             ADD definitions.links_def.properties.type.xml NOS ZERO ()
+             ADD definitions.links_def.properties.type.xml.attribute NOS ZERO ()
+             ADD definitions.links_def.properties.type.description NOS ZERO ()
+             ADD definitions.links_def.xml NOS ZERO ()
+             ADD definitions.links_def.xml.name NOS ZERO ()
+             ADD definitions.links_def.xml.namespace NOS ZERO ()
+             ADD definitions.associations_def NOS ZERO ()
+             ADD definitions.associations_def.properties NOS ZERO ()
+             ADD definitions.associations_def.properties.viewname_0 NOS ZERO ()
+             ADD definitions.associations_def.properties.viewname_0.type NOS ZERO ()
+             ADD definitions.associations_def.properties.viewname_0.xml NOS ZERO ()
+             ADD definitions.associations_def.properties.viewname_0.xml.attribute NOS ZERO ()
+             ADD definitions.associations_def.properties.viewname_0.description NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0 NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.type NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.type NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.type NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.type NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.xml NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.xml.name NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.multiplicity NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.multiplicity.type NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.multiplicity.xml NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.multiplicity.xml.attribute NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.multiplicity.description NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.multiplicity.enum NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.multiplicity.enum NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.multiplicity.enum.field_0 NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.principal NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.principal.type NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.principal.xml NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.principal.xml.attribute NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.principal.description NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.roledescription_0 NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.roledescription_0.type NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.roledescription_0.xml NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.roledescription_0.xml.attribute NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.roledescription_0.description NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.rolename_0 NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.rolename_0.type NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.rolename_0.xml NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.rolename_0.xml.attribute NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.rolename_0.description NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.viewname_0 NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.viewname_0.type NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.viewname_0.xml NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.viewname_0.xml.attribute NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.endpoints.items.properties.viewname_0.description NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.link NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.link.ref_0 NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.name NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.name.type NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.name.xml NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.name.xml.attribute NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.name.description NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.referentialconstraint_0 NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.referentialconstraint_0.type NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.referentialconstraint_0.xml NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.referentialconstraint_0.xml.attribute NOS ZERO ()
+             ADD definitions.associations_def.properties.associationmetadata_0.items.properties.referentialconstraint_0.description NOS ZERO ()
+             ADD definitions.associations_def.properties.link NOS ZERO ()
+             ADD definitions.associations_def.properties.link.ref_0 NOS ZERO ()
+             ADD definitions.associations_def.xml NOS ZERO ()
+             ADD definitions.associations_def.xml.name NOS ZERO ()
+             ADD definitions.associations_def.xml.namespace NOS ZERO ()
+             ADD definitions.agent_element_def NOS ZERO ()
+             ADD definitions.agent_element_def.properties NOS ZERO ()
+             ADD definitions.agent_element_def.properties.agent_id NOS ZERO ()
+             ADD definitions.agent_element_def.properties.agent_id.type NOS ZERO ()
+             ADD definitions.agent_element_def.properties.agent_id.description NOS ZERO ()
+             ADD definitions.agent_element_def.properties.agent_code NOS ZERO ()
+             ADD definitions.agent_element_def.properties.agent_code.type NOS ZERO ()
+             ADD definitions.agent_element_def.properties.agent_code.description NOS ZERO ()
+             ADD definitions.agent_element_def.properties.agent_name NOS ZERO ()
+             ADD definitions.agent_element_def.properties.agent_name.type NOS ZERO ()
+             ADD definitions.agent_element_def.properties.agent_name.description NOS ZERO ()
+             ADD definitions.agent_element_def.properties.links NOS ZERO ()
+             ADD definitions.agent_element_def.properties.links.type NOS ZERO ()
+             ADD definitions.agent_element_def.properties.links.items NOS ZERO ()
+             ADD definitions.agent_element_def.properties.links.items.ref_0 NOS ZERO ()
+             ADD definitions.agent_element_def.description NOS ZERO ()
+             ADD definitions.agent_element_def.xml NOS ZERO ()
+             ADD definitions.agent_element_def.xml.name NOS ZERO ()
+             ADD definitions.agent_element_def.xml.namespace NOS ZERO ()
+             ADD definitions.agent_element_post_def NOS ZERO ()
+             ADD definitions.agent_element_post_def.properties NOS ZERO ()
+             ADD definitions.agent_element_post_def.properties.agent_id NOS ZERO ()
+             ADD definitions.agent_element_post_def.properties.agent_id.type NOS ZERO ()
+             ADD definitions.agent_element_post_def.properties.agent_id.description NOS ZERO ()
+             ADD definitions.agent_element_post_def.properties.agent_code NOS ZERO ()
+             ADD definitions.agent_element_post_def.properties.agent_code.type NOS ZERO ()
+             ADD definitions.agent_element_post_def.properties.agent_code.description NOS ZERO ()
+             ADD definitions.agent_element_post_def.properties.agent_name NOS ZERO ()
+             ADD definitions.agent_element_post_def.properties.agent_name.type NOS ZERO ()
+             ADD definitions.agent_element_post_def.properties.agent_name.description NOS ZERO ()
+             ADD definitions.agent_element_post_def.description NOS ZERO ()
+             ADD definitions.agent_element_post_def.xml NOS ZERO ()
+             ADD definitions.agent_element_post_def.xml.name NOS ZERO ()
+             ADD definitions.agent_element_post_def.xml.namespace NOS ZERO ()
+             ADD definitions.agent_element_put_def NOS ZERO ()
+             ADD definitions.agent_element_put_def.properties NOS ZERO ()
+             ADD definitions.agent_element_put_def.properties.agent_code NOS ZERO ()
+             ADD definitions.agent_element_put_def.properties.agent_code.type NOS ZERO ()
+             ADD definitions.agent_element_put_def.properties.agent_code.description NOS ZERO ()
+             ADD definitions.agent_element_put_def.properties.agent_name NOS ZERO ()
+             ADD definitions.agent_element_put_def.properties.agent_name.type NOS ZERO ()
+             ADD definitions.agent_element_put_def.properties.agent_name.description NOS ZERO ()
+             ADD definitions.agent_element_put_def.description NOS ZERO ()
+             ADD definitions.agent_element_put_def.xml NOS ZERO ()
+             ADD definitions.agent_element_put_def.xml.name NOS ZERO ()
+             ADD definitions.agent_element_put_def.xml.namespace NOS ZERO ()
+             ADD definitions.agent_element_simplified_def NOS ZERO ()
+             ADD definitions.agent_element_simplified_def.properties NOS ZERO ()
+             ADD definitions.agent_element_simplified_def.properties.agent_id NOS ZERO ()
+             ADD definitions.agent_element_simplified_def.properties.agent_id.type NOS ZERO ()
+             ADD definitions.agent_element_simplified_def.properties.agent_id.properties NOS ZERO ()
+             ADD definitions.agent_element_simplified_def.properties.agent_id.properties.type NOS ZERO ()
+             ADD definitions.agent_element_simplified_def.properties.agent_id.properties.type.type NOS ZERO ()
+             ADD definitions.agent_element_simplified_def.properties.agent_id.properties.type.description NOS ZERO ()
+             ADD definitions.agent_element_simplified_def.properties.agent_code NOS ZERO ()
+             ADD definitions.agent_element_simplified_def.properties.agent_code.type NOS ZERO ()
+             ADD definitions.agent_element_simplified_def.properties.agent_code.properties NOS ZERO ()
+             ADD definitions.agent_element_simplified_def.properties.agent_code.properties.type NOS ZERO ()
+             ADD definitions.agent_element_simplified_def.properties.agent_code.properties.type.type NOS ZERO ()
+             ADD definitions.agent_element_simplified_def.properties.agent_code.properties.type.description NOS ZERO ()
+             ADD definitions.agent_element_simplified_def.properties.agent_name NOS ZERO ()
+             ADD definitions.agent_element_simplified_def.properties.agent_name.type NOS ZERO ()
+             ADD definitions.agent_element_simplified_def.properties.agent_name.properties NOS ZERO ()
+             ADD definitions.agent_element_simplified_def.properties.agent_name.properties.type NOS ZERO ()
+             ADD definitions.agent_element_simplified_def.properties.agent_name.properties.type.type NOS ZERO ()
+             ADD definitions.agent_element_simplified_def.properties.agent_name.properties.type.description NOS ZERO ()
+             ADD definitions.agent_element_simplified_def.description NOS ZERO ()
+             ADD definitions.agent_element_simplified_def.xml NOS ZERO ()
+             ADD definitions.agent_element_simplified_def.xml.name NOS ZERO ()
+             ADD definitions.agent_element_simplified_def.xml.namespace NOS ZERO ()
+             ADD definitions.agent_xsd_def NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.targetnamespace NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.targetnamespace.type NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.targetnamespace.xml NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.targetnamespace.xml.attribute NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.targetnamespace.description NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.type NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.type NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.type NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_code NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_code.type NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_code.xml NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_code.xml.name NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_code.properties NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_code.properties.name NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_code.properties.name.type NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_code.properties.name.xml NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_code.properties.name.xml.attribute NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_code.properties.type NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_code.properties.type.type NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_code.properties.type.xml NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_code.properties.type.xml.attribute NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_code.properties.type.description NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_code.properties.nillable NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_code.properties.nillable.type NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_code.properties.nillable.xml NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_code.properties.nillable.xml.attribute NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_id NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_id.type NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_id.xml NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_id.xml.name NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_id.properties NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_id.properties.name NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_id.properties.name.type NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_id.properties.name.xml NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_id.properties.name.xml.attribute NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_id.properties.type NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_id.properties.type.type NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_id.properties.type.xml NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_id.properties.type.xml.attribute NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_id.properties.type.description NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_id.properties.nillable NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_id.properties.nillable.type NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_id.properties.nillable.xml NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_id.properties.nillable.xml.attribute NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_name NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_name.type NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_name.xml NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_name.xml.name NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_name.properties NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_name.properties.name NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_name.properties.name.type NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_name.properties.name.xml NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_name.properties.name.xml.attribute NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_name.properties.type NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_name.properties.type.type NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_name.properties.type.xml NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_name.properties.type.xml.attribute NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_name.properties.type.description NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_name.properties.nillable NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_name.properties.nillable.type NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_name.properties.nillable.xml NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.complextype.properties.sequence.properties.agent_name.properties.nillable.xml.attribute NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.name NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.name.type NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.name.xml NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.name.xml.attribute NOS ZERO ()
+             ADD definitions.agent_xsd_def.properties.element.properties.name.description NOS ZERO ()
+             ADD definitions.agent_xsd_def.description NOS ZERO ()
+             ADD definitions.agent_xsd_def.xml NOS ZERO ()
+             ADD definitions.agent_xsd_def.xml.name NOS ZERO ()
+             ADD definitions.agent_xsd_def.xml.namespace NOS ZERO ()
+             ADD definitions.agent_response_def NOS ZERO ()
+             ADD definitions.agent_response_def.properties NOS ZERO ()
+             ADD definitions.agent_response_def.properties.name NOS ZERO ()
+             ADD definitions.agent_response_def.properties.name.type NOS ZERO ()
+             ADD definitions.agent_response_def.properties.name.xml NOS ZERO ()
+             ADD definitions.agent_response_def.properties.name.xml.attribute NOS ZERO ()
+             ADD definitions.agent_response_def.properties.name.description NOS ZERO ()
+             ADD definitions.agent_response_def.properties.description NOS ZERO ()
+             ADD definitions.agent_response_def.properties.description.type NOS ZERO ()
+             ADD definitions.agent_response_def.properties.description.xml NOS ZERO ()
+             ADD definitions.agent_response_def.properties.description.xml.attribute NOS ZERO ()
+             ADD definitions.agent_response_def.properties.description.description NOS ZERO ()
+             ADD definitions.agent_response_def.properties.elements NOS ZERO ()
+             ADD definitions.agent_response_def.properties.elements.type NOS ZERO ()
+             ADD definitions.agent_response_def.properties.elements.description NOS ZERO ()
+             ADD definitions.agent_response_def.properties.elements.items NOS ZERO ()
+             ADD definitions.agent_response_def.properties.elements.items.ref_0 NOS ZERO ()
+             ADD definitions.agent_response_def.properties.links NOS ZERO ()
+             ADD definitions.agent_response_def.properties.links.type NOS ZERO ()
+             ADD definitions.agent_response_def.properties.links.description NOS ZERO ()
+             ADD definitions.agent_response_def.properties.links.items NOS ZERO ()
+             ADD definitions.agent_response_def.properties.links.items.ref_0 NOS ZERO ()
+             ADD definitions.agent_response_def.xml NOS ZERO ()
+             ADD definitions.agent_response_def.xml.name NOS ZERO ()
+             ADD definitions.agent_response_def.xml.namespace NOS ZERO ()
+             ADD definitions.agent_schema_def NOS ZERO ()
+             ADD definitions.agent_schema_def.properties NOS ZERO ()
+             ADD definitions.agent_schema_def.properties.name NOS ZERO ()
+             ADD definitions.agent_schema_def.properties.name.type NOS ZERO ()
+             ADD definitions.agent_schema_def.properties.name.description NOS ZERO ()
+             ADD definitions.agent_schema_def.properties.properties NOS ZERO ()
+             ADD definitions.agent_schema_def.properties.properties.ref_0 NOS ZERO ()
+             ADD definitions.agent_metadata_def NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.name NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.name.type NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.name.xml NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.name.xml.attribute NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.name.description NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.description NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.description.type NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.description.xml NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.description.xml.attribute NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.description.description NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.viewsmetadata_0 NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.viewsmetadata_0.type NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.viewsmetadata_0.xml NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.viewsmetadata_0.xml.name NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.viewsmetadata_0.properties NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.viewsmetadata_0.properties.links NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.viewsmetadata_0.properties.links.type NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.viewsmetadata_0.properties.links.items NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.viewsmetadata_0.properties.links.items.ref_0 NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.viewsmetadata_0.properties.name NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.viewsmetadata_0.properties.name.type NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.viewsmetadata_0.properties.name.xml NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.viewsmetadata_0.properties.name.xml.attribute NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.viewsmetadata_0.properties.name.description NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.viewsmetadata_0.required NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.viewsmetadata_0.required NOS ZERO ()
+             ADD definitions.agent_metadata_def.properties.viewsmetadata_0.required.field_0 NOS ZERO ()
+             ADD definitions.agent_metadata_def.xml NOS ZERO ()
+             ADD definitions.agent_metadata_def.xml.name NOS ZERO ()
+             ADD definitions.agent_metadata_def.xml.namespace NOS ZERO ()
+             ADD parameters NOS ZERO ()
+             ADD parameters.count_parameter NOS ZERO ()
+             ADD parameters.count_parameter.name NOS ZERO ()
+             ADD parameters.count_parameter.in NOS ZERO ()
+             ADD parameters.count_parameter.description NOS ZERO ()
+             ADD parameters.count_parameter.required NOS ZERO ()
+             ADD parameters.count_parameter.type NOS ZERO ()
+             ADD parameters.select_parameter NOS ZERO ()
+             ADD parameters.select_parameter.name NOS ZERO ()
+             ADD parameters.select_parameter.in NOS ZERO ()
+             ADD parameters.select_parameter.description NOS ZERO ()
+             ADD parameters.select_parameter.required NOS ZERO ()
+             ADD parameters.select_parameter.type NOS ZERO ()
+             ADD parameters.select_parameter.items NOS ZERO ()
+             ADD parameters.select_parameter.items.type NOS ZERO ()
+             ADD parameters.select_parameter.collectionformat NOS ZERO ()
+             ADD parameters.start_index_parameter NOS ZERO ()
+             ADD parameters.start_index_parameter.name NOS ZERO ()
+             ADD parameters.start_index_parameter.in NOS ZERO ()
+             ADD parameters.start_index_parameter.description NOS ZERO ()
+             ADD parameters.start_index_parameter.required NOS ZERO ()
+             ADD parameters.start_index_parameter.type NOS ZERO ()
+             ADD parameters.noescape_html_parameter NOS ZERO ()
+             ADD parameters.noescape_html_parameter.name NOS ZERO ()
+             ADD parameters.noescape_html_parameter.in NOS ZERO ()
+             ADD parameters.noescape_html_parameter.description NOS ZERO ()
+             ADD parameters.noescape_html_parameter.required NOS ZERO ()
+             ADD parameters.noescape_html_parameter.type NOS ZERO ()
+             ADD parameters.noescape_html_parameter.items NOS ZERO ()
+             ADD parameters.noescape_html_parameter.items.type NOS ZERO ()
+             ADD parameters.noescape_html_parameter.collectionformat NOS ZERO ()
+             ADD parameters.user_agent_header_parameter NOS ZERO ()
+             ADD parameters.user_agent_header_parameter.name NOS ZERO ()
+             ADD parameters.user_agent_header_parameter.in NOS ZERO ()
+             ADD parameters.user_agent_header_parameter.description NOS ZERO ()
+             ADD parameters.user_agent_header_parameter.required NOS ZERO ()
+             ADD parameters.user_agent_header_parameter.type NOS ZERO ()
+             ADD parameters.filter_parameter NOS ZERO ()
+             ADD parameters.filter_parameter.name NOS ZERO ()
+             ADD parameters.filter_parameter.in NOS ZERO ()
+             ADD parameters.filter_parameter.description NOS ZERO ()
+             ADD parameters.filter_parameter.required NOS ZERO ()
+             ADD parameters.filter_parameter.type NOS ZERO ()
+             ADD parameters.jsoncallback_parameter NOS ZERO ()
+             ADD parameters.jsoncallback_parameter.name NOS ZERO ()
+             ADD parameters.jsoncallback_parameter.in NOS ZERO ()
+             ADD parameters.jsoncallback_parameter.description NOS ZERO ()
+             ADD parameters.jsoncallback_parameter.required NOS ZERO ()
+             ADD parameters.jsoncallback_parameter.type NOS ZERO ()
+             ADD parameters.reduced_format_parameter NOS ZERO ()
+             ADD parameters.reduced_format_parameter.name NOS ZERO ()
+             ADD parameters.reduced_format_parameter.in NOS ZERO ()
+             ADD parameters.reduced_format_parameter.description NOS ZERO ()
+             ADD parameters.reduced_format_parameter.required NOS ZERO ()
+             ADD parameters.reduced_format_parameter.type NOS ZERO ()
+             ADD parameters.reduced_format_parameter.default_0 NOS ZERO ()
+             ADD parameters.reduced_format_parameter.enum NOS ZERO ()
+             ADD parameters.reduced_format_parameter.enum NOS ZERO ()
+             ADD parameters.reduced_format_parameter.enum.field_0 NOS ZERO ()
+             ADD parameters.having_parameter NOS ZERO ()
+             ADD parameters.having_parameter.name NOS ZERO ()
+             ADD parameters.having_parameter.in NOS ZERO ()
+             ADD parameters.having_parameter.description NOS ZERO ()
+             ADD parameters.having_parameter.required NOS ZERO ()
+             ADD parameters.having_parameter.type NOS ZERO ()
+             ADD parameters.having_parameter.items NOS ZERO ()
+             ADD parameters.having_parameter.items.type NOS ZERO ()
+             ADD parameters.having_parameter.collectionformat NOS ZERO ()
+             ADD parameters.display_restful_references_parameter NOS ZERO ()
+             ADD parameters.display_restful_references_parameter.name NOS ZERO ()
+             ADD parameters.display_restful_references_parameter.in NOS ZERO ()
+             ADD parameters.display_restful_references_parameter.description NOS ZERO ()
+             ADD parameters.display_restful_references_parameter.required NOS ZERO ()
+             ADD parameters.display_restful_references_parameter.type NOS ZERO ()
+             ADD parameters.expand_parameter NOS ZERO ()
+             ADD parameters.expand_parameter.name NOS ZERO ()
+             ADD parameters.expand_parameter.in NOS ZERO ()
+             ADD parameters.expand_parameter.description NOS ZERO ()
+             ADD parameters.expand_parameter.required NOS ZERO ()
+             ADD parameters.expand_parameter.type NOS ZERO ()
+             ADD parameters.expand_parameter.items NOS ZERO ()
+             ADD parameters.expand_parameter.items.type NOS ZERO ()
+             ADD parameters.expand_parameter.collectionformat NOS ZERO ()
+             ADD parameters.order_by_parameter NOS ZERO ()
+             ADD parameters.order_by_parameter.name NOS ZERO ()
+             ADD parameters.order_by_parameter.in NOS ZERO ()
+             ADD parameters.order_by_parameter.description NOS ZERO ()
+             ADD parameters.order_by_parameter.required NOS ZERO ()
+             ADD parameters.order_by_parameter.type NOS ZERO ()
+             ADD parameters.order_by_parameter.items NOS ZERO ()
+             ADD parameters.order_by_parameter.items.type NOS ZERO ()
+             ADD parameters.order_by_parameter.collectionformat NOS ZERO ()
+             ADD parameters.format_parameter NOS ZERO ()
+             ADD parameters.format_parameter.name NOS ZERO ()
+             ADD parameters.format_parameter.in NOS ZERO ()
+             ADD parameters.format_parameter.description NOS ZERO ()
+             ADD parameters.format_parameter.required NOS ZERO ()
+             ADD parameters.format_parameter.type NOS ZERO ()
+             ADD parameters.format_parameter.default_0 NOS ZERO ()
+             ADD parameters.format_parameter.enum NOS ZERO ()
+             ADD parameters.format_parameter.enum NOS ZERO ()
+             ADD parameters.format_parameter.enum.field_0 NOS ZERO ()
+             ADD parameters.group_by_parameter NOS ZERO ()
+             ADD parameters.group_by_parameter.name NOS ZERO ()
+             ADD parameters.group_by_parameter.in NOS ZERO ()
+             ADD parameters.group_by_parameter.description NOS ZERO ()
+             ADD parameters.group_by_parameter.required NOS ZERO ()
+             ADD parameters.group_by_parameter.type NOS ZERO ()
+             ADD parameters.group_by_parameter.items NOS ZERO ()
+             ADD parameters.group_by_parameter.items.type NOS ZERO ()
+             ADD parameters.group_by_parameter.collectionformat NOS ZERO ()
+        )
+        OUTPUTLIST (basepath, definitions, host, info, parameters, paths, schemes, swagger, tags
+        )
+        WRAPPER (json json1)
+    );
+

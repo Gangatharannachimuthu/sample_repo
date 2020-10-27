@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW p_bv_customer FOLDER = '/register' AS SELECT id AS id, register(first_name, last_name) AS exam FROM bv_customer GROUP BY first_name, last_name, id;
+
+ALTER VIEW p_bv_customer
+ LAYOUT (bv_customer = [20, 20, 264, 226]);
+

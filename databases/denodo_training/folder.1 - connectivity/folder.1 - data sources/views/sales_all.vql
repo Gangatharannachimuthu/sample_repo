@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW sales_all FOLDER = '/1 - connectivity/1 - data sources' AS SELECT productid, sales FROM FLATTEN bv_sales_all AS v ( v.salesdata);
+
+ALTER VIEW sales_all
+ LAYOUT (bv_sales_all = [20, 20, 403, 45]);
+

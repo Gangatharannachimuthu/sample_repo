@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW p_iv_interactionsrehger FOLDER = '/ws' AS SELECT iv_interactions.agent_code AS agent_code, iv_interactions.interaction_date AS interaction_date, iv_interactions.interaction_ip AS interaction_ip, iv_interactions.case_id AS case_id, iv_interactions.interaction_phone AS interaction_phone, iv_interactions.customer_code AS customer_code FROM iv_interactions;
+
+ALTER VIEW p_iv_interactionsrehger
+ LAYOUT (iv_interactions = [20, 20, 235, 466]);
+

@@ -1,0 +1,21 @@
+﻿CREATE OR REPLACE INTERFACE VIEW ex_interaction (
+        customer_code:text,
+        agent_id:decimal,
+        interaction_date:localdate,
+        case_id:decimal,
+        interaction_phone:text,
+        interaction_ip:text
+    )
+    SET IMPLEMENTATION iv_interactions(
+        customer_code = customer_code,
+        agent_id = location_id,
+        interaction_date = interaction_date,
+        case_id = case_id,
+        interaction_phone = interaction_phone,
+        interaction_ip = interaction_ip    
+)
+    FOLDER = '/importedmodels/lab';
+
+ALTER VIEW ex_interaction
+ LAYOUT (iv_interactions = [450, 0, 290, 466]);
+

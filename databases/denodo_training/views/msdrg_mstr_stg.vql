@@ -1,0 +1,69 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC msdrg_mstr_stg
+    DATASOURCENAME=omc_dev
+    CATALOGNAME='${databases.denodo_training.views.jdbc.msdrg_mstr_stg.CATALOGNAME}' 
+    RELATIONNAME='msdrg_mstr_stg' 
+    OUTPUTSCHEMA (
+        omc_job_id = 'omc_job_id' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypesize='10', description='', sourcetypeid='4', sourcetypename='INT')  SORTABLE,
+        omc_file_row_num = 'omc_file_row_num' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypesize='10', description='', sourcetypeid='4', sourcetypename='INT')  NOT NULL SORTABLE,
+        msdrg_cd = 'msdrg_cd' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='15', description='', sourcetypeid='12', sourcetypename='VARCHAR')  SORTABLE,
+        fnl_pst_acut = 'fnl_pst_acut' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='10', description='', sourcetypeid='12', sourcetypename='VARCHAR')  SORTABLE,
+        spl_pay_drg = 'spl_pay_drg' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='10', description='', sourcetypeid='12', sourcetypename='VARCHAR')  SORTABLE,
+        mdc_cd = 'mdc_cd' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='15', description='', sourcetypeid='12', sourcetypename='VARCHAR')  SORTABLE,
+        mdc_type = 'mdc_type' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='15', description='', sourcetypeid='12', sourcetypename='VARCHAR')  SORTABLE,
+        msdrg_desc = 'msdrg_desc' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='65535', description='', sourcetypeid='-1', sourcetypename='TEXT')  NOT SORTABLE,
+        msdrg_wgts = 'msdrg_wgts' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='30', description='', sourcetypeid='12', sourcetypename='VARCHAR')  SORTABLE,
+        gm_los = 'gm_los' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='30', description='', sourcetypeid='12', sourcetypename='VARCHAR')  SORTABLE,
+        am_los = 'am_los' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='30', description='', sourcetypeid='12', sourcetypename='VARCHAR')  SORTABLE,
+        omc_md5_key = 'omc_md5_key' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='255', description='', sourcetypeid='12', sourcetypename='VARCHAR')  SORTABLE,
+        omc_err_flg = 'omc_err_flg' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='1', description='', sourcetypeid='12', sourcetypename='VARCHAR')  SORTABLE,
+        omc_crt_by = 'omc_crt_by' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='20', description='', sourcetypeid='12', sourcetypename='VARCHAR')  SORTABLE,
+        omc_crt_ts = 'omc_crt_ts' :'java.time.LocalDateTime' (OPT) (sourcetyperadix='10', sourcetypesize='26', description='', sourcetypeid='93', sourcetypename='DATETIME')  NOT SORTABLE
+    )
+    CONSTRAINT 'PRIMARY' PRIMARY KEY ( 'omc_file_row_num' )
+    INDEX 'PRIMARY' CLUSTER UNIQUE PRIMARY ( 'omc_file_row_num' );
+
+CREATE OR REPLACE TABLE msdrg_mstr_stg I18N us_pst (
+        omc_job_id:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypesize = '10', description = ''), 
+        omc_file_row_num:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypesize = '10', description = ''), 
+        msdrg_cd:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '15', description = ''), 
+        fnl_pst_acut:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '10', description = ''), 
+        spl_pay_drg:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '10', description = ''), 
+        mdc_cd:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '15', description = ''), 
+        mdc_type:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '15', description = ''), 
+        msdrg_desc:text (sourcetypeid = '-1', sourcetyperadix = '10', sourcetypesize = '65535', description = ''), 
+        msdrg_wgts:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '30', description = ''), 
+        gm_los:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '30', description = ''), 
+        am_los:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '30', description = ''), 
+        omc_md5_key:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '255', description = ''), 
+        omc_err_flg:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '1', description = ''), 
+        omc_crt_by:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '20', description = ''), 
+        omc_crt_ts:timestamp (sourcetypeid = '93', sourcetyperadix = '10', sourcetypesize = '26', description = '')
+    )
+    CONSTRAINT 'PRIMARY' PRIMARY KEY ( 'omc_file_row_num' )
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD msdrg_mstr_stg(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD omc_job_id (any) OPT ANY
+             ADD omc_file_row_num (any) OPT ANY
+             ADD msdrg_cd (any) OPT ANY
+             ADD fnl_pst_acut (any) OPT ANY
+             ADD spl_pay_drg (any) OPT ANY
+             ADD mdc_cd (any) OPT ANY
+             ADD mdc_type (any) OPT ANY
+             ADD msdrg_desc (any) OPT ANY
+             ADD msdrg_wgts (any) OPT ANY
+             ADD gm_los (any) OPT ANY
+             ADD am_los (any) OPT ANY
+             ADD omc_md5_key (any) OPT ANY
+             ADD omc_err_flg (any) OPT ANY
+             ADD omc_crt_by (any) OPT ANY
+             ADD omc_crt_ts (any) OPT ANY
+        )
+        OUTPUTLIST (am_los, fnl_pst_acut, gm_los, mdc_cd, mdc_type, msdrg_cd, msdrg_desc, msdrg_wgts, omc_crt_by, omc_crt_ts, omc_err_flg, omc_file_row_num, omc_job_id, omc_md5_key, spl_pay_drg
+        )
+        WRAPPER (jdbc msdrg_mstr_stg)
+    );
+

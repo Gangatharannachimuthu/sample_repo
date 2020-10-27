@@ -1,0 +1,5 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+UNDEPLOY IF EXISTS WEBSERVICE iv_interactions1_customer_web;
+
+DEPLOY WEBSERVICE iv_interactions1_customer_web LOGIN = '${databases.denodo_training.webcontainer.webservices.iv_interactions1_customer_web.LOGIN}' PASSWORD = '${databases.denodo_training.webcontainer.webservices.iv_interactions1_customer_web.PASSWORD}' ${databases.denodo_training.webcontainer.webservices.iv_interactions1_customer_web.PASSWORD.ENCRYPTED};
+

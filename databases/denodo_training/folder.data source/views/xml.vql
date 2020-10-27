@@ -1,0 +1,61 @@
+﻿CREATE OR REPLACE WRAPPER XML xml_3900
+    FOLDER = '/data source'
+    DATASOURCENAME=xml
+    TUPLEROOT 'salesDataList'
+    OUTPUTSCHEMA (salesdatalist = 'salesDataList' : REGISTER OF (
+        salesdata = 'salesData' : ARRAY OF (
+            salesdata = 'salesData' : REGISTER OF (
+                productid = 'productId' : 'java.lang.Integer',
+                sales = 'sales' : ARRAY OF (
+                    sales = 'sales' : REGISTER OF (
+                        bundleamount = 'bundleAmount' : 'java.lang.Integer',
+                        customerid = 'customerId' : 'java.lang.String',
+                        employeeid = 'employeeId' : 'java.lang.Integer',
+                        productid = 'productId' : 'java.lang.Integer',
+                        productsaleprice = 'productSalePrice' : 'java.lang.Float',
+                        saledate = 'saleDate' : 'java.lang.String',
+                        saleid = 'saleId' : 'java.lang.Integer',
+                        totalprice = 'totalPrice' : 'java.lang.Float'
+                    )
+                )
+            )
+        )
+    )
+    );
+
+CREATE OR REPLACE TYPE xml_salesdata_salesdata_sales_sales AS REGISTER OF (bundleamount:int, customerid:text, employeeid:int, productid:int, productsaleprice:float, saledate:text, saleid:int, totalprice:float);
+
+CREATE OR REPLACE TYPE xml_salesdata_salesdata_sales AS ARRAY OF xml_salesdata_salesdata_sales_sales;
+
+CREATE OR REPLACE TYPE xml_salesdata_salesdata AS REGISTER OF (productid:int, sales:xml_salesdata_salesdata_sales);
+
+CREATE OR REPLACE TYPE xml_salesdata AS ARRAY OF xml_salesdata_salesdata;
+
+CREATE OR REPLACE TABLE xml I18N us_pst (
+        salesdata:xml_salesdata
+    )
+    FOLDER = '/data source'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD xml(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD salesdata NOS ZERO ()
+             ADD salesdata NOS ZERO ()
+             ADD salesdata.productid NOS ZERO ()
+             ADD salesdata.sales NOS ZERO ()
+             ADD salesdata.sales NOS ZERO ()
+             ADD salesdata.sales.bundleamount NOS ZERO ()
+             ADD salesdata.sales.customerid NOS ZERO ()
+             ADD salesdata.sales.employeeid NOS ZERO ()
+             ADD salesdata.sales.productid NOS ZERO ()
+             ADD salesdata.sales.productsaleprice NOS ZERO ()
+             ADD salesdata.sales.saledate NOS ZERO ()
+             ADD salesdata.sales.saleid NOS ZERO ()
+             ADD salesdata.sales.totalprice NOS ZERO ()
+        )
+        OUTPUTLIST (salesdata
+        )
+        WRAPPER (xml xml_3900)
+    );
+

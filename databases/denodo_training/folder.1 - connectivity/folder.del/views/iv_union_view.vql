@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW iv_union_view FOLDER = '/1 - connectivity/del' AS SELECT call_id, location_id, problem_code, status_code, date_ticket_issued, date_call_received, other_details, caller_calltracking, case_id, agent_id, customer_code, first_name, last_name, email, phone_number, job_id, salary, commission_pct, manager_id, department_id FROM (SELECT * FROM bv_service_call1 UNION SELECT first_name, email, manager_id, phone_number, salary, department_id, employee_id AS call_id, job_id, commission_pct, last_name, hire_date AS date_call_received FROM bv_hr_employees);
+
+ALTER VIEW iv_union_view
+ LAYOUT (bv_service_call1 = [20, 20, 310, 246], bv_hr_employees = [570, 70, 260, 246]);
+

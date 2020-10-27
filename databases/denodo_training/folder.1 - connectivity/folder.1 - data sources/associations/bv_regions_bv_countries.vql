@@ -1,0 +1,6 @@
+﻿CREATE OR REPLACE ASSOCIATION bv_regions_bv_countries REFERENTIAL CONSTRAINT 
+FOLDER = '/1 - connectivity/1 - data sources'
+    ENDPOINT bv_countries bv_regions PRINCIPAL (0,1)
+    ENDPOINT bv_regions bv_countries (0,*)
+    ADD MAPPING region_id=region_id;
+

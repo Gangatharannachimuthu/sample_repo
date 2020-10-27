@@ -1,0 +1,34 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE DATASOURCE JDBC sf
+    DRIVERCLASSNAME = 'com.snowflake.client.jdbc.SnowflakeDriver'
+    DATABASEURI = '${databases.denodo_training.datasources.jdbc.sf.DATABASEURI}'
+    USERNAME = '${databases.denodo_training.datasources.jdbc.sf.USERNAME}'
+    USERPASSWORD = '${databases.denodo_training.datasources.jdbc.sf.USERPASSWORD}' ${databases.denodo_training.datasources.jdbc.sf.USERPASSWORD.ENCRYPTED}
+    CLASSPATH = 'snowflake-1.x'
+    DATABASENAME = 'snowflake'
+    DATABASEVERSION = '1_x'
+    ISOLATIONLEVEL = TRANSACTION_READ_COMMITTED
+    FETCHSIZE = 1000
+    VALIDATIONQUERY = 'Select 1'
+    INITIALSIZE = 4
+    MAXIDLE = -1
+    MINIDLE = 0
+    MAXACTIVE = 20
+    EXHAUSTEDACTION = 1
+    TESTONBORROW = true
+    TESTONRETURN = false
+    TESTWHILEIDLE = false
+    TIMEBETWEENEVICTION = -1
+    NUMTESTPEREVICTION = 3
+    MINEVICTABLETIME = 1800000
+    POOLPREPAREDSTATEMENTS = false
+    MAXSLEEPINGPS = 4
+    INITIALCAPACITYPS = 8
+    DATA_LOAD_CONFIGURATION (
+        BATCHINSERTSIZE = 500000
+        USEEXTERNALTABLES ( 
+            ONMOVEREAD = false,
+            ONMOVEWRITE = true
+        )
+    );
+

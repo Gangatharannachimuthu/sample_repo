@@ -1,0 +1,8 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE DATASOURCE DF ds_connections
+    FOLDER = '/1 - connectivity/del'
+    ROUTE LOCAL 'LocalConnection' '${databases.denodo_training.folder.1 - connectivity.folder.del.datasources.df.ds_connections.ROUTE.LOCAL.PATH}' FILENAMEPATTERN = '(.*)\.log'
+    TUPLEPATTERN = '(\d{{2}}?/\d{{2}}?/\d{{4}}?)\s+?\d{{2}}:\d{{2}}.*?(\d[^ ]*)\s(.*)'
+    ENDOFLINEDELIMITER = '\n'
+    HEADER = FALSE;
+

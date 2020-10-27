@@ -1,0 +1,5 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+UNDEPLOY IF EXISTS WEBSERVICE bv_customer;
+
+DEPLOY WEBSERVICE bv_customer LOGIN = '${databases.denodo_training.webcontainer.webservices.bv_customer.LOGIN}' PASSWORD = '${databases.denodo_training.webcontainer.webservices.bv_customer.PASSWORD}' ${databases.denodo_training.webcontainer.webservices.bv_customer.PASSWORD.ENCRYPTED};
+

@@ -1,0 +1,5 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE DATASOURCE JSON ds_sales_ex
+    FOLDER = '/json'
+    ROUTE LOCAL 'LocalConnection' '${databases.denodo_training.folder.json.datasources.json.ds_sales_ex.ROUTE.LOCAL.PATH}';
+

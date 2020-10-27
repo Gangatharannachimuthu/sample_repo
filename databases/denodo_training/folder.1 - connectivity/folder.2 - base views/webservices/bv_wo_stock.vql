@@ -1,0 +1,79 @@
+﻿CREATE OR REPLACE SOAP WEBSERVICE bv_wo_stock
+    CONNECTION (
+        CHUNKSIZE = 1000
+        CHUNKTIMEOUT = 90000
+        QUERYTIMEOUT = 900000
+        POOLENABLED = true
+        POOLINITSIZE = 0
+        POOLMAXACTIVE = 30
+    )
+    I18N  = us_pst
+    DATETYPEMAPPING DATE
+    NOWRAPARRAYS
+    RAISEFAULTONIDU
+    DONOTAPPLYOUTPUTXSLTTOERRORS
+    OUTPUT 
+        ( STYLE DOCUMENT )
+    OPERATION 'getBV_WO_STOCKByIDAndPRODUCT_IDAndDISTRIBUTION_CODEAndSTORAGE_ID' (
+        TYPE SELECT
+        SCHEMA VIEW bv_wo_stock
+        VQL = 'SELECT id, product_id, distribution_code, storage_id FROM bv_wo_stock ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") ^ExecuteIfIsNotNull("OFFSET ",@start_index," ROWS") ^ExecuteIfIsNotNull("FETCH NEXT ",@count," ROWS ONLY") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@VERBOSEERRORS,"")^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
+        INPUTS 'GetBV_WO_STOCKByIDAndPRODUCT_IDAndDISTRIBUTION_CODEAndSTORAGE_ID' (
+            'ID' id:'double' '=' 
+            'PRODUCT_ID' product_id:'double' '=' 
+            'DISTRIBUTION_CODE' distribution_code:'text' '=' 
+            'STORAGE_ID' storage_id:'double' '=' 
+            OFFSET 'START_INDEX' start_index:'long' '=' 
+            FETCH 'COUNT' count:'long' '=' 
+        )
+        OUTPUT 
+            'BV_WO_STOCKReturn': Array of ( 'BV_WO_STOCKReturnRow': Register of (
+                id : 'double',
+                product_id : 'double',
+                distribution_code : 'text',
+                storage_id : 'double'
+            ) (
+                    '/distribution_code'='DISTRIBUTION_CODE',
+                    '/id'='ID',
+                    '/product_id'='PRODUCT_ID',
+                    '/storage_id'='STORAGE_ID'))
+    )    OPERATION 'insertBV_WO_STOCK' (
+        TYPE INSERT
+        SCHEMA VIEW bv_wo_stock
+        VQL = 'INSERT INTO bv_wo_stock (id, product_id, distribution_code, storage_id) VALUES (@ID, @PRODUCT_ID, @DISTRIBUTION_CODE, @STORAGE_ID) CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
+        INPUTS 'InsertBV_WO_STOCK' (
+            'ID' id:'double' '=' OBL 
+            'PRODUCT_ID' product_id:'double' '=' OBL 
+            'DISTRIBUTION_CODE' distribution_code:'text' '=' OBL 
+            'STORAGE_ID' storage_id:'double' '=' OBL 
+        )
+        OUTPUT 'long'
+    )    OPERATION 'deleteBV_WO_STOCK' (
+        TYPE DELETE
+        SCHEMA VIEW bv_wo_stock
+        VQL = 'DELETE FROM bv_wo_stock ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
+        INPUTS 'DeleteBV_WO_STOCK' (
+            'ID' id:'double' '=' 
+            'PRODUCT_ID' product_id:'double' '=' 
+            'DISTRIBUTION_CODE' distribution_code:'text' '=' 
+            'STORAGE_ID' storage_id:'double' '=' 
+        )
+        OUTPUT 'long'
+    )    OPERATION 'updateBV_WO_STOCK' (
+        TYPE UPDATE
+        SCHEMA VIEW bv_wo_stock
+        VQL = 'UPDATE bv_wo_stock SET id=@newID, product_id=@newPRODUCT_ID, distribution_code=@newDISTRIBUTION_CODE, storage_id=@newSTORAGE_ID ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
+        INPUTS 'UpdateBV_WO_STOCK' (
+            'ID' id:'double' '=' 
+            'PRODUCT_ID' product_id:'double' '=' 
+            'DISTRIBUTION_CODE' distribution_code:'text' '=' 
+            'STORAGE_ID' storage_id:'double' '=' 
+            SET 'newID' id:'double' '=' OBL 
+            SET 'newPRODUCT_ID' product_id:'double' '=' OBL 
+            SET 'newDISTRIBUTION_CODE' distribution_code:'text' '=' OBL 
+            SET 'newSTORAGE_ID' storage_id:'double' '=' OBL 
+        )
+        OUTPUT 'long'
+    )
+    FOLDER = '/1 - connectivity/2 - base views';
+

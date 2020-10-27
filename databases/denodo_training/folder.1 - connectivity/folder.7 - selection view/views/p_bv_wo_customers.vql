@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW p_bv_wo_customers FOLDER = '/1 - connectivity/7 - selection view' AS SELECT DISTINCT ass.id AS id, ass.customer_code_internal AS customer_code_internal, ass.first_name AS first_name, ass.last_name AS last_name, ass.email AS email FROM ass ORDER BY id DESC;
+
+ALTER VIEW p_bv_wo_customers
+ LAYOUT (ass = [20, 20, 239, 226]);
+

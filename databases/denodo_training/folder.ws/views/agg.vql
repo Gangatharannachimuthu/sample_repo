@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW agg FOLDER = '/ws' AS SELECT first_name AS first_name, count(employee_id) AS agg FROM bv_hr_employees GROUP BY first_name;
+
+ALTER VIEW agg
+ LAYOUT (bv_hr_employees = [20, 20, 310, 246]);
+

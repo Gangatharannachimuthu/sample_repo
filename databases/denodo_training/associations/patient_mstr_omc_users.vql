@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE ASSOCIATION patient_mstr_omc_users REFERENTIAL CONSTRAINT 
+    ENDPOINT omc_users patient_mstr PRINCIPAL (0,1)
+    ENDPOINT patient_mstr omc_users (0,*)
+    ADD MAPPING omc_pt_id=omc_pt_id;
+

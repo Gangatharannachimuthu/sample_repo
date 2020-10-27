@@ -1,0 +1,41 @@
+﻿CREATE OR REPLACE WRAPPER DF ds_connection_date
+    FOLDER = '/1 - connectivity/delimited'
+    DATASOURCENAME=ds_connection_date
+    OUTPUTSCHEMA (
+        column0 = 'Column0' (OPT),
+        column1 = 'Column1' (OPT),
+        column2 = 'Column2' (OPT),
+        column3 = 'Column3' (OPT),
+        column4 = 'Column4' (OPT),
+        column5 = 'Column5' (OPT),
+        column6 = 'Column6' (OPT)
+    );
+
+CREATE OR REPLACE TABLE ds_connection_date I18N us_pst (
+        column0:text, 
+        column1:text, 
+        column2:text, 
+        column3:text, 
+        column4:text, 
+        column5:text, 
+        column6:text
+    )
+    FOLDER = '/1 - connectivity/delimited'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD ds_connection_date(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD column0 (=,in) OPT ANY
+             ADD column1 (=,in) OPT ANY
+             ADD column2 (=,in) OPT ANY
+             ADD column3 (=,in) OPT ANY
+             ADD column4 (=,in) OPT ANY
+             ADD column5 (=,in) OPT ANY
+             ADD column6 (=,in) OPT ANY
+        )
+        OUTPUTLIST (column0, column1, column2, column3, column4, column5, column6
+        )
+        WRAPPER (df ds_connection_date)
+    );
+

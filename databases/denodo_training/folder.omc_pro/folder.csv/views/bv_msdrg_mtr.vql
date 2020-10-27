@@ -1,0 +1,24 @@
+﻿CREATE OR REPLACE WRAPPER DF bv_msdrg_mtr
+    FOLDER = '/omc_pro/csv'
+    DATASOURCENAME=msdrg_mtr
+    OUTPUTSCHEMA (
+        table5listofmedicareseveritydiagnosisrelatedgroupsmsdrgsrelativeweightingfactorsandgeometricandari_0 = '"TABLE 5.—LIST OF MEDICARE SEVERITY DIAGNOSIS-RELATED GROUPS (MS-DRGS), RELATIVE WEIGHTING FACTORS, 
+AND GEOMETRIC AND ARITHMETIC MEAN LENGTH OF STAY—FY 2020 Final Rule"' (OPT)
+    );
+
+CREATE OR REPLACE TABLE bv_msdrg_mtr I18N us_pst (
+        table5listofmedicareseveritydiagnosisrelatedgroupsmsdrgsrelativeweightingfactorsandgeometricandari_0:text
+    )
+    FOLDER = '/omc_pro/csv'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD bv_msdrg_mtr(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD table5listofmedicareseveritydiagnosisrelatedgroupsmsdrgsrelativeweightingfactorsandgeometricandari_0 (=,in) OPT ANY
+        )
+        OUTPUTLIST (table5listofmedicareseveritydiagnosisrelatedgroupsmsdrgsrelativeweightingfactorsandgeometricandari_0
+        )
+        WRAPPER (df bv_msdrg_mtr)
+    );
+

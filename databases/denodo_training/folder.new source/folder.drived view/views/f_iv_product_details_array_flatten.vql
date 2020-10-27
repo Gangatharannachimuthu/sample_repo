@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW f_iv_product_details_array_flatten FOLDER = '/new source/drived view' AS SELECT code, description, warnings, numresults, productdetails, return_product_code, return_product_description, return_product_warnings, return_product_numresults, productid, productname, productprice, category, characteristics, accessories FROM FLATTEN iv_product_details_array AS v ( v.return.product.productdetails);
+
+ALTER VIEW f_iv_product_details_array_flatten
+ LAYOUT (iv_product_details_array = [20, 20, 628, 773]);
+

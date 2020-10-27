@@ -1,0 +1,68 @@
+﻿CREATE OR REPLACE WRAPPER DF disease_qust
+    FOLDER = '/omc/omc_bv'
+    DATASOURCENAME=disease_qust
+    OUTPUTSCHEMA (
+        diseaseacronym_0 = 'Disease Acronym' (OPT),
+        questionnumber_0 = 'Question Number' (OPT),
+        questiondisplayorder_0 = 'Question Display Order' (OPT),
+        question = 'Question' (OPT),
+        choices = 'Choices' (OPT),
+        weightage = 'Weightage' (OPT),
+        relatedquestionnumber_0 = 'Related Question Number' (OPT),
+        relatedanswers_0 = 'Related Answers' (OPT),
+        activequestion_0 = 'Active Question' (OPT),
+        id_1 = '' (OPT),
+        id_0 = '' (OPT),
+        insertintoomc_disease_questions_stgomc_job_idomc_fole_row_numomc_dis_qna_cdomc_dis_abbromc_dis_qna_0 = '"insert into omc_disease_questions_stg (
+omc_job_id, omc_fole_row_num, omc_dis_qna_cd
+,omc_dis_abbr
+,omc_dis_qna
+,omc_dis_qna_opts
+,omc_dis_qna_wtg
+,omc_dis_rlt_qna_id
+,omc_dis_rlt_ans
+,omc_qna_sts
+,omc_qna_disp_ordr_num
+,omc_crt_by
+,omc_crt_ts
+) values "' (OPT)
+    );
+
+CREATE OR REPLACE TABLE bv_disease_qust I18N us_pst (
+        diseaseacronym_0:text, 
+        questionnumber_0:text, 
+        questiondisplayorder_0:text, 
+        question:text, 
+        choices:text, 
+        weightage:text, 
+        relatedquestionnumber_0:text, 
+        relatedanswers_0:text, 
+        activequestion_0:text, 
+        id_1:text, 
+        id_0:text, 
+        insertintoomc_disease_questions_stgomc_job_idomc_fole_row_numomc_dis_qna_cdomc_dis_abbromc_dis_qna_0:text
+    )
+    FOLDER = '/omc/omc_bv'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD disease_qust(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD diseaseacronym_0 (=,in) OPT ANY
+             ADD questionnumber_0 (=,in) OPT ANY
+             ADD questiondisplayorder_0 (=,in) OPT ANY
+             ADD question (=,in) OPT ANY
+             ADD choices (=,in) OPT ANY
+             ADD weightage (=,in) OPT ANY
+             ADD relatedquestionnumber_0 (=,in) OPT ANY
+             ADD relatedanswers_0 (=,in) OPT ANY
+             ADD activequestion_0 (=,in) OPT ANY
+             ADD id_1 (=,in) OPT ANY
+             ADD id_0 (=,in) OPT ANY
+             ADD insertintoomc_disease_questions_stgomc_job_idomc_fole_row_numomc_dis_qna_cdomc_dis_abbromc_dis_qna_0 (=,in) OPT ANY
+        )
+        OUTPUTLIST (activequestion_0, choices, diseaseacronym_0, id_0, id_1, insertintoomc_disease_questions_stgomc_job_idomc_fole_row_numomc_dis_qna_cdomc_dis_abbromc_dis_qna_0, question, questiondisplayorder_0, questionnumber_0, relatedanswers_0, relatedquestionnumber_0, weightage
+        )
+        WRAPPER (df disease_qust)
+    );
+

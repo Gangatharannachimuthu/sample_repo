@@ -1,0 +1,41 @@
+﻿CREATE OR REPLACE INTERFACE VIEW i_account (
+        id:text,
+        name:text,
+        billingstreet:text,
+        billingcity:text,
+        billingstate:text,
+        billingpostalcode:text,
+        billingcountry:text,
+        phone:text,
+        annualrevenue:decimal,
+        numberofemployees:long,
+        ownerid:text,
+        createddate:localdate,
+        createdbyid:text,
+        lastmodifieddate:localdate,
+        lastmodifiedbyid:text,
+        systemmodstamp:localdate
+    )
+    SET IMPLEMENTATION bv_sf_account(
+        id = id,
+        name = name,
+        billingstreet = billingstreet,
+        billingcity = billingcity,
+        billingstate = billingstate,
+        billingpostalcode = billingpostalcode,
+        billingcountry = billingcountry,
+        phone = phone,
+        annualrevenue = annualrevenue,
+        numberofemployees = numberofemployees,
+        ownerid = ownerid,
+        createddate = createddate,
+        createdbyid = createdbyid,
+        lastmodifieddate = lastmodifieddate,
+        lastmodifiedbyid = lastmodifiedbyid,
+        systemmodstamp = systemmodstamp    
+)
+    FOLDER = '/importedmodels/lab';
+
+ALTER VIEW i_account
+ LAYOUT (bv_sf_account = [550, 20, 360, 379]);
+

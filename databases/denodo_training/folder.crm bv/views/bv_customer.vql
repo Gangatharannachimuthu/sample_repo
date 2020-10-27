@@ -1,0 +1,55 @@
+﻿CREATE OR REPLACE WRAPPER JDBC bv_customer
+    FOLDER = '/crm bv'
+    DATASOURCENAME=ds_web_orders
+    RELATIONNAME='customer' 
+    OUTPUTSCHEMA (
+        id = 'ID' :'java.lang.Double' (OPT) (sourcetypedecimals='10', sourcetyperadix='10', sourcetypesize='2000000000', sourcetypeid='6', sourcetypename='DECIMAL(22,0)')  NOT NULL NOT SORTABLE,
+        customer_code_internal = 'CUSTOMER_CODE_INTERNAL' :'java.lang.String' (OPT) (sourcetypedecimals='10', sourcetyperadix='10', sourcetypesize='2000000000', sourcetypeid='12', sourcetypename='VARCHAR(20)')  NOT NULL SORTABLE,
+        first_name = 'FIRST_NAME' :'java.lang.String' (OPT) (sourcetypedecimals='10', sourcetyperadix='10', sourcetypesize='2000000000', sourcetypeid='12', sourcetypename='VARCHAR(50)')  NOT NULL SORTABLE,
+        last_name = 'LAST_NAME' :'java.lang.String' (OPT) (sourcetypedecimals='10', sourcetyperadix='10', sourcetypesize='2000000000', sourcetypeid='12', sourcetypename='VARCHAR(100)')  SORTABLE,
+        email = 'EMAIL' :'java.lang.String' (OPT) (sourcetypedecimals='10', sourcetyperadix='10', sourcetypesize='2000000000', sourcetypeid='12', sourcetypename='VARCHAR(50)')  NOT NULL SORTABLE,
+        phone = 'PHONE' :'java.lang.String' (OPT) (sourcetypedecimals='10', sourcetyperadix='10', sourcetypesize='2000000000', sourcetypeid='12', sourcetypename='VARCHAR(20)')  SORTABLE,
+        main_address = 'MAIN_ADDRESS' :'java.lang.String' (OPT) (sourcetypedecimals='10', sourcetyperadix='10', sourcetypesize='2000000000', sourcetypeid='12', sourcetypename='VARCHAR(200)')  SORTABLE,
+        main_postcode = 'MAIN_POSTCODE' :'java.lang.String' (OPT) (sourcetypedecimals='10', sourcetyperadix='10', sourcetypesize='2000000000', sourcetypeid='12', sourcetypename='VARCHAR(20)')  SORTABLE,
+        main_country = 'MAIN_COUNTRY' :'java.lang.String' (OPT) (sourcetypedecimals='10', sourcetyperadix='10', sourcetypesize='2000000000', sourcetypeid='12', sourcetypename='VARCHAR(100)')  SORTABLE,
+        registered_date = 'REGISTERED_DATE' :'java.lang.String' (OPT) (sourcetypedecimals='10', sourcetyperadix='10', sourcetypesize='2000000000', sourcetypeid='12', sourcetypename='DATETIME')  NOT NULL NOT SORTABLE
+    )
+    PRIMARY KEY ( 'ID' , 'CUSTOMER_CODE_INTERNAL' )
+    INDEX 'sqlite_autoindex_customer_1' OTHER UNIQUE PRIMARY ( 'ID' , 'CUSTOMER_CODE_INTERNAL' );
+
+CREATE OR REPLACE TABLE bv_customer I18N us_pst (
+        id:double (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
+        customer_code_internal:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
+        first_name:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
+        last_name:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
+        email:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
+        phone:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
+        main_address:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
+        main_postcode:int (sourcetypeid = '-5', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
+        main_country:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
+        registered_date:localdate (sourcetypeid = '91', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000')
+    )
+    FOLDER = '/crm bv'
+    CACHE PARTIAL
+    BATCHSIZEINCACHE DEFAULT
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD bv_customer(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD id (any) OPT ANY
+             ADD first_name (any) OPT ANY
+             ADD last_name (any) OPT ANY
+             ADD email (any) OPT ANY
+             ADD phone (any) OPT ANY
+             ADD main_address (any) OPT ANY
+             ADD main_postcode (any) OPT ANY
+             ADD main_country (any) OPT ANY
+             ADD registered_date (any) OPT ANY
+             ADD customer_code_internal NOS ZERO ()
+        )
+        OUTPUTLIST (customer_code_internal, email, first_name, id, last_name, main_address, main_country, main_postcode, phone, registered_date
+        )
+        WRAPPER (jdbc bv_customer)
+    )
+     DECLARE VIEW CLUSTER INDEX emp ON (id, first_name, last_name);
+

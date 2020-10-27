@@ -1,0 +1,5 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+UNDEPLOY IF EXISTS WEBSERVICE f_sales_all;
+
+DEPLOY WEBSERVICE f_sales_all LOGIN = '${databases.denodo_training.webcontainer.webservices.f_sales_all.LOGIN}' PASSWORD = '${databases.denodo_training.webcontainer.webservices.f_sales_all.PASSWORD}' ${databases.denodo_training.webcontainer.webservices.f_sales_all.PASSWORD.ENCRYPTED};
+

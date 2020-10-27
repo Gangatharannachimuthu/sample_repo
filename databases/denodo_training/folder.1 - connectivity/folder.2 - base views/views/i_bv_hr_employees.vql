@@ -1,0 +1,19 @@
+﻿CREATE OR REPLACE INTERFACE VIEW i_bv_hr_employees (
+        employee_id:double (sourcetypedecimals = '10', sourcetyperadix = '10', sourcetypesize = '2000000000', sourcetypeid = '6'),
+        first_name:text (sourcetypedecimals = '10', sourcetyperadix = '10', sourcetypesize = '2000000000', sourcetypeid = '12'),
+        last_name:text (sourcetypedecimals = '10', sourcetyperadix = '10', sourcetypesize = '2000000000', sourcetypeid = '12'),
+        email:text (sourcetypedecimals = '10', sourcetyperadix = '10', sourcetypesize = '2000000000', sourcetypeid = '12'),
+        phone_number:text (sourcetypedecimals = '10', sourcetyperadix = '10', sourcetypesize = '2000000000', sourcetypeid = '12'),
+        hire_date:text,
+        job_id:text (sourcetypedecimals = '10', sourcetyperadix = '10', sourcetypesize = '2000000000', sourcetypeid = '12'),
+        salary:double (sourcetypedecimals = '10', sourcetyperadix = '10', sourcetypesize = '2000000000', sourcetypeid = '6'),
+        commission_pct:double (sourcetypedecimals = '10', sourcetyperadix = '10', sourcetypesize = '2000000000', sourcetypeid = '6'),
+        manager_id:double (sourcetypedecimals = '10', sourcetyperadix = '10', sourcetypesize = '2000000000', sourcetypeid = '6'),
+        department_id:double (sourcetypedecimals = '10', sourcetyperadix = '10', sourcetypesize = '2000000000', sourcetypeid = '6')
+    )
+    SET IMPLEMENTATION bv_hr_employees
+    FOLDER = '/1 - connectivity/2 - base views';
+
+ALTER VIEW i_bv_hr_employees
+ LAYOUT (bv_hr_employees = [500, 60, 222, 246]);
+

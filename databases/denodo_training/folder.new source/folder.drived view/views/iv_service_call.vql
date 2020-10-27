@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW iv_service_call FOLDER = '/new source/drived view' AS SELECT count(*) AS iv_service_id FROM service_call;
+
+ALTER VIEW iv_service_call
+ LAYOUT (service_call = [20, 20, 255, 246]);
+

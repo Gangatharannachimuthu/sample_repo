@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW iv_union FOLDER = '/1 - connectivity/del' AS SELECT sr_date, interaction_ip, global_case_id, agent_id FROM (SELECT customer_code, customer_ip AS interaction_ip, agent_id, sr_date, global_case_id FROM bv_support_get_all_service_request UNION SELECT customer_code, date_call_received AS sr_date, case_id AS global_case_id, agent_id FROM bv_cc_service_call);
+
+ALTER VIEW iv_union
+ LAYOUT (bv_support_get_all_service_request = [20, 20, 360, 426], bv_cc_service_call = [630, 90, 270, 246]);
+

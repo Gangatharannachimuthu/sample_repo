@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW p_bv_orders FOLDER = '/new source/drived view' AS SELECT count(*) AS order FROM bv_orders;
+
+ALTER VIEW p_bv_orders
+ LAYOUT (bv_orders = [20, 20, 237, 146]);
+

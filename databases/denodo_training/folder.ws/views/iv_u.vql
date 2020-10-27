@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW iv_u FOLDER = '/ws' AS SELECT call_id, location_id, problem_code, status_code, date_ticket_issued, date_call_received, other_details, caller_calltracking, agent_id, customer_code, first_name, last_name, email, phone_number, job_id, salary, commission_pct, manager_id, department_id FROM (SELECT case_id AS job_id, problem_code, date_call_received, call_id, location_id, status_code, date_ticket_issued, customer_code, caller_calltracking, agent_id, other_details FROM bv_service_call1 UNION SELECT first_name, email, manager_id, phone_number, salary, department_id, employee_id AS call_id, job_id, commission_pct, last_name, hire_date AS date_call_received FROM bv_hr_employees);
+
+ALTER VIEW iv_u
+ LAYOUT (bv_service_call1 = [20, 20, 280, 246], bv_hr_employees = [450, 40, 300, 246]);
+

@@ -1,0 +1,18 @@
+﻿CREATE OR REPLACE TABLE invoice I18N us_pst (
+        column_0:text (sourcetypeid = '12'), 
+        column_1:text (sourcetypeid = '12')
+    )
+    FOLDER = '/1 - connectivity/1 - data sources'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD invoice(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD column_0 (any) OPT ANY
+             ADD column_1 (any) OPT ANY
+        )
+        OUTPUTLIST (column_0, column_1
+        )
+        WRAPPER (custom invoice)
+    );
+

@@ -1,0 +1,6 @@
+﻿CREATE OR REPLACE ASSOCIATION "bv_departments_iv_employees_DEPARTMENT_ID" REFERENTIAL CONSTRAINT 
+FOLDER = '/1 - connectivity/1 - data sources'
+    ENDPOINT "iv_employees_DEPARTMENT_ID" bv_departments PRINCIPAL (0,1)
+    ENDPOINT "bv_departments_DEPARTMENT_ID" iv_employees (0,*)
+    ADD MAPPING department_id=department_id;
+

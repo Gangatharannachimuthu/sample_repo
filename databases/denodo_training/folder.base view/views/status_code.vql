@@ -1,0 +1,29 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC status_code
+    FOLDER = '/base view'
+    DATASOURCENAME=ds_call_center
+    CATALOGNAME='${databases.denodo_training.folder.base view.views.jdbc.status_code.CATALOGNAME}' 
+    RELATIONNAME='status_code' 
+    OUTPUTSCHEMA (
+        code_id = 'code_id' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypesize='10', description='', sourcetypeid='4', sourcetypename='INT')  SORTABLE,
+        code_description = 'code_description' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='16', description='', sourcetypeid='12', sourcetypename='VARCHAR')  SORTABLE
+    );
+
+CREATE OR REPLACE TABLE status_code I18N us_pst (
+        code_id:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypesize = '10', description = ''), 
+        code_description:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '16', description = '')
+    )
+    FOLDER = '/base view'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD status_code(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD code_id (any) OPT ANY
+             ADD code_description (any) OPT ANY
+        )
+        OUTPUTLIST (code_description, code_id
+        )
+        WRAPPER (jdbc status_code)
+    );
+

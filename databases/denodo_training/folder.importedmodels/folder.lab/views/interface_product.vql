@@ -1,0 +1,15 @@
+﻿CREATE OR REPLACE INTERFACE VIEW interface_product (
+        productid:int,
+        productname:text,
+        productprice:float
+    )
+    SET IMPLEMENTATION bv_product(
+        productid = productid,
+        productname = productname,
+        productprice = productprice    
+)
+    FOLDER = '/importedmodels/lab';
+
+ALTER VIEW interface_product
+ LAYOUT (bv_product = [560, 20, 294, 226]);
+

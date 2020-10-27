@@ -1,0 +1,8 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE DATASOURCE DF disease_qust
+    FOLDER = '/omc/omc'
+    ROUTE LOCAL 'LocalConnection' '${databases.denodo_training.folder.omc.folder.omc.datasources.df.disease_qust.ROUTE.LOCAL.PATH}'
+    COLUMNDELIMITER = ','
+    ENDOFLINEDELIMITER = '\n'
+    HEADER = TRUE;
+

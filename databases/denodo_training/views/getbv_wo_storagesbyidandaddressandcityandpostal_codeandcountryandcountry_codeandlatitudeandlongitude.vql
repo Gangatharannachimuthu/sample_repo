@@ -1,0 +1,72 @@
+﻿CREATE OR REPLACE WRAPPER WS getbv_wo_storagesbyidandaddressandcityandpostal_codeandcountryandcountry_codeandlatitudeandlongitude
+    DATASOURCENAME=exm
+    SERVICENAME='bv_wo_storagesService'
+    PORTNAME='bv_wo_storages'
+    OPERATIONNAME='getBV_WO_STORAGESByIDAndADDRESSAndCITYAndPOSTAL_CODEAndCOUNTRYAndCOUNTRY_CODEAndLATITUDEAndLONGITUDE'
+    INPUTMESSAGE='getBV_WO_STORAGESByIDAndADDRESSAndCITYAndPOSTAL_CODEAndCOUNTRYAndCOUNTRY_CODEAndLATITUDEAndLONGITUDERequest'
+    OUTPUTMESSAGE='getBV_WO_STORAGESByIDAndADDRESSAndCITYAndPOSTAL_CODEAndCOUNTRYAndCOUNTRY_CODEAndLATITUDEAndLONGITUDEResponse'
+    OUTPUTSCHEMA (
+    getbv_wo_storagesbyidandaddressandcityandpostal_codeandcountryandcountry_codeandlatitudeandlongitude = '$$0': REGISTER OF (
+        id='ID' (OBL),
+        address='ADDRESS' (OBL),
+        city='CITY' (OBL),
+        postal_code='POSTAL_CODE' (OBL),
+        country='COUNTRY' (OBL),
+        country_code='COUNTRY_CODE' (OBL),
+        latitude='LATITUDE' (OBL),
+        longitude='LONGITUDE' (OBL)
+    ),
+    return = '$$$$': ARRAY OF (
+        bv_wo_storagesreturnrow = 'BV_WO_STORAGESReturnRow': REGISTER OF (
+            id='ID',
+            address='ADDRESS',
+            city='CITY',
+            postal_code='POSTAL_CODE',
+            country='COUNTRY',
+            country_code='COUNTRY_CODE',
+            latitude='LATITUDE',
+            longitude='LONGITUDE'
+        )
+    )
+    );
+
+CREATE OR REPLACE TYPE getbv_wo_storagesbyidandaddressandcityandpostal_codeandcountryandcountry_codeandlatitudeandlongitu_0 AS REGISTER OF (id:double, address:text, city:text, postal_code:text, country:text, country_code:text, latitude:double, longitude:double);
+
+CREATE OR REPLACE TYPE getbv_wo_storagesbyidandaddressandcityandpostal_codeandcountryandcountry_codeandlatitudeandlongitu_2 AS REGISTER OF (id:double, address:text, city:text, postal_code:text, country:text, country_code:text, latitude:double, longitude:double);
+
+CREATE OR REPLACE TYPE getbv_wo_storagesbyidandaddressandcityandpostal_codeandcountryandcountry_codeandlatitudeandlongitu_1 AS ARRAY OF getbv_wo_storagesbyidandaddressandcityandpostal_codeandcountryandcountry_codeandlatitudeandlongitu_2;
+
+CREATE OR REPLACE TABLE getbv_wo_storagesbyidandaddressandcityandpostal_codeandcountryandcountry_codeandlatitudeandlongitude I18N us_pst (
+        getbv_wo_storagesbyidandaddressandcityandpostal_codeandcountryandcountry_codeandlatitudeandlongitude:getbv_wo_storagesbyidandaddressandcityandpostal_codeandcountryandcountry_codeandlatitudeandlongitu_0, 
+        return:getbv_wo_storagesbyidandaddressandcityandpostal_codeandcountryandcountry_codeandlatitudeandlongitu_1
+    )
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD getbv_wo_storagesbyidandaddressandcityandpostal_codeandcountryandcountry_codeandlatitudeandlongitude(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD getbv_wo_storagesbyidandaddressandcityandpostal_codeandcountryandcountry_codeandlatitudeandlongitude (=,is null) OPT ONE
+             ADD getbv_wo_storagesbyidandaddressandcityandpostal_codeandcountryandcountry_codeandlatitudeandlongitude.id (=) OBL ONE
+             ADD getbv_wo_storagesbyidandaddressandcityandpostal_codeandcountryandcountry_codeandlatitudeandlongitude.address (=) OBL ONE
+             ADD getbv_wo_storagesbyidandaddressandcityandpostal_codeandcountryandcountry_codeandlatitudeandlongitude.city (=) OBL ONE
+             ADD getbv_wo_storagesbyidandaddressandcityandpostal_codeandcountryandcountry_codeandlatitudeandlongitude.postal_code (=) OBL ONE
+             ADD getbv_wo_storagesbyidandaddressandcityandpostal_codeandcountryandcountry_codeandlatitudeandlongitude.country (=) OBL ONE
+             ADD getbv_wo_storagesbyidandaddressandcityandpostal_codeandcountryandcountry_codeandlatitudeandlongitude.country_code (=) OBL ONE
+             ADD getbv_wo_storagesbyidandaddressandcityandpostal_codeandcountryandcountry_codeandlatitudeandlongitude.latitude (=) OBL ONE
+             ADD getbv_wo_storagesbyidandaddressandcityandpostal_codeandcountryandcountry_codeandlatitudeandlongitude.longitude (=) OBL ONE
+             ADD return NOS ZERO ()
+             ADD return NOS ZERO ()
+             ADD return.id NOS ZERO ()
+             ADD return.address NOS ZERO ()
+             ADD return.city NOS ZERO ()
+             ADD return.postal_code NOS ZERO ()
+             ADD return.country NOS ZERO ()
+             ADD return.country_code NOS ZERO ()
+             ADD return.latitude NOS ZERO ()
+             ADD return.longitude NOS ZERO ()
+        )
+        OUTPUTLIST (getbv_wo_storagesbyidandaddressandcityandpostal_codeandcountryandcountry_codeandlatitudeandlongitude, return
+        )
+        WRAPPER (ws getbv_wo_storagesbyidandaddressandcityandpostal_codeandcountryandcountry_codeandlatitudeandlongitude)
+    );
+

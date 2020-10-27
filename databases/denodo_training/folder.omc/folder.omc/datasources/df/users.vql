@@ -1,0 +1,8 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE DATASOURCE DF users
+    FOLDER = '/omc/omc'
+    ROUTE LOCAL 'LocalConnection' '${databases.denodo_training.folder.omc.folder.omc.datasources.df.users.ROUTE.LOCAL.PATH}'
+    COLUMNDELIMITER = ','
+    ENDOFLINEDELIMITER = '\n'
+    HEADER = TRUE;
+

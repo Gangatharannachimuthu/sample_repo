@@ -1,0 +1,62 @@
+﻿CREATE OR REPLACE WRAPPER DF bv_users
+    FOLDER = '/omc/omc_bv'
+    DATASOURCENAME=users
+    OUTPUTSCHEMA (
+        username_0 = 'User Name' (OPT),
+        firstname_0 = 'First Name' (OPT),
+        lastname_0 = 'Last Name' (OPT),
+        middlename_0 = 'Middle Name' (OPT),
+        emailid_0 = 'Email Id' (OPT),
+        phonenumber_0 = 'Phone Number' (OPT),
+        role = 'Role' (OPT),
+        payername_0 = 'Payer Name' (OPT),
+        status = 'Status' (OPT),
+        id_3 = '' (OPT),
+        id_2 = '' (OPT),
+        id_1 = '' (OPT),
+        id_0 = '' (OPT),
+        insertintoomc_usersomc_usr_nameusr_pswdfst_namemdl_namelst_nameeml_idphn_numomc_usr_stsomc_pyr_ido_0 = '"insert into omc_users (omc_usr_name, usr_pswd, fst_name, mdl_name, lst_name, eml_id, phn_num, omc_usr_sts, omc_pyr_id, omc_role_id, omc_pt_id, omc_crt_by, omc_crt_ts, omc_lst_upd_by, omc_lst_upd_ts) values "' (OPT)
+    );
+
+CREATE OR REPLACE TABLE bv_users I18N us_pst (
+        username_0:text, 
+        firstname_0:text, 
+        lastname_0:text, 
+        middlename_0:text, 
+        emailid_0:text, 
+        phonenumber_0:text, 
+        role:text, 
+        payername_0:text, 
+        status:text, 
+        id_3:text, 
+        id_2:text, 
+        id_1:text, 
+        id_0:text, 
+        insertintoomc_usersomc_usr_nameusr_pswdfst_namemdl_namelst_nameeml_idphn_numomc_usr_stsomc_pyr_ido_0:text
+    )
+    FOLDER = '/omc/omc_bv'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD bv_users(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD username_0 (=,in) OPT ANY
+             ADD firstname_0 (=,in) OPT ANY
+             ADD lastname_0 (=,in) OPT ANY
+             ADD middlename_0 (=,in) OPT ANY
+             ADD emailid_0 (=,in) OPT ANY
+             ADD phonenumber_0 (=,in) OPT ANY
+             ADD role (=,in) OPT ANY
+             ADD payername_0 (=,in) OPT ANY
+             ADD status (=,in) OPT ANY
+             ADD id_3 (=,in) OPT ANY
+             ADD id_2 (=,in) OPT ANY
+             ADD id_1 (=,in) OPT ANY
+             ADD id_0 (=,in) OPT ANY
+             ADD insertintoomc_usersomc_usr_nameusr_pswdfst_namemdl_namelst_nameeml_idphn_numomc_usr_stsomc_pyr_ido_0 (=,in) OPT ANY
+        )
+        OUTPUTLIST (emailid_0, firstname_0, id_0, id_1, id_2, id_3, insertintoomc_usersomc_usr_nameusr_pswdfst_namemdl_namelst_nameeml_idphn_numomc_usr_stsomc_pyr_ido_0, lastname_0, middlename_0, payername_0, phonenumber_0, role, status, username_0
+        )
+        WRAPPER (df bv_users)
+    );
+

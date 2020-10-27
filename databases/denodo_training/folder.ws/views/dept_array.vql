@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW dept_array FOLDER = '/ws' AS SELECT nest(department_id, department_name) AS dept FROM bv_departments;
+
+ALTER VIEW dept_array
+ LAYOUT (bv_departments = [20, 20, 300, 106]);
+

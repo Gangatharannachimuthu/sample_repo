@@ -1,0 +1,22 @@
+﻿/databases/denodo_training/folder.ws/ws.vql
+/databases/denodo_training/folder.crm bv/crm bv.vql
+/databases/denodo_training/folder.1 - connectivity/1 - connectivity.vql
+/databases/denodo_training/folder.1 - connectivity/folder.1 - data sources/1 - data sources.vql
+/databases/denodo_training/folder.1 - connectivity/folder.1 - data sources/datasources/jdbc/ds_web_orders.vql
+/databases/denodo_training/folder.crm bv/views/bv_customer.vql
+/databases/denodo_training/folder.1 - connectivity/folder.2 - base views/2 - base views.vql
+/databases/denodo_training/folder.1 - connectivity/folder.1 - data sources/datasources/jdbc/ds_human_resources.vql
+/databases/denodo_training/folder.1 - connectivity/folder.2 - base views/views/bv_hr_employees.vql
+/databases/denodo_training/folder.2 - integration/2 - integration.vql
+/databases/denodo_training/folder.1 - connectivity/folder.1 - data sources/datasources/jdbc/ds_call_center.vql
+/databases/denodo_training/folder.1 - connectivity/folder.2 - base views/views/bv_cc_service_call.vql
+/databases/denodo_training/folder.1 - connectivity/folder.1 - data sources/datasources/jdbc/ds_support_site.vql
+/databases/denodo_training/folder.1 - connectivity/folder.2 - base views/views/bv_support_get_all_service_request.vql
+/databases/denodo_training/folder.2 - integration/views/iv_interactions.vql
+/databases/denodo_training/folder.1 - connectivity/folder.2 - base views/views/bv_wo_orders.vql
+/databases/denodo_training/folder.1 - connectivity/folder.del/del.vql
+/databases/denodo_training/folder.1 - connectivity/folder.del/datasources/ws/ds_product.vql
+/databases/denodo_training/folder.1 - connectivity/folder.2 - base views/views/bv_product.vql
+/databases/denodo_training/folder.ws/datasources/json/ds_sales.vql
+/databases/denodo_training/folder.1 - connectivity/folder.1 - data sources/views/bv_sales_all.vql
+/databases/denodo_training/folder.1 - connectivity/folder.1 - data sources/views/f_bv_sales_all.vql

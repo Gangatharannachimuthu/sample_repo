@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW f_bv_productdetails FOLDER = '/ws' AS SELECT code, description, warnings, numresults, productid, productname, productprice, category, characteristics, return_product_productdetails_accessories_productid, return_product_productdetails_accessories_productname, return_product_productdetails_accessories_productprice FROM FLATTEN bv_productdetails AS v ( v.return.product.productdetails AS field0, field0.accessories);
+
+ALTER VIEW f_bv_productdetails
+ LAYOUT (bv_productdetails = [20, 20, 628, 466]);
+

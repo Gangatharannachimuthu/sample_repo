@@ -1,0 +1,210 @@
+﻿CREATE OR REPLACE WRAPPER JDBC bv_crm
+    FOLDER = '/base view'
+    DATASOURCENAME=ds_crm
+    SQLSENTENCE='select * from account'   
+    OUTPUTSCHEMA (
+        id = 'id' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        isdeleted = 'isdeleted' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        masterrecordid = 'masterrecordid' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        name = 'name' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        type = 'type' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        parentid = 'parentid' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        billingstreet = 'billingstreet' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        billingcity = 'billingcity' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        billingstate = 'billingstate' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        billingpostalcode = 'billingpostalcode' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        billingcountry = 'billingcountry' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        billinglatitude = 'billinglatitude' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        billinglongitude = 'billinglongitude' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        billingaddress = 'billingaddress' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        shippingstreet = 'shippingstreet' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        shippingcity = 'shippingcity' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        shippingstate = 'shippingstate' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        shippingpostalcode = 'shippingpostalcode' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        shippingcountry = 'shippingcountry' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        shippinglatitude = 'shippinglatitude' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        shippinglongitude = 'shippinglongitude' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        shippingaddress = 'shippingaddress' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        phone = 'phone' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        fax = 'fax' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        accountnumber = 'accountnumber' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        website = 'website' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        photourl = 'photourl' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        sic = 'sic' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        industry = 'industry' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        annualrevenue = 'annualrevenue' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        numberofemployees = 'numberofemployees' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        ownership = 'ownership' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        tickersymbol = 'tickersymbol' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        description = 'description' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        rating = 'rating' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        site = 'site' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        ownerid = 'ownerid' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        createddate = 'createddate' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        createdbyid = 'createdbyid' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        lastmodifieddate = 'lastmodifieddate' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        lastmodifiedbyid = 'lastmodifiedbyid' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        systemmodstamp = 'systemmodstamp' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        lastactivitydate = 'lastactivitydate' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        lastvieweddate = 'lastvieweddate' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        lastreferenceddate = 'lastreferenceddate' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        jigsaw = 'jigsaw' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        jigsawcompanyid = 'jigsawcompanyid' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        cleanstatus = 'cleanstatus' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        accountsource = 'accountsource' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        dunsnumber = 'dunsnumber' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        tradestyle = 'tradestyle' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        naicscode = 'naicscode' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        naicsdesc = 'naicsdesc' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        yearstarted = 'yearstarted' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        sicdesc = 'sicdesc' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        dandbcompanyid = 'dandbcompanyid' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        customerpriority__c = 'customerpriority__c' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        sla__c = 'sla__c' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        active__c = 'active__c' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        numberoflocations__c = 'numberoflocations__c' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        upsellopportunity__c = 'upsellopportunity__c' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        slaserialnumber__c = 'slaserialnumber__c' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE,
+        slaexpirationdate__c = 'slaexpirationdate__c' :'java.lang.String' (sourcetypedecimals='0', sourcetypesize='0', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE NOT UPDATEABLE
+    );
+
+CREATE OR REPLACE TABLE bv_crm I18N us_pst (
+        id:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        isdeleted:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        masterrecordid:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        name:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        type:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        parentid:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        billingstreet:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        billingcity:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        billingstate:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        billingpostalcode:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        billingcountry:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        billinglatitude:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        billinglongitude:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        billingaddress:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        shippingstreet:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        shippingcity:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        shippingstate:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        shippingpostalcode:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        shippingcountry:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        shippinglatitude:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        shippinglongitude:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        shippingaddress:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        phone:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        fax:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        accountnumber:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        website:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        photourl:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        sic:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        industry:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        annualrevenue:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        numberofemployees:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        ownership:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        tickersymbol:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        description:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        rating:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        site:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        ownerid:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        createddate:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        createdbyid:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        lastmodifieddate:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        lastmodifiedbyid:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        systemmodstamp:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        lastactivitydate:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        lastvieweddate:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        lastreferenceddate:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        jigsaw:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        jigsawcompanyid:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        cleanstatus:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        accountsource:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        dunsnumber:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        tradestyle:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        naicscode:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        naicsdesc:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        yearstarted:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        sicdesc:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        dandbcompanyid:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        customerpriority__c:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        sla__c:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        active__c:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        numberoflocations__c:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        upsellopportunity__c:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        slaserialnumber__c:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0'), 
+        slaexpirationdate__c:text (sourcetypeid = '12', sourcetypedecimals = '0', sourcetypesize = '0')
+    )
+    FOLDER = '/base view'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD bv_crm(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD id NOS ZERO ()
+             ADD isdeleted NOS ZERO ()
+             ADD masterrecordid NOS ZERO ()
+             ADD name NOS ZERO ()
+             ADD type NOS ZERO ()
+             ADD parentid NOS ZERO ()
+             ADD billingstreet NOS ZERO ()
+             ADD billingcity NOS ZERO ()
+             ADD billingstate NOS ZERO ()
+             ADD billingpostalcode NOS ZERO ()
+             ADD billingcountry NOS ZERO ()
+             ADD billinglatitude NOS ZERO ()
+             ADD billinglongitude NOS ZERO ()
+             ADD billingaddress NOS ZERO ()
+             ADD shippingstreet NOS ZERO ()
+             ADD shippingcity NOS ZERO ()
+             ADD shippingstate NOS ZERO ()
+             ADD shippingpostalcode NOS ZERO ()
+             ADD shippingcountry NOS ZERO ()
+             ADD shippinglatitude NOS ZERO ()
+             ADD shippinglongitude NOS ZERO ()
+             ADD shippingaddress NOS ZERO ()
+             ADD phone NOS ZERO ()
+             ADD fax NOS ZERO ()
+             ADD accountnumber NOS ZERO ()
+             ADD website NOS ZERO ()
+             ADD photourl NOS ZERO ()
+             ADD sic NOS ZERO ()
+             ADD industry NOS ZERO ()
+             ADD annualrevenue NOS ZERO ()
+             ADD numberofemployees NOS ZERO ()
+             ADD ownership NOS ZERO ()
+             ADD tickersymbol NOS ZERO ()
+             ADD description NOS ZERO ()
+             ADD rating NOS ZERO ()
+             ADD site NOS ZERO ()
+             ADD ownerid NOS ZERO ()
+             ADD createddate NOS ZERO ()
+             ADD createdbyid NOS ZERO ()
+             ADD lastmodifieddate NOS ZERO ()
+             ADD lastmodifiedbyid NOS ZERO ()
+             ADD systemmodstamp NOS ZERO ()
+             ADD lastactivitydate NOS ZERO ()
+             ADD lastvieweddate NOS ZERO ()
+             ADD lastreferenceddate NOS ZERO ()
+             ADD jigsaw NOS ZERO ()
+             ADD jigsawcompanyid NOS ZERO ()
+             ADD cleanstatus NOS ZERO ()
+             ADD accountsource NOS ZERO ()
+             ADD dunsnumber NOS ZERO ()
+             ADD tradestyle NOS ZERO ()
+             ADD naicscode NOS ZERO ()
+             ADD naicsdesc NOS ZERO ()
+             ADD yearstarted NOS ZERO ()
+             ADD sicdesc NOS ZERO ()
+             ADD dandbcompanyid NOS ZERO ()
+             ADD customerpriority__c NOS ZERO ()
+             ADD sla__c NOS ZERO ()
+             ADD active__c NOS ZERO ()
+             ADD numberoflocations__c NOS ZERO ()
+             ADD upsellopportunity__c NOS ZERO ()
+             ADD slaserialnumber__c NOS ZERO ()
+             ADD slaexpirationdate__c NOS ZERO ()
+        )
+        OUTPUTLIST (accountnumber, accountsource, active__c, annualrevenue, billingaddress, billingcity, billingcountry, billinglatitude, billinglongitude, billingpostalcode, billingstate, billingstreet, cleanstatus, createdbyid, createddate, customerpriority__c, dandbcompanyid, description, dunsnumber, fax, id, industry, isdeleted, jigsaw, jigsawcompanyid, lastactivitydate, lastmodifiedbyid, lastmodifieddate, lastreferenceddate, lastvieweddate, masterrecordid, naicscode, naicsdesc, name, numberofemployees, numberoflocations__c, ownerid, ownership, parentid, phone, photourl, rating, shippingaddress, shippingcity, shippingcountry, shippinglatitude, shippinglongitude, shippingpostalcode, shippingstate, shippingstreet, sic, sicdesc, site, sla__c, slaexpirationdate__c, slaserialnumber__c, systemmodstamp, tickersymbol, tradestyle, type, upsellopportunity__c, website, yearstarted
+        )
+        WRAPPER (jdbc bv_crm)
+    );
+

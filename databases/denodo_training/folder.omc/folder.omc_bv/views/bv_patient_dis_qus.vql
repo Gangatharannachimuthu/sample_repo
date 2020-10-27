@@ -1,0 +1,47 @@
+﻿CREATE OR REPLACE WRAPPER DF patient_dis_qus
+    FOLDER = '/omc/omc_bv'
+    DATASOURCENAME=patient_dis_qus
+    OUTPUTSCHEMA (
+        patientid_0 = 'Patient Id' (OPT),
+        questionnumber_0 = 'Question Number' (OPT),
+        ptans_0 = 'Pt Ans' (OPT),
+        risk = 'Risk' (OPT),
+        id_3 = '' (OPT),
+        insertintopatients_disease_responsesomc_pt_idomc_dis_qna_idpt_ansomc_rsk_pntomc_crt_byomc_crt_tsva_0 = '"insert into patients_disease_responses (omc_pt_id, omc_dis_qna_id, pt_ans, omc_rsk_pnt, omc_crt_by, omc_crt_ts) values"' (OPT),
+        id_2 = '' (OPT),
+        id_1 = '' (OPT),
+        id_0 = '' (OPT)
+    );
+
+CREATE OR REPLACE TABLE bv_patient_dis_qus I18N us_pst (
+        patientid_0:text, 
+        questionnumber_0:text, 
+        ptans_0:text, 
+        risk:text, 
+        id_3:text, 
+        insertintopatients_disease_responsesomc_pt_idomc_dis_qna_idpt_ansomc_rsk_pntomc_crt_byomc_crt_tsva_0:text, 
+        id_2:text, 
+        id_1:text, 
+        id_0:text
+    )
+    FOLDER = '/omc/omc_bv'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD patient_dis_qus(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD patientid_0 (=,in) OPT ANY
+             ADD questionnumber_0 (=,in) OPT ANY
+             ADD ptans_0 (=,in) OPT ANY
+             ADD risk (=,in) OPT ANY
+             ADD id_3 (=,in) OPT ANY
+             ADD insertintopatients_disease_responsesomc_pt_idomc_dis_qna_idpt_ansomc_rsk_pntomc_crt_byomc_crt_tsva_0 (=,in) OPT ANY
+             ADD id_2 (=,in) OPT ANY
+             ADD id_1 (=,in) OPT ANY
+             ADD id_0 (=,in) OPT ANY
+        )
+        OUTPUTLIST (id_0, id_1, id_2, id_3, insertintopatients_disease_responsesomc_pt_idomc_dis_qna_idpt_ansomc_rsk_pntomc_crt_byomc_crt_tsva_0, patientid_0, ptans_0, questionnumber_0, risk
+        )
+        WRAPPER (df patient_dis_qus)
+    );
+

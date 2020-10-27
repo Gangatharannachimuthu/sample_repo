@@ -1,0 +1,39 @@
+﻿CREATE OR REPLACE WRAPPER JDBC bv_ho_orders
+    FOLDER = '/1 - connectivity/2 - base views'
+    DATASOURCENAME=ds_historical_orders
+    RELATIONNAME='orders' 
+    OUTPUTSCHEMA (
+        id = 'id' :'java.lang.Integer' (OPT) (sourcetypedecimals='10', sourcetyperadix='10', sourcetypesize='2000000000', sourcetypeid='4', sourcetypename='INTEGER')  SORTABLE,
+        customer_code = 'customer_code' :'java.lang.String' (OPT) (sourcetypedecimals='10', sourcetyperadix='10', sourcetypesize='2000000000', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE,
+        status = 'status' :'java.lang.String' (OPT) (sourcetypedecimals='10', sourcetyperadix='10', sourcetypesize='2000000000', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE,
+        date_placed = 'date_placed' :'java.lang.String' (OPT) (sourcetypedecimals='10', sourcetyperadix='10', sourcetypesize='2000000000', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE,
+        date_delivered = 'date_delivered' :'java.lang.String' (OPT) (sourcetypedecimals='10', sourcetyperadix='10', sourcetypesize='2000000000', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE,
+        date_closed = 'date_closed' :'java.lang.String' (OPT) (sourcetypedecimals='10', sourcetyperadix='10', sourcetypesize='2000000000', sourcetypeid='12', sourcetypename='TEXT')  NOT SORTABLE
+    );
+
+CREATE OR REPLACE TABLE bv_ho_orders I18N us_pst (
+        id:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
+        customer_code:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
+        status:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
+        date_placed:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
+        date_delivered:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
+        date_closed:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000')
+    )
+    FOLDER = '/1 - connectivity/2 - base views'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD bv_ho_orders(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD id (any) OPT ANY
+             ADD customer_code (any) OPT ANY
+             ADD status (any) OPT ANY
+             ADD date_placed (any) OPT ANY
+             ADD date_delivered (any) OPT ANY
+             ADD date_closed (any) OPT ANY
+        )
+        OUTPUTLIST (customer_code, date_closed, date_delivered, date_placed, id, status
+        )
+        WRAPPER (jdbc bv_ho_orders)
+    );
+

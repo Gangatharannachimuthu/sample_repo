@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW bv_service_call FOLDER = '/base view' AS SELECT count(*) AS "iv_service_call.location_id" FROM service_call;
+
+ALTER VIEW bv_service_call
+ LAYOUT (service_call = [20, 20, 255, 246]);
+

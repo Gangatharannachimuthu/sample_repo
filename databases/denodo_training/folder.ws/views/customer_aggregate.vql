@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW customer_aggregate FOLDER = '/ws' AS SELECT count(*) AS row_count, main_country AS main_country FROM bv_customer GROUP BY main_country;
+
+ALTER VIEW customer_aggregate
+ LAYOUT (bv_customer = [20, 20, 310, 210]);
+

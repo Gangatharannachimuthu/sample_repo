@@ -1,0 +1,62 @@
+﻿CREATE OR REPLACE WRAPPER WS getbv_wo_stockbyidandproduct_idanddistribution_codeandstorage_id
+    FOLDER = '/ws'
+    DATASOURCENAME=soap1
+    SERVICENAME='bv_wo_stockService'
+    PORTNAME='bv_wo_stock'
+    OPERATIONNAME='getBV_WO_STOCKByIDAndPRODUCT_IDAndDISTRIBUTION_CODEAndSTORAGE_ID'
+    INPUTMESSAGE='getBV_WO_STOCKByIDAndPRODUCT_IDAndDISTRIBUTION_CODEAndSTORAGE_IDRequest'
+    OUTPUTMESSAGE='getBV_WO_STOCKByIDAndPRODUCT_IDAndDISTRIBUTION_CODEAndSTORAGE_IDResponse'
+    OUTPUTSCHEMA (
+    getbv_wo_stockbyidandproduct_idanddistribution_codeandstorage_id = '$$0': REGISTER OF (
+        id='ID' (OBL),
+        product_id='PRODUCT_ID' (OBL),
+        distribution_code='DISTRIBUTION_CODE' (OBL),
+        storage_id='STORAGE_ID' (OBL),
+        start_index='START_INDEX' (OBL),
+        count='COUNT' (OBL)
+    ),
+    return = '$$$$': ARRAY OF (
+        bv_wo_stockreturnrow = 'BV_WO_STOCKReturnRow': REGISTER OF (
+            id='ID',
+            product_id='PRODUCT_ID',
+            distribution_code='DISTRIBUTION_CODE',
+            storage_id='STORAGE_ID'
+        )
+    )
+    );
+
+CREATE OR REPLACE TYPE getbv_wo_stockbyidandproduct_idanddistribution_codeandstorage_id_getbv_wo_stockbyidandproduct_idan_0 AS REGISTER OF (id:double, product_id:double, distribution_code:text, storage_id:double, start_index:long, count:long);
+
+CREATE OR REPLACE TYPE getbv_wo_stockbyidandproduct_idanddistribution_codeandstorage_id_return_bv_wo_stockreturnrow AS REGISTER OF (id:double, product_id:double, distribution_code:text, storage_id:double);
+
+CREATE OR REPLACE TYPE getbv_wo_stockbyidandproduct_idanddistribution_codeandstorage_id_return AS ARRAY OF getbv_wo_stockbyidandproduct_idanddistribution_codeandstorage_id_return_bv_wo_stockreturnrow;
+
+CREATE OR REPLACE TABLE getbv_wo_stockbyidandproduct_idanddistribution_codeandstorage_id I18N us_pst (
+        getbv_wo_stockbyidandproduct_idanddistribution_codeandstorage_id:getbv_wo_stockbyidandproduct_idanddistribution_codeandstorage_id_getbv_wo_stockbyidandproduct_idan_0, 
+        return:getbv_wo_stockbyidandproduct_idanddistribution_codeandstorage_id_return
+    )
+    FOLDER = '/ws'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD getbv_wo_stockbyidandproduct_idanddistribution_codeandstorage_id(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD getbv_wo_stockbyidandproduct_idanddistribution_codeandstorage_id (=,is null) OPT ONE
+             ADD getbv_wo_stockbyidandproduct_idanddistribution_codeandstorage_id.id (=) OBL ONE
+             ADD getbv_wo_stockbyidandproduct_idanddistribution_codeandstorage_id.product_id (=) OBL ONE
+             ADD getbv_wo_stockbyidandproduct_idanddistribution_codeandstorage_id.distribution_code (=) OBL ONE
+             ADD getbv_wo_stockbyidandproduct_idanddistribution_codeandstorage_id.storage_id (=) OBL ONE
+             ADD getbv_wo_stockbyidandproduct_idanddistribution_codeandstorage_id.start_index (=) OBL ONE
+             ADD getbv_wo_stockbyidandproduct_idanddistribution_codeandstorage_id.count (=) OBL ONE
+             ADD return NOS ZERO ()
+             ADD return NOS ZERO ()
+             ADD return.id NOS ZERO ()
+             ADD return.product_id NOS ZERO ()
+             ADD return.distribution_code NOS ZERO ()
+             ADD return.storage_id NOS ZERO ()
+        )
+        OUTPUTLIST (getbv_wo_stockbyidandproduct_idanddistribution_codeandstorage_id, return
+        )
+        WRAPPER (ws getbv_wo_stockbyidandproduct_idanddistribution_codeandstorage_id)
+    );
+

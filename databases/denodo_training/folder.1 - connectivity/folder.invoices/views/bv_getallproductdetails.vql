@@ -1,0 +1,82 @@
+﻿CREATE OR REPLACE WRAPPER WS bv_getallproductdetails
+    FOLDER = '/1 - connectivity/invoices'
+    DATASOURCENAME=ds_products
+    SERVICENAME='products-ws'
+    PORTNAME='ProductImplPort'
+    OPERATIONNAME='getAllProductDetails'
+    INPUTMESSAGE='getAllProductDetails'
+    OUTPUTMESSAGE='getAllProductDetailsResponse'
+    TUPLEROOT='/Envelope/Body/getAllProductDetailsResponse/product/productDetails/productDetail/accessories'
+    OUTPUTSCHEMA (
+    parameters = '$$0': REGISTER OF (
+    ),
+    code='Envelope.Body.getAllProductDetailsResponse.product.code',
+    description='Envelope.Body.getAllProductDetailsResponse.product.description',
+    warnings='Envelope.Body.getAllProductDetailsResponse.product.warnings',
+    numresults='Envelope.Body.getAllProductDetailsResponse.product.numResults',
+    productid_0='Envelope.Body.getAllProductDetailsResponse.product.productDetails.productDetail.productId',
+    productname_0='Envelope.Body.getAllProductDetailsResponse.product.productDetails.productDetail.productName',
+    productprice_0='Envelope.Body.getAllProductDetailsResponse.product.productDetails.productDetail.productPrice',
+    category = 'Envelope.Body.getAllProductDetailsResponse.product.productDetails.productDetail.category': REGISTER OF (
+        categoryid='categoryId',
+        categoryname='categoryName'
+    ),
+    characteristics = 'Envelope.Body.getAllProductDetailsResponse.product.productDetails.productDetail.characteristics': REGISTER OF (
+        characteristic_dimensions='characteristic_dimensions',
+        characteristic_weight='characteristic_weight',
+        characteristic_details='characteristic_details',
+        characteristic_color='characteristic_color'
+    ),
+    productid='Envelope.Body.getAllProductDetailsResponse.product.productDetails.productDetail.accessories.productId',
+    productname='Envelope.Body.getAllProductDetailsResponse.product.productDetails.productDetail.accessories.productName',
+    productprice='Envelope.Body.getAllProductDetailsResponse.product.productDetails.productDetail.accessories.productPrice'
+    );
+
+CREATE OR REPLACE TYPE getallproductdetails_category AS REGISTER OF (categoryid:int, categoryname:text);
+
+CREATE OR REPLACE TYPE getallproductdetails_characteristics AS REGISTER OF (characteristic_dimensions:text, characteristic_weight:text, characteristic_details:text, characteristic_color:text);
+
+CREATE OR REPLACE TABLE bv_getallproductdetails I18N us_pst (
+        code:text, 
+        description:text, 
+        warnings:text, 
+        numresults:text, 
+        productid_0:int, 
+        productname_0:text, 
+        productprice_0:float, 
+        category:getallproductdetails_category, 
+        characteristics:getallproductdetails_characteristics, 
+        productid:int, 
+        productname:text, 
+        productprice:float
+    )
+    FOLDER = '/1 - connectivity/invoices'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD bv_getallproductdetails(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD code NOS ZERO ()
+             ADD description NOS ZERO ()
+             ADD warnings NOS ZERO ()
+             ADD numresults NOS ZERO ()
+             ADD productid_0 NOS ZERO ()
+             ADD productname_0 NOS ZERO ()
+             ADD productprice_0 NOS ZERO ()
+             ADD category NOS ZERO ()
+             ADD category.categoryid NOS ZERO ()
+             ADD category.categoryname NOS ZERO ()
+             ADD characteristics NOS ZERO ()
+             ADD characteristics.characteristic_dimensions NOS ZERO ()
+             ADD characteristics.characteristic_weight NOS ZERO ()
+             ADD characteristics.characteristic_details NOS ZERO ()
+             ADD characteristics.characteristic_color NOS ZERO ()
+             ADD productid NOS ZERO ()
+             ADD productname NOS ZERO ()
+             ADD productprice NOS ZERO ()
+        )
+        OUTPUTLIST (category, characteristics, code, description, numresults, productid, productid_0, productname, productname_0, productprice, productprice_0, warnings
+        )
+        WRAPPER (ws bv_getallproductdetails)
+    );
+

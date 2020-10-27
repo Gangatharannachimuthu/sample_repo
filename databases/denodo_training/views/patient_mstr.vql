@@ -1,0 +1,88 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC patient_mstr
+    DATASOURCENAME=omc_dev
+    CATALOGNAME='${databases.denodo_training.views.jdbc.patient_mstr.CATALOGNAME}' 
+    RELATIONNAME='patient_mstr' 
+    OUTPUTSCHEMA (
+        omc_pt_id = 'omc_pt_id' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypesize='10', description='', sourcetypeid='4', sourcetypename='INT')  NOT NULL SORTABLE IS_AUTOINCREMENT,
+        fst_name = 'fst_name' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='150', description='', sourcetypeid='12', sourcetypename='VARCHAR')  NOT NULL SORTABLE,
+        mdl_name = 'mdl_name' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='150', description='', sourcetypeid='12', sourcetypename='VARCHAR')  SORTABLE,
+        lst_name = 'lst_name' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='150', description='', sourcetypeid='12', sourcetypename='VARCHAR')  NOT NULL SORTABLE,
+        mbr_id = 'mbr_id' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='45', description='', sourcetypeid='12', sourcetypename='VARCHAR')  NOT NULL SORTABLE,
+        eml_id = 'eml_id' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='90', description='', sourcetypeid='12', sourcetypename='VARCHAR')  SORTABLE,
+        pt_gndr = 'pt_gndr' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='10', description='', sourcetypeid='12', sourcetypename='VARCHAR')  NOT NULL SORTABLE,
+        pt_dob = 'pt_dob' :'java.time.LocalDate' (OPT) (sourcetyperadix='10', sourcetypesize='10', description='', sourcetypeid='91', sourcetypename='DATE')  SORTABLE,
+        comp_name = 'comp_name' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='45', description='', sourcetypeid='12', sourcetypename='VARCHAR')  SORTABLE,
+        grp_ins_cd = 'grp_ins_cd' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='25', description='', sourcetypeid='12', sourcetypename='VARCHAR')  SORTABLE,
+        pt_sts = 'pt_sts' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='1', description='', sourcetypeid='12', sourcetypename='VARCHAR')  NOT NULL SORTABLE,
+        omc_pyr_id = 'omc_pyr_id' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypesize='10', description='', sourcetypeid='4', sourcetypename='INT')  NOT NULL SORTABLE,
+        omc_cln_stf_id = 'omc_cln_stf_id' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypesize='10', description='', sourcetypeid='4', sourcetypename='INT')  SORTABLE,
+        omc_vrsn = 'omc_vrsn' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypesize='10', description='', sourcetypeid='4', sourcetypename='INT')  SORTABLE,
+        omc_md5_key = 'omc_md5_key' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='255', description='', sourcetypeid='12', sourcetypename='VARCHAR')  NOT NULL SORTABLE,
+        omc_job_id = 'omc_job_id' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='50', description='', sourcetypeid='12', sourcetypename='VARCHAR')  NOT NULL SORTABLE,
+        omc_crt_by = 'omc_crt_by' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='45', description='', sourcetypeid='12', sourcetypename='VARCHAR')  NOT NULL SORTABLE,
+        omc_crt_ts = 'omc_crt_ts' :'java.time.LocalDateTime' (OPT) (sourcetyperadix='10', sourcetypesize='26', description='', sourcetypeid='93', sourcetypename='DATETIME')  NOT NULL NOT SORTABLE,
+        omc_lst_upd_by = 'omc_lst_upd_by' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='45', description='', sourcetypeid='12', sourcetypename='VARCHAR')  SORTABLE,
+        omc_lst_upd_ts = 'omc_lst_upd_ts' :'java.time.LocalDateTime' (OPT) (sourcetyperadix='10', sourcetypesize='26', description='', sourcetypeid='93', sourcetypename='DATETIME')  NOT SORTABLE
+    )
+    CONSTRAINT 'PRIMARY' PRIMARY KEY ( 'omc_pt_id' )
+    CONSTRAINT 'FK_332' FOREIGN KEY ( 'omc_pyr_id' ) 
+    REFERENCES 'omc_dev'.'omc_payers'( 'omc_pyr_id' )  ON UPDATE NO ACTION  ON DELETE NO ACTION NOT DEFERRABLE 
+    INDEX 'PRIMARY' CLUSTER UNIQUE PRIMARY ( 'omc_pt_id' )
+    INDEX 'FK6qpigkg4r2e21hclvq094lcne' OTHER ( 'omc_cln_stf_id' )
+    INDEX 'fkIdx_332' OTHER ( 'omc_pyr_id' );
+
+CREATE OR REPLACE TABLE patient_mstr I18N us_pst (
+        omc_pt_id:int (autoincrement, sourcetypeid = '4', sourcetyperadix = '10', sourcetypesize = '10', description = ''), 
+        fst_name:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '150', description = ''), 
+        mdl_name:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '150', description = ''), 
+        lst_name:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '150', description = ''), 
+        mbr_id:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '45', description = ''), 
+        eml_id:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '90', description = ''), 
+        pt_gndr:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '10', description = ''), 
+        pt_dob:localdate (sourcetypeid = '91', sourcetyperadix = '10', sourcetypesize = '10', description = ''), 
+        comp_name:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '45', description = ''), 
+        grp_ins_cd:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '25', description = ''), 
+        pt_sts:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '1', description = ''), 
+        omc_pyr_id:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypesize = '10', description = ''), 
+        omc_cln_stf_id:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypesize = '10', description = ''), 
+        omc_vrsn:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypesize = '10', description = ''), 
+        omc_md5_key:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '255', description = ''), 
+        omc_job_id:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '50', description = ''), 
+        omc_crt_by:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '45', description = ''), 
+        omc_crt_ts:timestamp (sourcetypeid = '93', sourcetyperadix = '10', sourcetypesize = '26', description = ''), 
+        omc_lst_upd_by:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '45', description = ''), 
+        omc_lst_upd_ts:timestamp (sourcetypeid = '93', sourcetyperadix = '10', sourcetypesize = '26', description = '')
+    )
+    CONSTRAINT 'PRIMARY' PRIMARY KEY ( 'omc_pt_id' )
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD patient_mstr(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD omc_pt_id (any) OPT ANY
+             ADD fst_name (any) OPT ANY
+             ADD mdl_name (any) OPT ANY
+             ADD lst_name (any) OPT ANY
+             ADD mbr_id (any) OPT ANY
+             ADD eml_id (any) OPT ANY
+             ADD pt_gndr (any) OPT ANY
+             ADD pt_dob (any) OPT ANY
+             ADD comp_name (any) OPT ANY
+             ADD grp_ins_cd (any) OPT ANY
+             ADD pt_sts (any) OPT ANY
+             ADD omc_pyr_id (any) OPT ANY
+             ADD omc_cln_stf_id (any) OPT ANY
+             ADD omc_vrsn (any) OPT ANY
+             ADD omc_md5_key (any) OPT ANY
+             ADD omc_job_id (any) OPT ANY
+             ADD omc_crt_by (any) OPT ANY
+             ADD omc_crt_ts (any) OPT ANY
+             ADD omc_lst_upd_by (any) OPT ANY
+             ADD omc_lst_upd_ts (any) OPT ANY
+        )
+        OUTPUTLIST (comp_name, eml_id, fst_name, grp_ins_cd, lst_name, mbr_id, mdl_name, omc_cln_stf_id, omc_crt_by, omc_crt_ts, omc_job_id, omc_lst_upd_by, omc_lst_upd_ts, omc_md5_key, omc_pt_id, omc_pyr_id, omc_vrsn, pt_dob, pt_gndr, pt_sts
+        )
+        WRAPPER (jdbc patient_mstr)
+    );
+

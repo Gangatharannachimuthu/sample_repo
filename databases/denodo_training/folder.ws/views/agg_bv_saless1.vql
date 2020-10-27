@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW agg_bv_saless1 FOLDER = '/ws' AS SELECT bv_saless1.employeeid AS employeeid, count(*) AS total_sales, sum(cast('decimal', bv_saless1.totalprice)) AS total_price, start_date, end_date FROM bv_saless1 WHERE saledate between to_localdate('yyyy', '1970') AND now() GROUP BY bv_saless1.employeeid HAVING count(*) > 1 USING PARAMETERS ( start_date : localdate to_localdate('yyyy/MM/dd', '1970/01/01'), end_date : localdate cast('localdate', now()));
+
+ALTER VIEW agg_bv_saless1
+ LAYOUT (bv_saless1 = [20, 20, 200, 206]);
+

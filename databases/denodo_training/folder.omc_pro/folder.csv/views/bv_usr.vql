@@ -1,0 +1,47 @@
+﻿CREATE OR REPLACE WRAPPER DF bv_usr
+    FOLDER = '/omc_pro/csv'
+    DATASOURCENAME=usr
+    OUTPUTSCHEMA (
+        username_0 = 'User Name' (OPT),
+        firstname_0 = 'First Name' (OPT),
+        lastname_0 = 'Last Name' (OPT),
+        middlename_0 = 'Middle Name' (OPT),
+        emailid_0 = 'Email Id' (OPT),
+        phonenumber_0 = 'Phone Number' (OPT),
+        role = 'Role' (OPT),
+        payername_0 = 'Payer Name' (OPT),
+        status = 'Status' (OPT)
+    );
+
+CREATE OR REPLACE TABLE bv_usr I18N us_pst (
+        username_0:text, 
+        firstname_0:text, 
+        lastname_0:text, 
+        middlename_0:text, 
+        emailid_0:text, 
+        phonenumber_0:text, 
+        role:text, 
+        payername_0:text, 
+        status:text
+    )
+    FOLDER = '/omc_pro/csv'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD bv_usr(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD username_0 (=,in) OPT ANY
+             ADD firstname_0 (=,in) OPT ANY
+             ADD lastname_0 (=,in) OPT ANY
+             ADD middlename_0 (=,in) OPT ANY
+             ADD emailid_0 (=,in) OPT ANY
+             ADD phonenumber_0 (=,in) OPT ANY
+             ADD role (=,in) OPT ANY
+             ADD payername_0 (=,in) OPT ANY
+             ADD status (=,in) OPT ANY
+        )
+        OUTPUTLIST (emailid_0, firstname_0, lastname_0, middlename_0, payername_0, phonenumber_0, role, status, username_0
+        )
+        WRAPPER (df bv_usr)
+    );
+

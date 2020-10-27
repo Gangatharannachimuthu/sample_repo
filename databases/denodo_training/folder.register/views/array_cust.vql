@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW array_cust FOLDER = '/register' AS SELECT id AS id, first_name AS first_name, last_name AS last_name, nest(id, first_name) AS arr FROM bv_customer GROUP BY id, first_name, last_name;
+
+ALTER VIEW array_cust
+ LAYOUT (bv_customer = [20, 20, 264, 226]);
+

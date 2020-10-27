@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW p_ds FOLDER = '/json' AS SELECT employeeid AS employeeid, count(*) AS total_sales, to_localdate('yyyy/MM/dd', '1970/01/01') AS start_date, cast('localdate', now()) AS end_date, total_sales AS total_sales, total_price AS total_price, start_date AS start_date, end_date AS end_date FROM ds_example GROUP BY employeeid, total_sales, total_price, start_date, end_date HAVING count(*) > 1;
+
+ALTER VIEW p_ds
+ LAYOUT (ds_example = [20, 20, 236, 206]);
+

@@ -1,0 +1,105 @@
+﻿CREATE OR REPLACE SOAP WEBSERVICE bv_wo_storages
+    CONNECTION (
+        CHUNKSIZE = 1000
+        CHUNKTIMEOUT = 90000
+        QUERYTIMEOUT = 900000
+        POOLENABLED = true
+        POOLINITSIZE = 0
+        POOLMAXACTIVE = 30
+    )
+    I18N  = us_pst
+    DATETYPEMAPPING DATE
+    NOWRAPARRAYS
+    RAISEFAULTONIDU
+    DONOTAPPLYOUTPUTXSLTTOERRORS
+    OUTPUT 
+        ( STYLE DOCUMENT )
+    OPERATION 'getBV_WO_STORAGESByIDAndADDRESSAndCITYAndPOSTAL_CODEAndCOUNTRYAndCOUNTRY_CODEAndLATITUDEAndLONGITUDE' (
+        TYPE SELECT
+        SCHEMA VIEW bv_wo_storages
+        VQL = 'SELECT id, address, city, postal_code, country, country_code, latitude, longitude FROM bv_wo_storages ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@VERBOSEERRORS,"")^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
+        INPUTS 'GetBV_WO_STORAGESByIDAndADDRESSAndCITYAndPOSTAL_CODEAndCOUNTRYAndCOUNTRY_CODEAndLATITUDEAndLONGITUDE' (
+            'ID' id:'double' '=' 
+            'ADDRESS' address:'text' '=' 
+            'CITY' city:'text' '=' 
+            'POSTAL_CODE' postal_code:'text' '=' 
+            'COUNTRY' country:'text' '=' 
+            'COUNTRY_CODE' country_code:'text' '=' 
+            'LATITUDE' latitude:'double' '=' 
+            'LONGITUDE' longitude:'double' '=' 
+        )
+        OUTPUT 
+            'BV_WO_STORAGESReturn': Array of ( 'BV_WO_STORAGESReturnRow': Register of (
+                id : 'double',
+                address : 'text',
+                city : 'text',
+                postal_code : 'text',
+                country : 'text',
+                country_code : 'text',
+                latitude : 'double',
+                longitude : 'double'
+            ) (
+                    '/address'='ADDRESS',
+                    '/city'='CITY',
+                    '/country'='COUNTRY',
+                    '/country_code'='COUNTRY_CODE',
+                    '/id'='ID',
+                    '/latitude'='LATITUDE',
+                    '/longitude'='LONGITUDE',
+                    '/postal_code'='POSTAL_CODE'))
+    )    OPERATION 'insertBV_WO_STORAGES' (
+        TYPE INSERT
+        SCHEMA VIEW bv_wo_storages
+        VQL = 'INSERT INTO bv_wo_storages (id, address, city, postal_code, country, country_code, latitude, longitude) VALUES (@ID, @ADDRESS, @CITY, @POSTAL_CODE, @COUNTRY, @COUNTRY_CODE, @LATITUDE, @LONGITUDE) CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
+        INPUTS 'InsertBV_WO_STORAGES' (
+            'ID' id:'double' '=' OBL 
+            'ADDRESS' address:'text' '=' 
+            'CITY' city:'text' '=' 
+            'POSTAL_CODE' postal_code:'text' '=' 
+            'COUNTRY' country:'text' '=' 
+            'COUNTRY_CODE' country_code:'text' '=' 
+            'LATITUDE' latitude:'double' '=' 
+            'LONGITUDE' longitude:'double' '=' 
+        )
+        OUTPUT 'long'
+    )    OPERATION 'deleteBV_WO_STORAGES' (
+        TYPE DELETE
+        SCHEMA VIEW bv_wo_storages
+        VQL = 'DELETE FROM bv_wo_storages ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
+        INPUTS 'DeleteBV_WO_STORAGES' (
+            'ID' id:'double' '=' 
+            'ADDRESS' address:'text' '=' 
+            'CITY' city:'text' '=' 
+            'POSTAL_CODE' postal_code:'text' '=' 
+            'COUNTRY' country:'text' '=' 
+            'COUNTRY_CODE' country_code:'text' '=' 
+            'LATITUDE' latitude:'double' '=' 
+            'LONGITUDE' longitude:'double' '=' 
+        )
+        OUTPUT 'long'
+    )    OPERATION 'updateBV_WO_STORAGES' (
+        TYPE UPDATE
+        SCHEMA VIEW bv_wo_storages
+        VQL = 'UPDATE bv_wo_storages SET id=@newID, address=@newADDRESS, city=@newCITY, postal_code=@newPOSTAL_CODE, country=@newCOUNTRY, country_code=@newCOUNTRY_CODE, latitude=@newLATITUDE, longitude=@newLONGITUDE ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
+        INPUTS 'UpdateBV_WO_STORAGES' (
+            'ID' id:'double' '=' 
+            'ADDRESS' address:'text' '=' 
+            'CITY' city:'text' '=' 
+            'POSTAL_CODE' postal_code:'text' '=' 
+            'COUNTRY' country:'text' '=' 
+            'COUNTRY_CODE' country_code:'text' '=' 
+            'LATITUDE' latitude:'double' '=' 
+            'LONGITUDE' longitude:'double' '=' 
+            SET 'newID' id:'double' '=' OBL 
+            SET 'newADDRESS' address:'text' '=' 
+            SET 'newCITY' city:'text' '=' 
+            SET 'newPOSTAL_CODE' postal_code:'text' '=' 
+            SET 'newCOUNTRY' country:'text' '=' 
+            SET 'newCOUNTRY_CODE' country_code:'text' '=' 
+            SET 'newLATITUDE' latitude:'double' '=' 
+            SET 'newLONGITUDE' longitude:'double' '=' 
+        )
+        OUTPUT 'long'
+    )
+    FOLDER = '/ws';
+

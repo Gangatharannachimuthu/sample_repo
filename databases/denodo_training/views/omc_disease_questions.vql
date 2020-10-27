@@ -1,0 +1,81 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC omc_disease_questions
+    DATASOURCENAME=omc_dev
+    CATALOGNAME='${databases.denodo_training.views.jdbc.omc_disease_questions.CATALOGNAME}' 
+    RELATIONNAME='omc_disease_questions' 
+    OUTPUTSCHEMA (
+        omc_dis_qna_id = 'omc_dis_qna_id' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypesize='10', description='', sourcetypeid='4', sourcetypename='INT')  NOT NULL SORTABLE IS_AUTOINCREMENT,
+        omc_dis_qna_cd = 'omc_dis_qna_cd' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypesize='10', description='', sourcetypeid='4', sourcetypename='INT')  NOT NULL SORTABLE,
+        omc_dis_abbr = 'omc_dis_abbr' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='45', description='', sourcetypeid='12', sourcetypename='VARCHAR')  NOT NULL SORTABLE,
+        omc_dis_qna = 'omc_dis_qna' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='500', description='', sourcetypeid='12', sourcetypename='VARCHAR')  NOT NULL SORTABLE,
+        omc_qna_disp_ordr_num = 'omc_qna_disp_ordr_num' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypesize='10', description='', sourcetypeid='4', sourcetypename='INT')  NOT NULL SORTABLE,
+        omc_dis_qna_opts = 'omc_dis_qna_opts' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='500', description='', sourcetypeid='12', sourcetypename='VARCHAR')  SORTABLE,
+        omc_dis_qna_wtg = 'omc_dis_qna_wtg' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='100', description='', sourcetypeid='12', sourcetypename='VARCHAR')  SORTABLE,
+        omc_dis_rlt_qna_id = 'omc_dis_rlt_qna_id' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypesize='10', description='', sourcetypeid='4', sourcetypename='INT')  SORTABLE,
+        omc_dis_rlt_ans = 'omc_dis_rlt_ans' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='500', description='', sourcetypeid='12', sourcetypename='VARCHAR')  SORTABLE,
+        omc_qna_sts = 'omc_qna_sts' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='1', description='', sourcetypeid='12', sourcetypename='VARCHAR')  NOT NULL SORTABLE,
+        omc_dis_id = 'omc_dis_id' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypesize='10', description='', sourcetypeid='4', sourcetypename='INT')  NOT NULL SORTABLE,
+        omc_job_id = 'omc_job_id' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypesize='10', description='', sourcetypeid='4', sourcetypename='INT')  NOT NULL SORTABLE,
+        omc_md5_key = 'omc_md5_key' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='255', description='', sourcetypeid='12', sourcetypename='VARCHAR')  NOT NULL SORTABLE,
+        omc_crt_by = 'omc_crt_by' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='45', description='', sourcetypeid='12', sourcetypename='VARCHAR')  NOT NULL SORTABLE,
+        omc_crt_ts = 'omc_crt_ts' :'java.time.LocalDateTime' (OPT) (sourcetyperadix='10', sourcetypesize='26', description='', sourcetypeid='93', sourcetypename='DATETIME')  NOT NULL NOT SORTABLE,
+        omc_lst_upd_by = 'omc_lst_upd_by' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypesize='45', description='', sourcetypeid='12', sourcetypename='VARCHAR')  SORTABLE,
+        omc_lst_upd_ts = 'omc_lst_upd_ts' :'java.time.LocalDateTime' (OPT) (sourcetyperadix='10', sourcetypesize='26', description='', sourcetypeid='93', sourcetypename='DATETIME')  NOT SORTABLE,
+        omc_vrsn = 'omc_vrsn' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypesize='10', description='', sourcetypeid='4', sourcetypename='INT')  SORTABLE
+    )
+    CONSTRAINT 'PRIMARY' PRIMARY KEY ( 'omc_dis_qna_id' )
+    CONSTRAINT 'FK_390' FOREIGN KEY ( 'omc_dis_id' ) 
+    REFERENCES 'omc_dev'.'omc_disease_mstr'( 'omc_dis_id' )  ON UPDATE NO ACTION  ON DELETE NO ACTION NOT DEFERRABLE 
+    INDEX 'PRIMARY' CLUSTER UNIQUE PRIMARY ( 'omc_dis_qna_id' )
+    INDEX 'fkIdx_390' OTHER ( 'omc_dis_id' );
+
+CREATE OR REPLACE TABLE omc_disease_questions I18N us_pst (
+        omc_dis_qna_id:int (autoincrement, sourcetypeid = '4', sourcetyperadix = '10', sourcetypesize = '10', description = ''), 
+        omc_dis_qna_cd:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypesize = '10', description = ''), 
+        omc_dis_abbr:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '45', description = ''), 
+        omc_dis_qna:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '500', description = ''), 
+        omc_qna_disp_ordr_num:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypesize = '10', description = ''), 
+        omc_dis_qna_opts:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '500', description = ''), 
+        omc_dis_qna_wtg:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '100', description = ''), 
+        omc_dis_rlt_qna_id:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypesize = '10', description = ''), 
+        omc_dis_rlt_ans:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '500', description = ''), 
+        omc_qna_sts:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '1', description = ''), 
+        omc_dis_id:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypesize = '10', description = ''), 
+        omc_job_id:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypesize = '10', description = ''), 
+        omc_md5_key:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '255', description = ''), 
+        omc_crt_by:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '45', description = ''), 
+        omc_crt_ts:timestamp (sourcetypeid = '93', sourcetyperadix = '10', sourcetypesize = '26', description = ''), 
+        omc_lst_upd_by:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '45', description = ''), 
+        omc_lst_upd_ts:timestamp (sourcetypeid = '93', sourcetyperadix = '10', sourcetypesize = '26', description = ''), 
+        omc_vrsn:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypesize = '10', description = '')
+    )
+    CONSTRAINT 'PRIMARY' PRIMARY KEY ( 'omc_dis_qna_id' )
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD omc_disease_questions(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD omc_dis_qna_id (any) OPT ANY
+             ADD omc_dis_qna_cd (any) OPT ANY
+             ADD omc_dis_abbr (any) OPT ANY
+             ADD omc_dis_qna (any) OPT ANY
+             ADD omc_qna_disp_ordr_num (any) OPT ANY
+             ADD omc_dis_qna_opts (any) OPT ANY
+             ADD omc_dis_qna_wtg (any) OPT ANY
+             ADD omc_dis_rlt_qna_id (any) OPT ANY
+             ADD omc_dis_rlt_ans (any) OPT ANY
+             ADD omc_qna_sts (any) OPT ANY
+             ADD omc_dis_id (any) OPT ANY
+             ADD omc_job_id (any) OPT ANY
+             ADD omc_md5_key (any) OPT ANY
+             ADD omc_crt_by (any) OPT ANY
+             ADD omc_crt_ts (any) OPT ANY
+             ADD omc_lst_upd_by (any) OPT ANY
+             ADD omc_lst_upd_ts (any) OPT ANY
+             ADD omc_vrsn (any) OPT ANY
+        )
+        OUTPUTLIST (omc_crt_by, omc_crt_ts, omc_dis_abbr, omc_dis_id, omc_dis_qna, omc_dis_qna_cd, omc_dis_qna_id, omc_dis_qna_opts, omc_dis_qna_wtg, omc_dis_rlt_ans, omc_dis_rlt_qna_id, omc_job_id, omc_lst_upd_by, omc_lst_upd_ts, omc_md5_key, omc_qna_disp_ordr_num, omc_qna_sts, omc_vrsn
+        )
+        WRAPPER (jdbc omc_disease_questions)
+    );
+
