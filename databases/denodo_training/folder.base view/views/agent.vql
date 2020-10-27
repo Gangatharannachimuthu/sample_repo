@@ -13,7 +13,7 @@ CREATE OR REPLACE WRAPPER JDBC agent
     INDEX 'PRIMARY' CLUSTER UNIQUE PRIMARY ( 'agent_id' );
 
 CREATE OR REPLACE TABLE agent I18N us_pst (
-        agent_id:decimal (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '22', description = ''), 
+        agent_id:double (sourcetypeid = '3', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '22', description = ''), 
         agent_code:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '50', description = ''), 
         agent_name:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypesize = '50', description = '')
     )
