@@ -19,7 +19,7 @@
         SCHEMA VIEW bv_wo_storages
         VQL = 'SELECT id, address, city, postal_code, country, country_code, latitude, longitude FROM bv_wo_storages ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@VERBOSEERRORS,"")^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
         INPUTS 'GetBV_WO_STORAGESByIDAndADDRESSAndCITYAndPOSTAL_CODEAndCOUNTRYAndCOUNTRY_CODEAndLATITUDEAndLONGITUDE' (
-            'ID' id:'int' '=' 
+            'ID' id:'double' '=' 
             'ADDRESS' address:'text' '=' 
             'CITY' city:'text' '=' 
             'POSTAL_CODE' postal_code:'text' '=' 
@@ -30,7 +30,7 @@
         )
         OUTPUT 
             'BV_WO_STORAGESReturn': Array of ( 'BV_WO_STORAGESReturnRow': Register of (
-                id : 'int',
+                id : 'double',
                 address : 'text',
                 city : 'text',
                 postal_code : 'text',
@@ -52,7 +52,7 @@
         SCHEMA VIEW bv_wo_storages
         VQL = 'INSERT INTO bv_wo_storages (id, address, city, postal_code, country, country_code, latitude, longitude) VALUES (@ID, @ADDRESS, @CITY, @POSTAL_CODE, @COUNTRY, @COUNTRY_CODE, @LATITUDE, @LONGITUDE) CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
         INPUTS 'InsertBV_WO_STORAGES' (
-            'ID' id:'int' '=' OBL 
+            'ID' id:'double' '=' OBL 
             'ADDRESS' address:'text' '=' 
             'CITY' city:'text' '=' 
             'POSTAL_CODE' postal_code:'text' '=' 
@@ -67,7 +67,7 @@
         SCHEMA VIEW bv_wo_storages
         VQL = 'DELETE FROM bv_wo_storages ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
         INPUTS 'DeleteBV_WO_STORAGES' (
-            'ID' id:'int' '=' 
+            'ID' id:'double' '=' 
             'ADDRESS' address:'text' '=' 
             'CITY' city:'text' '=' 
             'POSTAL_CODE' postal_code:'text' '=' 
@@ -82,7 +82,7 @@
         SCHEMA VIEW bv_wo_storages
         VQL = 'UPDATE bv_wo_storages SET id=@newID, address=@newADDRESS, city=@newCITY, postal_code=@newPOSTAL_CODE, country=@newCOUNTRY, country_code=@newCOUNTRY_CODE, latitude=@newLATITUDE, longitude=@newLONGITUDE ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
         INPUTS 'UpdateBV_WO_STORAGES' (
-            'ID' id:'int' '=' 
+            'ID' id:'double' '=' 
             'ADDRESS' address:'text' '=' 
             'CITY' city:'text' '=' 
             'POSTAL_CODE' postal_code:'text' '=' 
@@ -90,7 +90,7 @@
             'COUNTRY_CODE' country_code:'text' '=' 
             'LATITUDE' latitude:'double' '=' 
             'LONGITUDE' longitude:'double' '=' 
-            SET 'newID' id:'int' '=' OBL 
+            SET 'newID' id:'double' '=' OBL 
             SET 'newADDRESS' address:'text' '=' 
             SET 'newCITY' city:'text' '=' 
             SET 'newPOSTAL_CODE' postal_code:'text' '=' 
