@@ -14,7 +14,7 @@
 
     RESOURCES (
         VIEW bv_hr_employees FIELDS (
-            employee_id : 'int', 
+            employee_id : 'long', 
             first_name : 'text', 
             last_name : 'text', 
             email : 'text', 
@@ -39,7 +39,7 @@
             registered_date : 'localdate'
         ),
         VIEW bv_wo_orders FIELDS (
-            id : 'double', 
+            id : 'int', 
             customer_code : 'text', 
             status : 'text', 
             date_placed : 'localdate', 

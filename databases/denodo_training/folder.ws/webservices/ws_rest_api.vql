@@ -122,7 +122,7 @@
         SCHEMA VIEW bv_hr_employees
         VQL = 'SELECT employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, commission_pct, manager_id, department_id FROM bv_hr_employees ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@VERBOSEERRORS,"")^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
         INPUTS 'GetBV_HR_EMPLOYEESByEMPLOYEE_IDAndFIRST_NAMEAndLAST_NAMEAndEMAILAndPHONE_NUMBERAndHIRE_DATEAndJOB_ID' (
-            'EMPLOYEE_ID' employee_id:'int' '=' 
+            'EMPLOYEE_ID' employee_id:'long' '=' 
             'FIRST_NAME' first_name:'text' '=' 
             'LAST_NAME' last_name:'text' '=' 
             'EMAIL' email:'text' '=' 
@@ -136,7 +136,7 @@
         )
         OUTPUT 
             'BV_HR_EMPLOYEESReturn': Array of ( 'BV_HR_EMPLOYEESReturnRow': Register of (
-                employee_id : 'int',
+                employee_id : 'long',
                 first_name : 'text',
                 last_name : 'text',
                 email : 'text',
@@ -164,7 +164,7 @@
         SCHEMA VIEW bv_hr_employees
         VQL = 'INSERT INTO bv_hr_employees (employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, commission_pct, manager_id, department_id) VALUES (@EMPLOYEE_ID, @FIRST_NAME, @LAST_NAME, @EMAIL, @PHONE_NUMBER, @HIRE_DATE, @JOB_ID, @SALARY, @COMMISSION_PCT, @MANAGER_ID, @DEPARTMENT_ID) CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
         INPUTS 'InsertBV_HR_EMPLOYEES' (
-            'EMPLOYEE_ID' employee_id:'int' '=' OBL 
+            'EMPLOYEE_ID' employee_id:'long' '=' OBL 
             'FIRST_NAME' first_name:'text' '=' 
             'LAST_NAME' last_name:'text' '=' OBL 
             'EMAIL' email:'text' '=' OBL 
@@ -182,7 +182,7 @@
         SCHEMA VIEW bv_hr_employees
         VQL = 'DELETE FROM bv_hr_employees ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
         INPUTS 'DeleteBV_HR_EMPLOYEES' (
-            'EMPLOYEE_ID' employee_id:'int' '=' 
+            'EMPLOYEE_ID' employee_id:'long' '=' 
             'FIRST_NAME' first_name:'text' '=' 
             'LAST_NAME' last_name:'text' '=' 
             'EMAIL' email:'text' '=' 
@@ -200,7 +200,7 @@
         SCHEMA VIEW bv_hr_employees
         VQL = 'UPDATE bv_hr_employees SET employee_id=@newEMPLOYEE_ID, first_name=@newFIRST_NAME, last_name=@newLAST_NAME, email=@newEMAIL, phone_number=@newPHONE_NUMBER, hire_date=@newHIRE_DATE, job_id=@newJOB_ID, salary=@newSALARY, commission_pct=@newCOMMISSION_PCT, manager_id=@newMANAGER_ID, department_id=@newDEPARTMENT_ID ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
         INPUTS 'UpdateBV_HR_EMPLOYEES' (
-            'EMPLOYEE_ID' employee_id:'int' '=' 
+            'EMPLOYEE_ID' employee_id:'long' '=' 
             'FIRST_NAME' first_name:'text' '=' 
             'LAST_NAME' last_name:'text' '=' 
             'EMAIL' email:'text' '=' 
@@ -211,7 +211,7 @@
             'COMMISSION_PCT' commission_pct:'double' '=' 
             'MANAGER_ID' manager_id:'int' '=' 
             'DEPARTMENT_ID' department_id:'int' '=' 
-            SET 'newEMPLOYEE_ID' employee_id:'int' '=' OBL 
+            SET 'newEMPLOYEE_ID' employee_id:'long' '=' OBL 
             SET 'newFIRST_NAME' first_name:'text' '=' 
             SET 'newLAST_NAME' last_name:'text' '=' OBL 
             SET 'newEMAIL' email:'text' '=' OBL 
@@ -304,7 +304,7 @@
         SCHEMA VIEW bv_wo_orders
         VQL = 'SELECT id, customer_code, status, date_placed, date_delivered, date_closed FROM bv_wo_orders ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@VERBOSEERRORS,"")^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
         INPUTS 'GetBV_WO_ORDERSByIDAndCUSTOMER_CODEAndSTATUSAndDATE_PLACEDAndDATE_DELIVEREDAndDATE_CLOSED' (
-            'ID' id:'double' '=' 
+            'ID' id:'int' '=' 
             'CUSTOMER_CODE' customer_code:'text' '=' 
             'STATUS' status:'text' '=' 
             'DATE_PLACED' date_placed:'localdate' '=' 
@@ -313,7 +313,7 @@
         )
         OUTPUT 
             'BV_WO_ORDERSReturn': Array of ( 'BV_WO_ORDERSReturnRow': Register of (
-                id : 'double',
+                id : 'int',
                 customer_code : 'text',
                 status : 'text',
                 date_placed : 'localdate',
@@ -331,7 +331,7 @@
         SCHEMA VIEW bv_wo_orders
         VQL = 'INSERT INTO bv_wo_orders (id, customer_code, status, date_placed, date_delivered, date_closed) VALUES (@ID, @CUSTOMER_CODE, @STATUS, @DATE_PLACED, @DATE_DELIVERED, @DATE_CLOSED) CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
         INPUTS 'InsertBV_WO_ORDERS' (
-            'ID' id:'double' '=' OBL 
+            'ID' id:'int' '=' OBL 
             'CUSTOMER_CODE' customer_code:'text' '=' OBL 
             'STATUS' status:'text' '=' OBL 
             'DATE_PLACED' date_placed:'localdate' '=' 
@@ -344,7 +344,7 @@
         SCHEMA VIEW bv_wo_orders
         VQL = 'DELETE FROM bv_wo_orders ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
         INPUTS 'DeleteBV_WO_ORDERS' (
-            'ID' id:'double' '=' 
+            'ID' id:'int' '=' 
             'CUSTOMER_CODE' customer_code:'text' '=' 
             'STATUS' status:'text' '=' 
             'DATE_PLACED' date_placed:'localdate' '=' 
@@ -357,13 +357,13 @@
         SCHEMA VIEW bv_wo_orders
         VQL = 'UPDATE bv_wo_orders SET id=@newID, customer_code=@newCUSTOMER_CODE, status=@newSTATUS, date_placed=@newDATE_PLACED, date_delivered=@newDATE_DELIVERED, date_closed=@newDATE_CLOSED ^ExecuteIfIsNotNull("WHERE ",@WHEREEXPRESSION,"") CONTEXT (''i18n'' = ''us_pst''^ExecuteIfIsNotNull(", ",@CONTEXTEXPRESSION,""))'
         INPUTS 'UpdateBV_WO_ORDERS' (
-            'ID' id:'double' '=' 
+            'ID' id:'int' '=' 
             'CUSTOMER_CODE' customer_code:'text' '=' 
             'STATUS' status:'text' '=' 
             'DATE_PLACED' date_placed:'localdate' '=' 
             'DATE_DELIVERED' date_delivered:'localdate' '=' 
             'DATE_CLOSED' date_closed:'localdate' '=' 
-            SET 'newID' id:'double' '=' OBL 
+            SET 'newID' id:'int' '=' OBL 
             SET 'newCUSTOMER_CODE' customer_code:'text' '=' OBL 
             SET 'newSTATUS' status:'text' '=' OBL 
             SET 'newDATE_PLACED' date_placed:'localdate' '=' 

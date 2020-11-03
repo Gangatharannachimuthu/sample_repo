@@ -11,7 +11,7 @@
     SUPPORTEDREPRESENTATIONS (JSON)
     RESOURCES (
         VIEW bv_wo_orders FIELDS (
-            id : 'double', 
+            id : 'int', 
             customer_code : 'text', 
             status : 'text', 
             date_placed : 'localdate', 

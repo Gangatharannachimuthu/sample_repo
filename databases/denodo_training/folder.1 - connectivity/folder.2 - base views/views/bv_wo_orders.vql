@@ -14,7 +14,7 @@
     INDEX 'sqlite_autoindex_orders_1' OTHER UNIQUE PRIMARY ( 'ID' );
 
 CREATE OR REPLACE TABLE bv_wo_orders I18N us_pst (
-        id:double (sourcetypeid = '6', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
+        id:int (sourcetypeid = '-5', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
         customer_code:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
         status:text (sourcetypeid = '12', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
         date_placed:localdate (sourcetypeid = '91', sourcetyperadix = '10', sourcetypedecimals = '10', sourcetypesize = '2000000000'), 
